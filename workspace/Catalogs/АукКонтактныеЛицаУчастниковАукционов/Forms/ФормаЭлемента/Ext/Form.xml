@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<ChildrenAlign>ItemsLeftTitlesRight</ChildrenAlign>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="129">
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="130"/>
+			<ChildItems>
+				<UsualGroup name="Группа4" id="131">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="132"/>
+					<ChildItems>
+						<InputField name="Фамилия" id="10">
+							<DataPath>Объект.Фамилия</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ФамилияКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ФамилияРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="Имя" id="13">
+							<DataPath>Объект.Имя</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ИмяКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ИмяРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="Отчество" id="16">
+							<DataPath>Объект.Отчество</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ОтчествоКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ОтчествоРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<InputField name="Должность" id="19">
+							<DataPath>Объект.Должность</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ДолжностьКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ДолжностьРасширеннаяПодсказка" id="21"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа5" id="133">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="134"/>
+					<ChildItems>
+						<InputField name="Владелец" id="7">
+							<DataPath>Объект.Owner</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ВладелецКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="Комментарий" id="22">
+							<DataPath>Объект.Комментарий</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Height>3</Height>
+							<MultiLine>true</MultiLine>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="24"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<Page name="Группа1" id="78">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Каналы взаимодействия</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<UsualGroup name="Группа2" id="102">
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="103"/>
+							<ChildItems>
+								<Table name="КаналыВзаимодействия1" id="80">
+									<AutoAddIncomplete>false</AutoAddIncomplete>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.КаналыВзаимодействия</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="КаналыВзаимодействия1КонтекстноеМеню" id="81">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="КаналыВзаимодействия1КонтекстноеМенюДобавить" id="138">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.Add</CommandName>
+												<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюДобавитьРасширеннаяПодсказка" id="139"/>
+											</Button>
+											<Button name="КаналыВзаимодействия1КонтекстноеМенюУдалить" id="140">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.Delete</CommandName>
+												<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюУдалитьРасширеннаяПодсказка" id="141"/>
+											</Button>
+											<ButtonGroup name="КаналыВзаимодействия1КонтекстноеМенюГруппа1" id="142">
+												<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюГруппа1РасширеннаяПодсказка" id="143"/>
+												<ChildItems>
+													<Button name="КаналыВзаимодействия1КонтекстноеМенюПереместитьВверх" id="144">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.MoveUp</CommandName>
+														<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюПереместитьВверхРасширеннаяПодсказка" id="145"/>
+													</Button>
+													<Button name="КаналыВзаимодействия1КонтекстноеМенюПереместитьВниз" id="146">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.MoveDown</CommandName>
+														<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюПереместитьВнизРасширеннаяПодсказка" id="147"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+											<ButtonGroup name="КаналыВзаимодействия1КонтекстноеМенюГруппа2" id="148">
+												<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюГруппа2РасширеннаяПодсказка" id="149"/>
+												<ChildItems>
+													<Button name="КаналыВзаимодействия1КонтекстноеМенюКопироватьВБуферОбмена" id="150">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.CopyToClipboard</CommandName>
+														<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="151"/>
+													</Button>
+													<Button name="КаналыВзаимодействия1КонтекстноеМенюВыделитьВсе" id="152">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.SelectAll</CommandName>
+														<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="153"/>
+													</Button>
+													<Button name="КаналыВзаимодействия1КонтекстноеМенюНайтиВезде" id="154">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.SearchEverywhere</CommandName>
+														<ExtendedTooltip name="КаналыВзаимодействия1КонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="155"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="КаналыВзаимодействия1КоманднаяПанель" id="82">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="КаналыВзаимодействия1ДобавитьКаналВзаимодействия" id="156">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДобавитьКаналВзаимодействия</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Добавить</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="КаналыВзаимодействия1ДобавитьКаналВзаимодействияРасширеннаяПодсказка" id="157"/>
+											</Button>
+											<ButtonGroup name="КаналыВзаимодействия1Группа1" id="160">
+												<Representation>Compact</Representation>
+												<ExtendedTooltip name="КаналыВзаимодействия1Группа1РасширеннаяПодсказка" id="161"/>
+												<ChildItems>
+													<Button name="КаналыВзаимодействия1ПереместитьВверх" id="162">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.MoveUp</CommandName>
+														<ExtendedTooltip name="КаналыВзаимодействия1ПереместитьВверхРасширеннаяПодсказка" id="163"/>
+													</Button>
+													<Button name="КаналыВзаимодействия1ПереместитьВниз" id="164">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КаналыВзаимодействия1.StandardCommand.MoveDown</CommandName>
+														<ExtendedTooltip name="КаналыВзаимодействия1ПереместитьВнизРасширеннаяПодсказка" id="165"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="КаналыВзаимодействия1РасширеннаяПодсказка" id="83"/>
+									<SearchStringAddition name="КаналыВзаимодействия1СтрокаПоиска" id="84">
+										<AdditionSource>
+											<Item>КаналыВзаимодействия1</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КаналыВзаимодействия1СтрокаПоискаКонтекстноеМеню" id="85"/>
+										<ExtendedTooltip name="КаналыВзаимодействия1СтрокаПоискаРасширеннаяПодсказка" id="86"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КаналыВзаимодействия1СостояниеПросмотра" id="87">
+										<AdditionSource>
+											<Item>КаналыВзаимодействия1</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КаналыВзаимодействия1СостояниеПросмотраКонтекстноеМеню" id="88"/>
+										<ExtendedTooltip name="КаналыВзаимодействия1СостояниеПросмотраРасширеннаяПодсказка" id="89"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КаналыВзаимодействия1УправлениеПоиском" id="90">
+										<AdditionSource>
+											<Item>КаналыВзаимодействия1</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="КаналыВзаимодействия1УправлениеПоискомКонтекстноеМеню" id="91"/>
+										<ExtendedTooltip name="КаналыВзаимодействия1УправлениеПоискомРасширеннаяПодсказка" id="92"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">КаналыВзаимодействия1ПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">КаналыВзаимодействия1ПередУдалением</Event>
+										<Event name="OnActivateRow">КаналыВзаимодействия1ПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="КаналыВзаимодействия1КаналВзаимодействия" id="96">
+											<DataPath>Объект.КаналыВзаимодействия.КаналВзаимодействия</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="КаналыВзаимодействия1КаналВзаимодействияКонтекстноеМеню" id="97"/>
+											<ExtendedTooltip name="КаналыВзаимодействия1КаналВзаимодействияРасширеннаяПодсказка" id="98"/>
+											<Events>
+												<Event name="ChoiceProcessing">КаналыВзаимодействия1КаналВзаимодействияОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+										<CheckBoxField name="КаналыВзаимодействия1Текущий" id="99">
+											<DataPath>Объект.КаналыВзаимодействия.Текущий</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="КаналыВзаимодействия1ТекущийКонтекстноеМеню" id="100"/>
+											<ExtendedTooltip name="КаналыВзаимодействия1ТекущийРасширеннаяПодсказка" id="101"/>
+											<Events>
+												<Event name="OnChange">КаналыВзаимодействия1ТекущийПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+									</ChildItems>
+								</Table>
+								<Table name="НастройкиКаналовВзаимодействия1" id="104">
+									<AutoAddIncomplete>false</AutoAddIncomplete>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.НастройкиКаналовВзаимодействия</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="НастройкиКаналовВзаимодействия1КонтекстноеМеню" id="105">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="НастройкиКаналовВзаимодействия1КонтекстноеМенюДобавить" id="175">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.Add</CommandName>
+												<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюДобавитьРасширеннаяПодсказка" id="176"/>
+											</Button>
+											<Button name="НастройкиКаналовВзаимодействия1КонтекстноеМенюУдалить" id="177">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.Delete</CommandName>
+												<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюУдалитьРасширеннаяПодсказка" id="178"/>
+											</Button>
+											<ButtonGroup name="НастройкиКаналовВзаимодействия1КонтекстноеМенюГруппа1" id="179">
+												<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюГруппа1РасширеннаяПодсказка" id="180"/>
+												<ChildItems>
+													<Button name="НастройкиКаналовВзаимодействия1КонтекстноеМенюПереместитьВверх" id="181">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.MoveUp</CommandName>
+														<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюПереместитьВверхРасширеннаяПодсказка" id="182"/>
+													</Button>
+													<Button name="НастройкиКаналовВзаимодействия1КонтекстноеМенюПереместитьВниз" id="183">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.MoveDown</CommandName>
+														<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюПереместитьВнизРасширеннаяПодсказка" id="184"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+											<ButtonGroup name="НастройкиКаналовВзаимодействия1КонтекстноеМенюГруппа2" id="185">
+												<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюГруппа2РасширеннаяПодсказка" id="186"/>
+												<ChildItems>
+													<Button name="НастройкиКаналовВзаимодействия1КонтекстноеМенюКопироватьВБуферОбмена" id="187">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.CopyToClipboard</CommandName>
+														<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="188"/>
+													</Button>
+													<Button name="НастройкиКаналовВзаимодействия1КонтекстноеМенюВыделитьВсе" id="189">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.SelectAll</CommandName>
+														<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="190"/>
+													</Button>
+													<Button name="НастройкиКаналовВзаимодействия1КонтекстноеМенюНайтиВезде" id="191">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.SearchEverywhere</CommandName>
+														<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="192"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="НастройкиКаналовВзаимодействия1КоманднаяПанель" id="106">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="НастройкиКаналовВзаимодействия1ДобавитьНастройкуКаналаВзаимодействия" id="158">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДобавитьНастройкуКаналаВзаимодействия</CommandName>
+												<ExtendedTooltip name="НастройкиКаналовВзаимодействия1ДобавитьНастройкуКаналаВзаимодействияРасширеннаяПодсказка" id="159"/>
+											</Button>
+											<ButtonGroup name="НастройкиКаналовВзаимодействия1Группа1" id="193">
+												<Representation>Compact</Representation>
+												<ExtendedTooltip name="НастройкиКаналовВзаимодействия1Группа1РасширеннаяПодсказка" id="194"/>
+												<ChildItems>
+													<Button name="НастройкиКаналовВзаимодействия1ПереместитьВверх" id="195">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.MoveUp</CommandName>
+														<ExtendedTooltip name="НастройкиКаналовВзаимодействия1ПереместитьВверхРасширеннаяПодсказка" id="196"/>
+													</Button>
+													<Button name="НастройкиКаналовВзаимодействия1ПереместитьВниз" id="197">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.НастройкиКаналовВзаимодействия1.StandardCommand.MoveDown</CommandName>
+														<ExtendedTooltip name="НастройкиКаналовВзаимодействия1ПереместитьВнизРасширеннаяПодсказка" id="198"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="НастройкиКаналовВзаимодействия1РасширеннаяПодсказка" id="107"/>
+									<SearchStringAddition name="НастройкиКаналовВзаимодействия1СтрокаПоиска" id="108">
+										<AdditionSource>
+											<Item>НастройкиКаналовВзаимодействия1</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="НастройкиКаналовВзаимодействия1СтрокаПоискаКонтекстноеМеню" id="109"/>
+										<ExtendedTooltip name="НастройкиКаналовВзаимодействия1СтрокаПоискаРасширеннаяПодсказка" id="110"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="НастройкиКаналовВзаимодействия1СостояниеПросмотра" id="111">
+										<AdditionSource>
+											<Item>НастройкиКаналовВзаимодействия1</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="НастройкиКаналовВзаимодействия1СостояниеПросмотраКонтекстноеМеню" id="112"/>
+										<ExtendedTooltip name="НастройкиКаналовВзаимодействия1СостояниеПросмотраРасширеннаяПодсказка" id="113"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="НастройкиКаналовВзаимодействия1УправлениеПоиском" id="114">
+										<AdditionSource>
+											<Item>НастройкиКаналовВзаимодействия1</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="НастройкиКаналовВзаимодействия1УправлениеПоискомКонтекстноеМеню" id="115"/>
+										<ExtendedTooltip name="НастройкиКаналовВзаимодействия1УправлениеПоискомРасширеннаяПодсказка" id="116"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">НастройкиКаналовВзаимодействия1ПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">НастройкиКаналовВзаимодействия1ПередУдалением</Event>
+										<Event name="OnStartEdit">НастройкиКаналовВзаимодействия1ПриНачалеРедактирования</Event>
+										<Event name="AfterDeleteRow">НастройкиКаналовВзаимодействия1ПослеУдаления</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="НастройкиКаналовВзаимодействия1КаналВзаимодействия" id="135">
+											<DataPath>Объект.НастройкиКаналовВзаимодействия.КаналВзаимодействия</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="НастройкиКаналовВзаимодействия1КаналВзаимодействияКонтекстноеМеню" id="136"/>
+											<ExtendedTooltip name="НастройкиКаналовВзаимодействия1КаналВзаимодействияРасширеннаяПодсказка" id="137"/>
+										</InputField>
+										<InputField name="НастройкиКаналовВзаимодействия1ЭлементНастройки" id="123">
+											<DataPath>Объект.НастройкиКаналовВзаимодействия.ЭлементНастройки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="НастройкиКаналовВзаимодействия1ЭлементНастройкиКонтекстноеМеню" id="124"/>
+											<ExtendedTooltip name="НастройкиКаналовВзаимодействия1ЭлементНастройкиРасширеннаяПодсказка" id="125"/>
+										</InputField>
+										<InputField name="НастройкиКаналовВзаимодействия1ЗначениеНастройки" id="126">
+											<DataPath>Объект.НастройкиКаналовВзаимодействия.ЗначениеНастройки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="НастройкиКаналовВзаимодействия1ЗначениеНастройкиКонтекстноеМеню" id="127"/>
+											<ExtendedTooltip name="НастройкиКаналовВзаимодействия1ЗначениеНастройкиРасширеннаяПодсказка" id="128"/>
+										</InputField>
+										<InputField name="НастройкиКаналовВзаимодействия1НПП" id="199">
+											<DataPath>Объект.НастройкиКаналовВзаимодействия.НПП</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="НастройкиКаналовВзаимодействия1НППКонтекстноеМеню" id="200"/>
+											<ExtendedTooltip name="НастройкиКаналовВзаимодействия1НППРасширеннаяПодсказка" id="201"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.АукКонтактныеЛицаУчастниковАукционов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.КаналыВзаимодействия"/>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ДобавитьКаналВзаимодействия" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить канал взаимодействия</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить канал взаимодействия</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьКаналВзаимодействия</Action>
+		</Command>
+		<Command name="ДобавитьНастройкуКаналаВзаимодействия" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить настройку канала взаимодействия</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьНастройкуКаналаВзаимодействия1</Action>
+		</Command>
+	</Commands>
+</Form>

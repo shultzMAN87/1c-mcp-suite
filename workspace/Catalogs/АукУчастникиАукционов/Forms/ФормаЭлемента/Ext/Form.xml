@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<ChildrenAlign>ItemsLeftTitlesRight</ChildrenAlign>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="108">
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="109"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Родитель" id="7">
+					<DataPath>Объект.Parent</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Банк" id="13">
+			<DataPath>Объект.Банк</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="БанкКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="БанкРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="Описание" id="10">
+			<DataPath>Объект.Описание</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<Height>3</Height>
+			<MultiLine>true</MultiLine>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<Pages name="Страницы" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<Page name="Группа1" id="63">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контактные лица</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="64"/>
+					<ChildItems>
+						<UsualGroup name="Группа2" id="84">
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="85"/>
+							<ChildItems>
+								<Table name="ВидыАукционов1" id="65">
+									<AutoAddIncomplete>false</AutoAddIncomplete>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.ВидыАукционов</DataPath>
+									<CommandSet>
+										<ExcludedCommand>CancelSearch</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>Find</ExcludedCommand>
+										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+										<ExcludedCommand>OutputList</ExcludedCommand>
+										<ExcludedCommand>SearchHistory</ExcludedCommand>
+										<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+										<ExcludedCommand>SortListAsc</ExcludedCommand>
+										<ExcludedCommand>SortListDesc</ExcludedCommand>
+									</CommandSet>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ВидыАукционов1КонтекстноеМеню" id="66"/>
+									<AutoCommandBar name="ВидыАукционов1КоманднаяПанель" id="67">
+										<ChildItems>
+											<Button name="ВидыАукционов1ДобавитьВсеВидыАукционов" id="159">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДобавитьВсеВидыАукционов</CommandName>
+												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+												<ExtendedTooltip name="ВидыАукционов1ДобавитьВсеВидыАукционовРасширеннаяПодсказка" id="160"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ВидыАукционов1РасширеннаяПодсказка" id="68"/>
+									<SearchStringAddition name="ВидыАукционов1СтрокаПоиска" id="69">
+										<AdditionSource>
+											<Item>ВидыАукционов1</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыАукционов1СтрокаПоискаКонтекстноеМеню" id="70"/>
+										<ExtendedTooltip name="ВидыАукционов1СтрокаПоискаРасширеннаяПодсказка" id="71"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ВидыАукционов1СостояниеПросмотра" id="72">
+										<AdditionSource>
+											<Item>ВидыАукционов1</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыАукционов1СостояниеПросмотраКонтекстноеМеню" id="73"/>
+										<ExtendedTooltip name="ВидыАукционов1СостояниеПросмотраРасширеннаяПодсказка" id="74"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ВидыАукционов1УправлениеПоиском" id="75">
+										<AdditionSource>
+											<Item>ВидыАукционов1</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыАукционов1УправлениеПоискомКонтекстноеМеню" id="76"/>
+										<ExtendedTooltip name="ВидыАукционов1УправлениеПоискомРасширеннаяПодсказка" id="77"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">ВидыАукционов1ПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">ВидыАукционов1ПередУдалением</Event>
+										<Event name="OnActivateRow">ВидыАукционов1ПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<PictureField name="ВидыАукционов1ВидАукционаПометкаУдаления" id="156">
+											<DataPath>Объект.ВидыАукционов.ВидАукциона.DeletionMark</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ValuesPicture>
+												<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<ContextMenu name="ВидыАукционов1ВидАукционаПометкаУдаленияКонтекстноеМеню" id="157"/>
+											<ExtendedTooltip name="ВидыАукционов1ВидАукционаПометкаУдаленияРасширеннаяПодсказка" id="158"/>
+										</PictureField>
+										<LabelField name="ВидыАукционов1ВидАукционаКод" id="161">
+											<DataPath>Объект.ВидыАукционов.ВидАукциона.Code</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ВидыАукционов1ВидАукционаКодКонтекстноеМеню" id="162"/>
+											<ExtendedTooltip name="ВидыАукционов1ВидАукционаКодРасширеннаяПодсказка" id="163"/>
+										</LabelField>
+										<InputField name="ВидыАукционов1ВидАукциона" id="81">
+											<DataPath>Объект.ВидыАукционов.ВидАукциона</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ВидыАукционов1ВидАукционаКонтекстноеМеню" id="82"/>
+											<ExtendedTooltip name="ВидыАукционов1ВидАукционаРасширеннаяПодсказка" id="83"/>
+											<Events>
+												<Event name="ChoiceProcessing">ВидыАукционов1ВидАукционаОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<Table name="КонтактныеЛица1" id="86">
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.КонтактныеЛица</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="КонтактныеЛица1КонтекстноеМеню" id="87">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="КонтактныеЛица1КонтекстноеМенюДобавить" id="138">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.КонтактныеЛица1.StandardCommand.Add</CommandName>
+												<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюДобавитьРасширеннаяПодсказка" id="139"/>
+											</Button>
+											<Button name="КонтактныеЛица1КонтекстноеМенюУдалить" id="140">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.КонтактныеЛица1.StandardCommand.Delete</CommandName>
+												<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюУдалитьРасширеннаяПодсказка" id="141"/>
+											</Button>
+											<ButtonGroup name="КонтактныеЛица1КонтекстноеМенюГруппа1" id="142">
+												<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюГруппа1РасширеннаяПодсказка" id="143"/>
+												<ChildItems>
+													<Button name="КонтактныеЛица1КонтекстноеМенюПереместитьВверх" id="144">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КонтактныеЛица1.StandardCommand.MoveUp</CommandName>
+														<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюПереместитьВверхРасширеннаяПодсказка" id="145"/>
+													</Button>
+													<Button name="КонтактныеЛица1КонтекстноеМенюПереместитьВниз" id="146">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КонтактныеЛица1.StandardCommand.MoveDown</CommandName>
+														<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюПереместитьВнизРасширеннаяПодсказка" id="147"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+											<ButtonGroup name="КонтактныеЛица1КонтекстноеМенюГруппа2" id="148">
+												<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюГруппа2РасширеннаяПодсказка" id="149"/>
+												<ChildItems>
+													<Button name="КонтактныеЛица1КонтекстноеМенюКопироватьВБуферОбмена" id="150">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КонтактныеЛица1.StandardCommand.CopyToClipboard</CommandName>
+														<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="151"/>
+													</Button>
+													<Button name="КонтактныеЛица1КонтекстноеМенюВыделитьВсе" id="152">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КонтактныеЛица1.StandardCommand.SelectAll</CommandName>
+														<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="153"/>
+													</Button>
+													<Button name="КонтактныеЛица1КонтекстноеМенюНайтиВезде" id="154">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.КонтактныеЛица1.StandardCommand.SearchEverywhere</CommandName>
+														<ExtendedTooltip name="КонтактныеЛица1КонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="155"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="КонтактныеЛица1КоманднаяПанель" id="88">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="КонтактныеЛица1ДобавитьКонтактноеЛицоУчастника" id="110">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДобавитьКонтактноеЛицоУчастника</CommandName>
+												<ExtendedTooltip name="КонтактныеЛица1ДобавитьКонтактноеЛицоУчастникаРасширеннаяПодсказка" id="111"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="КонтактныеЛица1РасширеннаяПодсказка" id="89"/>
+									<SearchStringAddition name="КонтактныеЛица1СтрокаПоиска" id="90">
+										<AdditionSource>
+											<Item>КонтактныеЛица1</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КонтактныеЛица1СтрокаПоискаКонтекстноеМеню" id="91"/>
+										<ExtendedTooltip name="КонтактныеЛица1СтрокаПоискаРасширеннаяПодсказка" id="92"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КонтактныеЛица1СостояниеПросмотра" id="93">
+										<AdditionSource>
+											<Item>КонтактныеЛица1</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КонтактныеЛица1СостояниеПросмотраКонтекстноеМеню" id="94"/>
+										<ExtendedTooltip name="КонтактныеЛица1СостояниеПросмотраРасширеннаяПодсказка" id="95"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КонтактныеЛица1УправлениеПоиском" id="96">
+										<AdditionSource>
+											<Item>КонтактныеЛица1</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="КонтактныеЛица1УправлениеПоискомКонтекстноеМеню" id="97"/>
+										<ExtendedTooltip name="КонтактныеЛица1УправлениеПоискомРасширеннаяПодсказка" id="98"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnStartEdit">КонтактныеЛица1ПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="КонтактныеЛица1КонтактноеЛицо" id="105">
+											<DataPath>Объект.КонтактныеЛица.КонтактноеЛицо</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.Владелец</xr:Name>
+													<xr:DataPath xsi:type="xs:string">Объект.Ref</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
+											<ContextMenu name="КонтактныеЛица1КонтактноеЛицоКонтекстноеМеню" id="106"/>
+											<ExtendedTooltip name="КонтактныеЛица1КонтактноеЛицоРасширеннаяПодсказка" id="107"/>
+											<Events>
+												<Event name="StartChoice">КонтактныеЛица1КонтактноеЛицоНачалоВыбора</Event>
+												<Event name="Creating">КонтактныеЛица1КонтактноеЛицоСоздание</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.АукУчастникиАукционов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ДобавитьКонтактноеЛицоУчастника" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить контактное лицо участника</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьКонтактноеЛицоУчастника</Action>
+		</Command>
+		<Command name="ДобавитьВсеВидыАукционов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить все виды</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить все виды аукционов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Form</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДобавитьВсеВидыАукционов</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>Catalog.АукКонтактныеЛицаУчастниковАукционов.StandardCommand.OpenByValue</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

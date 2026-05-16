@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<ChildrenAlign>ItemsLeftTitlesRight</ChildrenAlign>
+	<AutoFillCheck>false</AutoFillCheck>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="НадписьЗапретРедактирования" id="228">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Title formatted="true">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;colorstyle -16&gt;Текущие настройки расчета итога аукциона уже используется. Менять настройки ЗАПРЕЩЕНО.&lt;/&gt;</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="НадписьЗапретРедактированияКонтекстноеМеню" id="229"/>
+			<ExtendedTooltip name="НадписьЗапретРедактированияРасширеннаяПодсказка" id="230"/>
+		</LabelDecoration>
+		<UsualGroup name="Группа1" id="169">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>DontUse</ThroughAlign>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="170"/>
+			<ChildItems>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ClearButton>true</ClearButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Владелец" id="7">
+					<DataPath>Объект.Owner</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ВладелецКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРедактированиеФормулы" id="231">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа редактирование формулы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРедактированиеФормулыРасширеннаяПодсказка" id="232"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьРедактированиеФормулы" id="233">
+					<Font ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формула:</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формат переменной [Имя_переменной]. Слова должны быть написаны слитно или с использованием "_".</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ContextMenu name="НадписьРедактированиеФормулыКонтекстноеМеню" id="234"/>
+					<ExtendedTooltip name="НадписьРедактированиеФормулыРасширеннаяПодсказка" id="235"/>
+				</LabelDecoration>
+				<InputField name="Формула" id="10">
+					<DataPath>Объект.Формула</DataPath>
+					<TitleFont ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>2</Height>
+					<MultiLine>true</MultiLine>
+					<ClearButton>true</ClearButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ФормулаКонтекстноеМеню" id="11">
+						<ChildItems>
+							<ButtonGroup name="ФормулаКонтекстноеМенюГруппа1" id="173">
+								<ExtendedTooltip name="ФормулаКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="174"/>
+								<ChildItems>
+									<Button name="ФормулаКонтекстноеМенюПреобразоватьВПеременную" id="171">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПреобразоватьВПеременную</CommandName>
+										<ExtendedTooltip name="ФормулаКонтекстноеМенюПреобразоватьВПеременнуюРасширеннаяПодсказка" id="172"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</ContextMenu>
+					<ExtendedTooltip name="ФормулаРасширеннаяПодсказка" id="12"/>
+					<Events>
+						<Event name="OnChange">ФормулаПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПеременные" id="167">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа переменные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа переменные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПеременныеРасширеннаяПодсказка" id="168"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаПеременныеЛевая" id="207">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа переменные левая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа переменные левая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>None</ToolTipRepresentation>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПеременныеЛеваяРасширеннаяПодсказка" id="208"/>
+					<ChildItems>
+						<LabelDecoration name="НадписиЗаголовокТаблицаПеременных" id="209">
+							<Font ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Переменные:</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В этот список попадат переменные из формулы. Переменной считается конструкция вида [Имя_перменной]. Пробел будет заменен на "_"</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="НадписиЗаголовокТаблицаПеременныхКонтекстноеМеню" id="210"/>
+							<ExtendedTooltip name="НадписиЗаголовокТаблицаПеременныхРасширеннаяПодсказка" id="211"/>
+						</LabelDecoration>
+						<Table name="Переменные" id="101">
+							<ChangeRowSet>false</ChangeRowSet>
+							<Height>6</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Переменные</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Переменные</v8:content>
+								</v8:item>
+							</Title>
+							<TitleFont ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПеременныеКонтекстноеМеню" id="102"/>
+							<AutoCommandBar name="ПеременныеКоманднаяПанель" id="103">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ЗаполнитьСписокПеременных" id="99">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьСписокПеременных</CommandName>
+										<ExtendedTooltip name="ЗаполнитьСписокПеременныхРасширеннаяПодсказка" id="100"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПеременныеРасширеннаяПодсказка" id="104"/>
+							<SearchStringAddition name="ПеременныеСтрокаПоиска" id="105">
+								<AdditionSource>
+									<Item>Переменные</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПеременныеСтрокаПоискаКонтекстноеМеню" id="106"/>
+								<ExtendedTooltip name="ПеременныеСтрокаПоискаРасширеннаяПодсказка" id="107"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПеременныеСостояниеПросмотра" id="108">
+								<AdditionSource>
+									<Item>Переменные</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПеременныеСостояниеПросмотраКонтекстноеМеню" id="109"/>
+								<ExtendedTooltip name="ПеременныеСостояниеПросмотраРасширеннаяПодсказка" id="110"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПеременныеУправлениеПоиском" id="111">
+								<AdditionSource>
+									<Item>Переменные</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПеременныеУправлениеПоискомКонтекстноеМеню" id="112"/>
+								<ExtendedTooltip name="ПеременныеУправлениеПоискомРасширеннаяПодсказка" id="113"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeDeleteRow">ПеременныеПередУдалением</Event>
+								<Event name="OnActivateRow">ПеременныеПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ПеременныеНомерСтроки" id="114">
+									<DataPath>Объект.Переменные.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПеременныеНомерСтрокиКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="ПеременныеНомерСтрокиРасширеннаяПодсказка" id="116"/>
+								</LabelField>
+								<InputField name="ПеременныеПеременная" id="117">
+									<DataPath>Объект.Переменные.Переменная</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>25</Width>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<TextEdit>false</TextEdit>
+									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+									<ContextMenu name="ПеременныеПеременнаяКонтекстноеМеню" id="118"/>
+									<ExtendedTooltip name="ПеременныеПеременнаяРасширеннаяПодсказка" id="119"/>
+								</InputField>
+								<CheckBoxField name="ПеременныеРедактируется" id="120">
+									<DataPath>Объект.Переменные.Редактируется</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Можно редактировать</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПеременныеРедактируетсяКонтекстноеМеню" id="121"/>
+									<ExtendedTooltip name="ПеременныеРедактируетсяРасширеннаяПодсказка" id="122"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПеременныеПравая" id="205">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа переменные правая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа переменные правая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПеременныеПраваяРасширеннаяПодсказка" id="206"/>
+					<ChildItems>
+						<LabelDecoration name="НадписиЗаголовокТаблицаПриоритета" id="202">
+							<Font ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Приоритет выбора значений переменной:</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для каждой переменной необходимо задать настройку, а также приоритет</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="НадписиЗаголовокТаблицаПриоритетаКонтекстноеМеню" id="203"/>
+							<ExtendedTooltip name="НадписиЗаголовокТаблицаПриоритетаРасширеннаяПодсказка" id="204"/>
+						</LabelDecoration>
+						<Table name="НастройкаВыбораЗначенийПеременных" id="175">
+							<Representation>List</Representation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<AutoAddIncomplete>false</AutoAddIncomplete>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.НастройкаВыбораЗначенийПеременных</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Приоритет выбора значений переменной</v8:content>
+								</v8:item>
+							</Title>
+							<TitleFont ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+							</CommandSet>
+							<ToolTipRepresentation>None</ToolTipRepresentation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НастройкаВыбораЗначенийПеременныхКонтекстноеМеню" id="176"/>
+							<AutoCommandBar name="НастройкаВыбораЗначенийПеременныхКоманднаяПанель" id="177"/>
+							<ExtendedTooltip name="НастройкаВыбораЗначенийПеременныхРасширеннаяПодсказка" id="178"/>
+							<SearchStringAddition name="НастройкаВыбораЗначенийПеременныхСтрокаПоиска" id="179">
+								<AdditionSource>
+									<Item>НастройкаВыбораЗначенийПеременных</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НастройкаВыбораЗначенийПеременныхСтрокаПоискаКонтекстноеМеню" id="180"/>
+								<ExtendedTooltip name="НастройкаВыбораЗначенийПеременныхСтрокаПоискаРасширеннаяПодсказка" id="181"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НастройкаВыбораЗначенийПеременныхСостояниеПросмотра" id="182">
+								<AdditionSource>
+									<Item>НастройкаВыбораЗначенийПеременных</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НастройкаВыбораЗначенийПеременныхСостояниеПросмотраКонтекстноеМеню" id="183"/>
+								<ExtendedTooltip name="НастройкаВыбораЗначенийПеременныхСостояниеПросмотраРасширеннаяПодсказка" id="184"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НастройкаВыбораЗначенийПеременныхУправлениеПоиском" id="185">
+								<AdditionSource>
+									<Item>НастройкаВыбораЗначенийПеременных</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НастройкаВыбораЗначенийПеременныхУправлениеПоискомКонтекстноеМеню" id="186"/>
+								<ExtendedTooltip name="НастройкаВыбораЗначенийПеременныхУправлениеПоискомРасширеннаяПодсказка" id="187"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">НастройкаВыбораЗначенийПеременныхПередНачаломДобавления</Event>
+								<Event name="OnActivateRow">НастройкаВыбораЗначенийПеременныхПриАктивизацииСтроки</Event>
+								<Event name="OnActivateField">НастройкаВыбораЗначенийПеременныхПриАктивизацииПоля</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="НастройкаВыбораЗначенийПеременныхИсточникДанных" id="194">
+									<DataPath>Объект.НастройкаВыбораЗначенийПеременных.ИсточникДанных</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="НастройкаВыбораЗначенийПеременныхИсточникДанныхКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="НастройкаВыбораЗначенийПеременныхИсточникДанныхРасширеннаяПодсказка" id="196"/>
+									<Events>
+										<Event name="OnChange">НастройкаВыбораЗначенийПеременныхИсточникДанныхПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="НастройкаВыбораЗначенийПеременныхЗначениеДанных" id="197">
+									<DataPath>Объект.НастройкаВыбораЗначенийПеременных.ЗначениеДанных</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="НастройкаВыбораЗначенийПеременныхЗначениеДанныхКонтекстноеМеню" id="198"/>
+									<ExtendedTooltip name="НастройкаВыбораЗначенийПеременныхЗначениеДанныхРасширеннаяПодсказка" id="199"/>
+									<Events>
+										<Event name="StartChoice">НастройкаВыбораЗначенийПеременныхЗначениеДанныхНачалоВыбора</Event>
+										<Event name="ChoiceProcessing">НастройкаВыбораЗначенийПеременныхЗначениеДанныхОбработкаВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаШаблонРезультата" id="212">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шаблон результата</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шаблон результата</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШаблонРезультатаРасширеннаяПодсказка" id="213"/>
+			<ChildItems>
+				<InputField name="ШаблонРезультатаТекстДо" id="214">
+					<DataPath>ШаблонРезультатаТекстДо</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаблон результата</v8:content>
+						</v8:item>
+					</Title>
+					<Width>7</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ШаблонРезультатаТекстДоКонтекстноеМеню" id="215"/>
+					<ExtendedTooltip name="ШаблонРезультатаТекстДоРасширеннаяПодсказка" id="216"/>
+					<Events>
+						<Event name="OnChange">ШаблонРезультатаТекстДоПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelDecoration name="НадписьШаблонРезультата" id="220">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[Результат]</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьШаблонРезультатаКонтекстноеМеню" id="221"/>
+					<ExtendedTooltip name="НадписьШаблонРезультатаРасширеннаяПодсказка" id="222"/>
+				</LabelDecoration>
+				<InputField name="ШаблонРезультатаТекстПосле" id="217">
+					<DataPath>ШаблонРезультатаТекстПосле</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[Результат]</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Слева от "[Результат]" должен быть указан текст который подставится к результату слева, справа указывается текст, который подставится справа.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<Width>7</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ШаблонРезультатаТекстПослеКонтекстноеМеню" id="218"/>
+					<ExtendedTooltip name="ШаблонРезультатаТекстПослеРасширеннаяПодсказка" id="219"/>
+					<Events>
+						<Event name="OnChange">ШаблонРезультатаТекстПослеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelDecoration name="ШаблонРезультатаПример" id="225">
+					<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пример: </v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ШаблонРезультатаПримерКонтекстноеМеню" id="226"/>
+					<ExtendedTooltip name="ШаблонРезультатаПримерРасширеннаяПодсказка" id="227"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ВидРезультата" id="16">
+			<DataPath>Объект.ВидРезультата</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лучшим результатом считается</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+			<EditMode>EnterOnInput</EditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+			<ContextMenu name="ВидРезультатаКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ВидРезультатаРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<Table name="НастройкаСписанияПараметров" id="123">
+			<TitleLocation>Top</TitleLocation>
+			<Height>4</Height>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.НастройкаСписанияПараметров</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списание параметров аукциона при расчете победителей</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="НастройкаСписанияПараметровКонтекстноеМеню" id="124"/>
+			<AutoCommandBar name="НастройкаСписанияПараметровКоманднаяПанель" id="125"/>
+			<ExtendedTooltip name="НастройкаСписанияПараметровРасширеннаяПодсказка" id="126"/>
+			<SearchStringAddition name="НастройкаСписанияПараметровСтрокаПоиска" id="127">
+				<AdditionSource>
+					<Item>НастройкаСписанияПараметров</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="НастройкаСписанияПараметровСтрокаПоискаКонтекстноеМеню" id="128"/>
+				<ExtendedTooltip name="НастройкаСписанияПараметровСтрокаПоискаРасширеннаяПодсказка" id="129"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="НастройкаСписанияПараметровСостояниеПросмотра" id="130">
+				<AdditionSource>
+					<Item>НастройкаСписанияПараметров</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="НастройкаСписанияПараметровСостояниеПросмотраКонтекстноеМеню" id="131"/>
+				<ExtendedTooltip name="НастройкаСписанияПараметровСостояниеПросмотраРасширеннаяПодсказка" id="132"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="НастройкаСписанияПараметровУправлениеПоиском" id="133">
+				<AdditionSource>
+					<Item>НастройкаСписанияПараметров</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="НастройкаСписанияПараметровУправлениеПоискомКонтекстноеМеню" id="134"/>
+				<ExtendedTooltip name="НастройкаСписанияПараметровУправлениеПоискомРасширеннаяПодсказка" id="135"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateField">НастройкаСписанияПараметровПриАктивизацииПоля</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="НастройкаСписанияПараметровНомерСтроки" id="136">
+					<DataPath>Объект.НастройкаСписанияПараметров.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НастройкаСписанияПараметровНомерСтрокиКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="НастройкаСписанияПараметровНомерСтрокиРасширеннаяПодсказка" id="138"/>
+				</LabelField>
+				<InputField name="НастройкаСписанияПараметровПараметр" id="139">
+					<DataPath>Объект.НастройкаСписанияПараметров.Параметр</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="НастройкаСписанияПараметровПараметрКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="НастройкаСписанияПараметровПараметрРасширеннаяПодсказка" id="141"/>
+				</InputField>
+				<InputField name="НастройкаСписанияПараметровСписыватьПоПеременной" id="142">
+					<DataPath>Объект.НастройкаСписанияПараметров.СписыватьПоПеременной</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<DropListButton>true</DropListButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="НастройкаСписанияПараметровСписыватьПоПеременнойКонтекстноеМеню" id="143"/>
+					<ExtendedTooltip name="НастройкаСписанияПараметровСписыватьПоПеременнойРасширеннаяПодсказка" id="144"/>
+					<Events>
+						<Event name="ChoiceProcessing">НастройкаСписанияПараметровСписыватьПоПеременнойОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+				<CheckBoxField name="НастройкаСписанияПараметровМожноСписыватьЧастично" id="145">
+					<DataPath>Объект.НастройкаСписанияПараметров.МожноСписыватьЧастично</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="НастройкаСписанияПараметровМожноСписыватьЧастичноКонтекстноеМеню" id="146"/>
+					<ExtendedTooltip name="НастройкаСписанияПараметровМожноСписыватьЧастичноРасширеннаяПодсказка" id="147"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.АукНастройкиРасчетовИтогов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ЗначенияДанныхИзВидаАукциона" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значения данных из вида аукциона</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭтоНастройкаРасчетовПромежуточногоИтога" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это настройка расчетов промежуточного итога</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ШаблонРезультатаТекстДо" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон результата текст до</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ШаблонРезультатаТекстПосле" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон результата текст после</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="БлокироватьИзмененияДанных" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Блокировать изменения данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьСписокПеременных" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить список переменных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить список переменных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьСписокПеременных</Action>
+		</Command>
+		<Command name="ПреобразоватьВПеременную" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Преобразовать в переменную</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Преобразовать в переменную</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.RotateClockwise</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПреобразоватьВПеременную</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

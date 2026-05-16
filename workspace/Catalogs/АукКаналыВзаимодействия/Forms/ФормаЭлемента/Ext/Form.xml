@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<ChildrenAlign>ItemsLeftTitlesRight</ChildrenAlign>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<Table name="СтруктураНастроек" id="13">
+			<Representation>List</Representation>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.СтруктураНастроек</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СтруктураНастроекКонтекстноеМеню" id="14">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СтруктураНастроекКонтекстноеМенюДобавить" id="36">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.СтруктураНастроек.StandardCommand.Add</CommandName>
+						<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюДобавитьРасширеннаяПодсказка" id="37"/>
+					</Button>
+					<Button name="СтруктураНастроекКонтекстноеМенюУдалить" id="40">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.СтруктураНастроек.StandardCommand.Delete</CommandName>
+						<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюУдалитьРасширеннаяПодсказка" id="41"/>
+					</Button>
+					<ButtonGroup name="СтруктураНастроекКонтекстноеМенюГруппа1" id="42">
+						<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="43"/>
+						<ChildItems>
+							<Button name="СтруктураНастроекКонтекстноеМенюПереместитьВверх" id="44">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СтруктураНастроек.StandardCommand.MoveUp</CommandName>
+								<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюПереместитьВверхРасширеннаяПодсказка" id="45"/>
+							</Button>
+							<Button name="СтруктураНастроекКонтекстноеМенюПереместитьВниз" id="46">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СтруктураНастроек.StandardCommand.MoveDown</CommandName>
+								<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюПереместитьВнизРасширеннаяПодсказка" id="47"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<ButtonGroup name="СтруктураНастроекКонтекстноеМенюГруппа2" id="48">
+						<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюГруппа2РасширеннаяПодсказка" id="49"/>
+						<ChildItems>
+							<Button name="СтруктураНастроекКонтекстноеМенюКопироватьВБуферОбмена" id="50">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СтруктураНастроек.StandardCommand.CopyToClipboard</CommandName>
+								<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="51"/>
+							</Button>
+							<Button name="СтруктураНастроекКонтекстноеМенюВыделитьВсе" id="52">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СтруктураНастроек.StandardCommand.SelectAll</CommandName>
+								<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="53"/>
+							</Button>
+							<Button name="СтруктураНастроекКонтекстноеМенюНайтиВезде" id="54">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СтруктураНастроек.StandardCommand.SearchEverywhere</CommandName>
+								<ExtendedTooltip name="СтруктураНастроекКонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="55"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="СтруктураНастроекКоманднаяПанель" id="15"/>
+			<ExtendedTooltip name="СтруктураНастроекРасширеннаяПодсказка" id="16"/>
+			<SearchStringAddition name="СтруктураНастроекСтрокаПоиска" id="17">
+				<AdditionSource>
+					<Item>СтруктураНастроек</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СтруктураНастроекСтрокаПоискаКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="СтруктураНастроекСтрокаПоискаРасширеннаяПодсказка" id="19"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СтруктураНастроекСостояниеПросмотра" id="20">
+				<AdditionSource>
+					<Item>СтруктураНастроек</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СтруктураНастроекСостояниеПросмотраКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="СтруктураНастроекСостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СтруктураНастроекУправлениеПоиском" id="23">
+				<AdditionSource>
+					<Item>СтруктураНастроек</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СтруктураНастроекУправлениеПоискомКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="СтруктураНастроекУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">СтруктураНастроекПередНачаломДобавления</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="СтруктураНастроекНомерСтроки" id="26">
+					<DataPath>Объект.СтруктураНастроек.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СтруктураНастроекНомерСтрокиКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СтруктураНастроекНомерСтрокиРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<InputField name="СтруктураНастроекЭлементНастройки" id="29">
+					<DataPath>Объект.СтруктураНастроек.ЭлементНастройки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="СтруктураНастроекЭлементНастройкиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СтруктураНастроекЭлементНастройкиРасширеннаяПодсказка" id="31"/>
+					<Events>
+						<Event name="ChoiceProcessing">СтруктураНастроекЭлементНастройкиОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="Группа2" id="34">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>DontUse</ThroughAlign>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<CheckBoxField name="НесколькоЗначенийЭлементовНастройки" id="10">
+					<DataPath>Объект.НесколькоЗначенийЭлементовНастройки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Допускает несколько значений</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="НесколькоЗначенийЭлементовНастройкиКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="НесколькоЗначенийЭлементовНастройкиРасширеннаяПодсказка" id="12"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="32">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>DontUse</ThroughAlign>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<CheckBoxField name="ПоддерживаетАвтоматическоеВзаимодействие" id="7">
+					<DataPath>1/0:14180d67-7597-457b-9ef5-9df5c451ee23</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПоддерживаетАвтоматическоеВзаимодействиеКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ПоддерживаетАвтоматическоеВзаимодействиеРасширеннаяПодсказка" id="9"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.АукКаналыВзаимодействия</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

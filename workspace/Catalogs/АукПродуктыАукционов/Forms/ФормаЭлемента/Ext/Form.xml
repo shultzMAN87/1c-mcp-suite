@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<TitleLocation>Top</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<Width>50</Width>
+			<ClearButton>true</ClearButton>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Описание" id="7">
+			<DataPath>Объект.Описание</DataPath>
+			<TitleLocation>Top</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<Width>50</Width>
+			<Height>5</Height>
+			<MultiLine>true</MultiLine>
+			<ClearButton>true</ClearButton>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<Table name="ЭлементыСтавкиПродукта" id="10">
+			<Representation>List</Representation>
+			<TitleLocation>Top</TitleLocation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>1/0:66a1b4e7-ced1-4087-ac3b-765e6c08f76c</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура ставки по продукту</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЭлементыСтавкиПродуктаКонтекстноеМеню" id="11"/>
+			<AutoCommandBar name="ЭлементыСтавкиПродуктаКоманднаяПанель" id="12"/>
+			<ExtendedTooltip name="ЭлементыСтавкиПродуктаРасширеннаяПодсказка" id="13"/>
+			<SearchStringAddition name="ЭлементыСтавкиПродуктаСтрокаПоиска" id="14">
+				<AdditionSource>
+					<Item>ЭлементыСтавкиПродукта</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭлементыСтавкиПродуктаСтрокаПоискаКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ЭлементыСтавкиПродуктаСтрокаПоискаРасширеннаяПодсказка" id="16"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЭлементыСтавкиПродуктаСостояниеПросмотра" id="17">
+				<AdditionSource>
+					<Item>ЭлементыСтавкиПродукта</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭлементыСтавкиПродуктаСостояниеПросмотраКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ЭлементыСтавкиПродуктаСостояниеПросмотраРасширеннаяПодсказка" id="19"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЭлементыСтавкиПродуктаУправлениеПоиском" id="20">
+				<AdditionSource>
+					<Item>ЭлементыСтавкиПродукта</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭлементыСтавкиПродуктаУправлениеПоискомКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="ЭлементыСтавкиПродуктаУправлениеПоискомРасширеннаяПодсказка" id="22"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЭлементыСтавкиПродуктаНомерСтроки" id="23">
+					<DataPath>1/0:66a1b4e7-ced1-4087-ac3b-765e6c08f76c/-2</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЭлементыСтавкиПродуктаНомерСтрокиКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ЭлементыСтавкиПродуктаНомерСтрокиРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<InputField name="ЭлементыСтавкиПродуктаЭлементСтавки" id="26">
+					<DataPath>1/0:66a1b4e7-ced1-4087-ac3b-765e6c08f76c/0:e647cf7e-74d2-4fba-826a-fbc8132bf747</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЭлементыСтавкиПродуктаЭлементСтавкиКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ЭлементыСтавкиПродуктаЭлементСтавкиРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<LabelField name="ЭлементыСтавкиПродуктаЭлементСтавкиТипЗначения" id="29">
+					<DataPath>1/0:66a1b4e7-ced1-4087-ac3b-765e6c08f76c/0:e647cf7e-74d2-4fba-826a-fbc8132bf747/-11</DataPath>
+					<Enabled>false</Enabled>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЭлементыСтавкиПродуктаЭлементСтавкиТипЗначенияКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ЭлементыСтавкиПродуктаЭлементСтавкиТипЗначенияРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.АукПродуктыАукционов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>
