@@ -1,0 +1,47 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Системные зависимости
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential && \
+    rm -rf /var/lib/apt/lists/*
+
+# Python зависимости (включая qdrant-client и fastembed для гибридного поиска)
+COPY requirements-embeddings.txt .
+RUN pip install --no-cache-dir -r requirements-embeddings.txt
+
+# Предзагружаем dense-модель (чтобы не качать при каждом запуске)
+ARG EMBEDDING_MODEL=intfloat/multilingual-e5-base
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('${EMBEDDING_MODEL}')"
+
+# Предзагружаем sparse BM25-модель fastembed (для гибридного поиска ИТС)
+ARG BM25_MODEL=Qdrant/bm25
+RUN python -c "from fastembed import SparseTextEmbedding; SparseTextEmbedding(model_name='${BM25_MODEL}')"
+
+# Точка входа и общие модули
+COPY start.py                              /app/start.py
+COPY mcp_pagination.py                     /app/mcp_pagination.py
+COPY mcp_metrics.py                        /app/mcp_metrics.py
+COPY mcp_cache.py                          /app/mcp_cache.py
+COPY mcp_auth.py                           /app/mcp_auth.py
+
+# Справка платформы: сервер
+COPY mcp-platform-help/server.py           /app/mcp_platform_help.py
+
+# Справка платформы: новый hybrid-индексатор (задача 4.7, поддержка .hbk 8.3.22+)
+COPY mcp-platform-help-embeddings/hbk_reader.py    /app/hbk_reader.py
+COPY mcp-platform-help-embeddings/hbk_parser.py    /app/hbk_parser.py
+COPY mcp-platform-help-embeddings/hbk_chunker.py   /app/hbk_chunker.py
+COPY mcp-platform-help-embeddings/hbk_indexer.py   /app/indexer.py
+COPY mcp-platform-help-embeddings/its_indexer.py   /app/its_indexer.py
+
+# Code RAG тоже использует embeddings
+COPY mcp-code-rag/server.py                /app/mcp_code_rag.py
+
+# Триггер реиндексации (используется сервисом code-indexer)
+COPY code_reindex_trigger.py               /app/code_reindex_trigger.py
+
+RUN mkdir -p /data/1c-platform /data/platform-help /data/its-articles /workspace
+
+EXPOSE 8003 8011

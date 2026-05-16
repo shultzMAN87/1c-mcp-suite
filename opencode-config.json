@@ -1,0 +1,55 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "1c-metadata-graph": {
+      "type": "remote",
+      "url": "http://mcp-metadata-graph:8001/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-bsl-checker": {
+      "type": "remote",
+      "url": "http://mcp-bsl-checker:8002/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-platform-help": {
+      "type": "remote",
+      "url": "http://mcp-platform-help:8003/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-code-templates": {
+      "type": "remote",
+      "url": "http://mcp-code-templates:8008/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-naparnik": {
+      "type": "remote",
+      "url": "http://mcp-1c-naparnik:8007/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-query-builder": {
+      "type": "remote",
+      "url": "http://mcp-query-builder:8009/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-testing": {
+      "type": "remote",
+      "url": "http://mcp-testing:8010/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-code-rag": {
+      "type": "remote",
+      "url": "http://mcp-code-rag:8011/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-rest-proxy": {
+      "type": "remote",
+      "url": "http://mcp-rest-proxy:8013/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    },
+    "1c-sonarqube": {
+      "type": "remote",
+      "url": "http://mcp-sonarqube:8014/sse",
+      "headers": { "Authorization": "Bearer {env:MCP_SHARED_SECRET}" }
+    }
+  }
+}

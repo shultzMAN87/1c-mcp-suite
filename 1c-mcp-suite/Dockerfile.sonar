@@ -1,0 +1,33 @@
+# MCP-сервер SonarQube для 1С
+# Содержит Python + sonar-scanner CLI (требуется Java).
+FROM eclipse-temurin:17-jre-jammy
+
+ENV SONAR_SCANNER_VERSION=6.2.1.4610 \
+    DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pip curl unzip ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Скачиваем sonar-scanner CLI. Пробуем официальный CDN, при неудаче — Maven Central.
+RUN set -eux; \
+    PRIMARY="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux-x64.zip"; \
+    FALLBACK="https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/${SONAR_SCANNER_VERSION}/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip"; \
+    (curl -fSL --retry 5 --retry-delay 3 --retry-connrefused -o /tmp/scanner.zip "$PRIMARY" \
+     || curl -fSL --retry 5 --retry-delay 3 --retry-connrefused -o /tmp/scanner.zip "$FALLBACK"); \
+    unzip -q /tmp/scanner.zip -d /opt; \
+    SCANNER_DIR="$(find /opt -maxdepth 1 -type d -name 'sonar-scanner-*' | head -n1)"; \
+    ln -s "${SCANNER_DIR}/bin/sonar-scanner" /usr/local/bin/sonar-scanner; \
+    rm /tmp/scanner.zip
+
+WORKDIR /app
+COPY requirements.txt ./
+# Сначала обновляем pip — в jammy он 22.x и не знает --break-system-packages.
+RUN python3 -m pip install --no-cache-dir --upgrade "pip>=24.0" \
+    && pip3 install --no-cache-dir -r requirements.txt
+
+COPY mcp-sonarqube/server.py /app/server.py
+COPY mcp_metrics.py mcp_cache.py mcp_pagination.py mcp_auth.py /app/
+
+EXPOSE 8014
+CMD ["python3", "/app/server.py"]

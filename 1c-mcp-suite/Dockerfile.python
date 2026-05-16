@@ -1,0 +1,51 @@
+FROM python:3.12-slim
+
+# Чтобы print() в stdout не буферизовался в Docker-логах.
+# Иначе сообщения от start.py (метрики, аудит) не видны до тех пор,
+# пока процесс не завершится (а uvicorn не завершается).
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Зависимости Python
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Точка входа и общие модули
+COPY start.py                        /app/start.py
+COPY mcp_pagination.py               /app/mcp_pagination.py
+COPY mcp_metrics.py                  /app/mcp_metrics.py
+COPY mcp_cache.py                    /app/mcp_cache.py
+COPY mcp_auth.py                     /app/mcp_auth.py
+COPY audit_log.py                    /app/audit_log.py
+
+# Базовые серверы (metadata-graph: server.py + v3-расширения, индексер: v3)
+COPY mcp-metadata-graph/server.py             /app/mcp_metadata_graph.py
+COPY mcp-metadata-graph/server_v3_tools.py    /app/server_v3_tools.py
+COPY mcp-metadata-graph/server_v3_code_tools.py /app/server_v3_code_tools.py
+COPY mcp-metadata-graph/server_v3_watch_tools.py /app/server_v3_watch_tools.py
+COPY mcp-metadata-graph-neo4j/indexer.py      /app/mcp_metadata_indexer.py
+COPY mcp-metadata-graph-neo4j/metadata_xml.py /app/metadata_xml.py
+COPY mcp-metadata-graph-neo4j/graph_writer.py /app/graph_writer.py
+COPY mcp-metadata-graph-neo4j/bsl_parser.py    /app/bsl_parser.py
+COPY mcp-metadata-graph-neo4j/bsl_resolver.py /app/bsl_resolver.py
+COPY mcp-metadata-graph-neo4j/incremental.py  /app/incremental.py
+COPY mcp-platform-help/server.py              /app/mcp_platform_help.py
+COPY mcp-code-templates/server.py        /app/mcp_code_templates.py
+COPY mcp-1c-naparnik/server.py           /app/mcp_1c_naparnik.py
+
+# v2: query-builder, testing, code-rag
+COPY mcp-query-builder/server.py         /app/mcp_query_builder.py
+COPY mcp-testing/server.py               /app/mcp_testing.py
+COPY mcp-code-rag/server.py              /app/mcp_code_rag.py
+
+# v2.1: rest-proxy
+COPY mcp-rest-proxy/server.py            /app/mcp_rest_proxy.py
+
+# Watcher кодовой базы и XML-метаданных (задача 2.3)
+COPY workspace_watcher.py                /app/workspace_watcher.py
+
+# Каталоги данных
+RUN mkdir -p /data/1c-src /data/platform-help /data/templates
+
+EXPOSE 8001 8002 8003 8007 8008 8009 8010 8011 8012 8013

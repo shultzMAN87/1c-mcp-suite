@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "1c-metadata-graph": {
+      "url": "http://localhost:8001/mcp",
+      "transport": "http",
+      "description": "Граф метаданных 1С (Neo4j + пагинация)"
+    },
+    "1c-bsl-checker": {
+      "url": "http://localhost:8002/mcp",
+      "transport": "http",
+      "description": "Проверка синтаксиса BSL через BSL Language Server"
+    },
+    "1c-platform-help": {
+      "url": "http://localhost:8003/mcp",
+      "transport": "http",
+      "description": "Справка платформы + гибридный поиск по ИТС (dense + BM25)"
+    },
+    "1c-naparnik": {
+      "url": "http://localhost:8007/mcp",
+      "transport": "http",
+      "description": "Проверка кода через 1С:Напарник (code.1c.ai)"
+    },
+    "1c-code-templates": {
+      "url": "http://localhost:8008/mcp",
+      "transport": "http",
+      "description": "Шаблоны и примеры кода 1С для типовых задач"
+    },
+    "1c-query-builder": {
+      "url": "http://localhost:8009/mcp",
+      "transport": "http",
+      "description": "Конструктор запросов 1С с валидацией по метаданным"
+    },
+    "1c-testing": {
+      "url": "http://localhost:8010/mcp",
+      "transport": "http",
+      "description": "Генерация xUnit/Vanessa тестов и анализ покрытия"
+    },
+    "1c-code-rag": {
+      "url": "http://localhost:8011/mcp",
+      "transport": "http",
+      "description": "Семантический поиск по BSL-модулям проекта"
+    },
+    "1c-rest-proxy": {
+      "url": "http://localhost:8013/mcp",
+      "transport": "http",
+      "description": "REST/OData прокси к живой базе 1С (read-only)"
+    }
+  }
+}

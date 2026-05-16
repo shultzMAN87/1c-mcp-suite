@@ -1,0 +1,585 @@
+services:
+  # ── OpenCode (AI-агент) ────────────────────────────────────────────
+  opencode:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: opencode-dev
+    ports:
+      - "4096:4096"
+    volumes:
+      - ./workspace:/workspace
+      - ./opencode-config.json:/root/.config/opencode/opencode.json:ro
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+    #   # опционально если VPN
+    #   - HTTP_PROXY=http://host.docker.internal:10809
+    #   - HTTPS_PROXY=http://host.docker.internal:10809
+    #   - NO_PROXY=mcp-metadata-graph,mcp-bsl-checker,mcp-platform-help,mcp-code-templates,mcp-1c-naparnik,mcp-query-builder,mcp-testing,mcp-code-rag,mcp-rest-proxy,mcp-sonarqube,qdrant,neo4j,localhost,127.0.0.1
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    depends_on:
+      - mcp-metadata-graph
+      - mcp-bsl-checker
+      - mcp-platform-help
+      - mcp-code-templates
+      - mcp-1c-naparnik
+      - mcp-query-builder
+      - mcp-testing
+      - mcp-code-rag
+      - mcp-rest-proxy
+
+  # ══════════════════════════════════════════════════════════════════
+  # Инфраструктура: Neo4j (граф) + Qdrant (векторы)
+  # ══════════════════════════════════════════════════════════════════
+
+  neo4j:
+    image: neo4j:5-community
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j-data:/data
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:?Задайте NEO4J_PASSWORD в .env (см. .env.example)}
+      - NEO4J_PLUGINS=[]
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant-data:/qdrant/storage
+    restart: unless-stopped
+
+  # ══════════════════════════════════════════════════════════════════
+  # Индексаторы (запускаются один раз)
+  # ══════════════════════════════════════════════════════════════════
+
+  # Индексатор метаданных конфигурации → Neo4j
+  metadata-indexer:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: metadata-indexer
+    command: python /app/mcp_metadata_indexer.py
+    volumes:
+      - ./1c-config-xml:/data/1c-src:ro       # legacy v2 (не используется v3-индексером)
+      - ./workspace:/data/1c-xml:ro           # XML-выгрузка для v3
+    environment:
+      - METADATA_SRC_DIR=/data/1c-xml         # ← переопределение, было /data/1c-src
+      - NEO4J_URL=http://neo4j:7474
+      - NEO4J_USER=neo4j
+      - NEO4J_PASS=${NEO4J_PASSWORD:?Задайте NEO4J_PASSWORD в .env (см. .env.example)}
+    depends_on:
+      - neo4j
+    restart: "no"
+
+  # Индексатор справки платформы (.hbk → Qdrant, только dense)
+  help-indexer:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.embeddings
+    container_name: help-indexer
+    command: python /app/indexer.py
+    volumes:
+      - ./platform-help-data:/data/1c-platform:ro
+    environment:
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_COLLECTION=platform_help
+      - PLATFORM_BIN_DIR=/data/1c-platform
+      - EMBEDDING_MODEL=intfloat/multilingual-e5-base
+      # skip_if_nonempty | if_files_changed | force
+      - REINDEX_MODE=${HELP_REINDEX_MODE:-skip_if_nonempty}
+    depends_on:
+      - qdrant
+    restart: "no"
+
+  # Индексатор статей ИТС → Qdrant (HYBRID: dense + BM25)
+  # Положите PDF-файлы статей в папку its-articles/
+  its-indexer:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.embeddings
+    container_name: its-indexer
+    command: python /app/its_indexer.py
+    volumes:
+      - ./its-articles:/data/its-articles:ro
+    environment:
+      - QDRANT_URL=http://qdrant:6333
+      - ITS_COLLECTION=its_articles
+      - ITS_ARTICLES_DIR=/data/its-articles
+      - EMBEDDING_MODEL=intfloat/multilingual-e5-base
+      - BM25_MODEL=Qdrant/bm25
+      # true = принудительно пересоздать коллекцию
+      - ITS_FORCE_REINDEX=${ITS_FORCE_REINDEX:-false}
+    depends_on:
+      - qdrant
+    restart: "no"
+
+  # Индексатор кодовой базы (workspace/*.bsl → Qdrant)
+  code-indexer:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.embeddings
+    container_name: code-indexer
+    command: python /app/code_reindex_trigger.py
+    volumes:
+      - ./workspace:/workspace:ro
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - QDRANT_URL=http://qdrant:6333
+      - CODE_COLLECTION=project_code
+      - WORKSPACE_DIR=/workspace
+      - EMBEDDING_MODEL=intfloat/multilingual-e5-base
+    depends_on:
+      - mcp-code-rag
+      - qdrant
+    restart: "no"
+
+  # Watcher кодовой базы и XML-метаданных (задача 2.3 + 4.6.5).
+  # Слушает выгрузку 1С и инкрементально переиндексирует изменённые файлы
+  # через MCP-серверы:
+  #   .bsl/.os → mcp-code-rag.code_reindex_file        (Qdrant; всегда)
+  #   .bsl     → mcp-metadata-graph.metadata_upsert_file (Neo4j call graph;
+  #              опционально, при METADATA_WATCH_ENABLED=true — 4.6.5)
+  #   .xml     → mcp-metadata-graph.metadata_upsert_file (Neo4j data schema;
+  #              опционально, при METADATA_WATCH_ENABLED=true)
+  #
+  # Про монтирование (4.6.5): watcher монтирует ./workspace в /workspace,
+  # metadata-graph — то же ./workspace, но в /data/1c-xml. Watcher шлёт
+  # абсолютные /workspace-пути; на стороне metadata-graph _norm_rel с
+  # tail-suffix фолбэком распознаёт хвост (CommonModules/X/Ext/Module.bsl
+  # и т.п.) и резолвит независимо от точки монтирования. Поэтому нам не
+  # нужно держать единый путь /data/1c-xml в обоих контейнерах — у
+  # code-rag, например, своя точка /workspace и свой WORKSPACE_DIR.
+  workspace-watcher:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: workspace-watcher
+    command: python /app/workspace_watcher.py
+    volumes:
+      - ./workspace:/workspace:ro
+      - ./1c-config-xml:/data/1c-src:ro       # legacy, для обратной совместимости
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - WATCHER_ENABLED=${WATCHER_ENABLED:-true}
+      - WATCHER_DEBOUNCE_SEC=${WATCHER_DEBOUNCE_SEC:-3}
+      # 4.6.5: ставь true, чтобы .bsl-события фанаутили в metadata-graph
+      # (Neo4j call graph), а .xml — триггерили metadata_upsert_file
+      # (Neo4j data schema). По умолчанию false для совместимости со
+      # стариками, у кого образ mcp-metadata-graph ещё не пересобран.
+      - METADATA_WATCH_ENABLED=${METADATA_WATCH_ENABLED:-false}
+      - WATCH_CODE_DIR=/workspace
+      - WATCH_XML_DIR=/workspace               # ← XML лежит вместе с BSL в ./workspace
+      - CODE_RAG_SSE_URL=http://mcp-code-rag:8011/sse
+      - METADATA_GRAPH_SSE_URL=http://mcp-metadata-graph:8001/sse
+      - WATCHER_INITIAL_DELAY=30
+    depends_on:
+      - mcp-code-rag
+      - code-indexer
+    restart: unless-stopped
+
+  # ══════════════════════════════════════════════════════════════════
+  # Базовые MCP-серверы
+  # ══════════════════════════════════════════════════════════════════
+
+  # ── 1. Граф метаданных (Neo4j + пагинация v2.1) ───────────────────
+  mcp-metadata-graph:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: mcp-metadata-graph
+    command: python /app/start.py metadata-graph
+    ports:
+      - "8001:8001"
+      - "9000:9000"  # дашборд метрик MCP (mcp_metrics)
+    volumes:
+      - mcp-metrics:/data/metrics
+      # 4.6.5: серверу нужна та же выгрузка, что и metadata-indexer'у,
+      # чтобы tools metadata_upsert_file/metadata_remove_file могли
+      # читать .bsl/.xml с диска. Путь /data/1c-xml внутри контейнера
+      # ДОЛЖЕН СОВПАДАТЬ с METADATA_SRC_DIR у indexer'а и с тем абсолютным
+      # путём, который шлёт workspace-watcher (см. там же).
+      - ./workspace:/data/1c-xml:ro
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - NEO4J_URL=http://neo4j:7474
+      - NEO4J_USER=neo4j
+      - NEO4J_PASS=${NEO4J_PASSWORD:?Задайте NEO4J_PASSWORD в .env (см. .env.example)}
+      # 4.6.5: совпадает с METADATA_SRC_DIR у metadata-indexer (выше).
+      # Если значения разойдутся, watcher будет слать пути, которые сервер
+      # не сможет резолвить — _norm_rel вернёт path_outside_src_root.
+      - METADATA_SRC_DIR=/data/1c-xml
+      - METRICS_DASHBOARD=true
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+    depends_on:
+      - neo4j
+      - metadata-indexer
+    restart: unless-stopped
+
+  # ── 2. Проверка синтаксиса BSL (BSL Language Server) ──────────────
+  mcp-bsl-checker:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.bsl
+    container_name: mcp-bsl-checker
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./1c-config-xml:/data/1c-src:ro
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - BSL_LS_JAR=/opt/bsl-language-server/bsl-ls.jar
+      - JAVA_OPTS=-Xmx1g
+    restart: unless-stopped
+
+  # ── 3. Справка по платформе 1С + ГИБРИДНЫЙ поиск по ИТС ───────────
+  # dense (e5) + sparse (BM25) + RRF fusion для коллекции its_articles
+  mcp-platform-help:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.embeddings
+    container_name: mcp-platform-help
+    command: python /app/start.py platform-help
+    ports:
+      - "8003:8003"
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+      - METRICS_DASHBOARD=false
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_COLLECTION=platform_help
+      - ITS_COLLECTION=its_articles
+      - EMBEDDING_MODEL=intfloat/multilingual-e5-base
+      - BM25_MODEL=Qdrant/bm25
+    depends_on:
+      - qdrant
+      - help-indexer
+    volumes:
+      - mcp-metrics:/data/metrics
+    restart: unless-stopped
+
+  # ── 4. 1С:Напарник — проверка логики кода ─────────────────────────
+  mcp-1c-naparnik:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: mcp-1c-naparnik
+    command: python /app/start.py 1c-naparnik
+    ports:
+      - "8007:8007"
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+      - METRICS_DASHBOARD=false
+      - ONEC_AI_TOKEN=${ONEC_AI_TOKEN:-}
+      - HTTP_PROXY=http://host.docker.internal:10809
+      - HTTPS_PROXY=http://host.docker.internal:10809
+      - NO_PROXY=localhost,127.0.0.1
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - mcp-metrics:/data/metrics
+    restart: unless-stopped
+
+  # ── 5. Шаблоны кода 1С ────────────────────────────────────────────
+  mcp-code-templates:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: mcp-code-templates
+    command: python /app/start.py code-templates
+    ports:
+      - "8008:8008"
+    volumes:
+      - mcp-metrics:/data/metrics
+      - ./custom-templates:/data/templates:ro
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+      - METRICS_DASHBOARD=false
+    restart: unless-stopped
+
+  # ══════════════════════════════════════════════════════════════════
+  # v2: Новые MCP-серверы (query-builder, testing, code-rag)
+  # ══════════════════════════════════════════════════════════════════
+
+  # ── 6. Конструктор запросов 1С ────────────────────────────────────
+  mcp-query-builder:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: mcp-query-builder
+    command: python /app/start.py query-builder
+    ports:
+      - "8009:8009"
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+      - METRICS_DASHBOARD=false
+      - NEO4J_URL=http://neo4j:7474
+      - NEO4J_USER=neo4j
+      - NEO4J_PASS=${NEO4J_PASSWORD:?Задайте NEO4J_PASSWORD в .env (см. .env.example)}
+    depends_on:
+      - neo4j
+    volumes:
+      - mcp-metrics:/data/metrics
+    restart: unless-stopped
+
+  # ── 7. Тестирование кода 1С ───────────────────────────────────────
+  mcp-testing:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: mcp-testing
+    command: python /app/start.py testing
+    ports:
+      - "8010:8010"
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+      - METRICS_DASHBOARD=false
+      - NEO4J_URL=http://neo4j:7474
+      - NEO4J_USER=neo4j
+      - NEO4J_PASS=${NEO4J_PASSWORD:?Задайте NEO4J_PASSWORD в .env (см. .env.example)}
+      # ── YAxUnit Runner (опциональный yaxunit-stack, profile=testing) ──
+      - YAXUNIT_URL=${YAXUNIT_URL:-http://onec-server:8019}
+      - YAXUNIT_TIMEOUT=${YAXUNIT_TIMEOUT:-900}
+    depends_on:
+      - neo4j
+    volumes:
+      - mcp-metrics:/data/metrics
+      # ── Shared volume с yaxunit-stack для передачи payload по пути ──
+      # Без base64 в LLM-контексте. Сюда mcp-testing складывает копии
+      # config/ + tests/, и yaxunit-runner читает их по тому же пути.
+      - yaxunit-payloads:/payloads
+      # Workspace OpenCode read-only — чтобы mcp-testing мог скопировать
+      # выгрузки XML из репозитория пользователя в /payloads/<id>/.
+      # Путь /workspace должен совпадать с тем, как видит workspace
+      # сам OpenCode-контейнер (см. сервис opencode выше).
+      - ./workspace:/workspace:ro
+    restart: unless-stopped
+
+  # ── 8. RAG по кодовой базе проекта ────────────────────────────────
+  mcp-code-rag:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.embeddings
+    container_name: mcp-code-rag
+    command: python /app/start.py code-rag
+    ports:
+      - "8011:8011"
+    volumes:
+      - mcp-metrics:/data/metrics
+      - ./workspace:/workspace:ro
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+      - METRICS_DASHBOARD=false
+      - QDRANT_URL=http://qdrant:6333
+      - CODE_COLLECTION=project_code
+      - WORKSPACE_DIR=/workspace
+      - EMBEDDING_MODEL=intfloat/multilingual-e5-base
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+
+  # ══════════════════════════════════════════════════════════════════
+  # v2.1: REST-прокси к живой базе 1С
+  # ══════════════════════════════════════════════════════════════════
+
+  # ── 10. REST-прокси к живой базе 1С (read-only по умолчанию) ──────
+  # ВАЖНО: ONEC_READ_ONLY=true по умолчанию (блокирует POST/PUT/DELETE).
+  # Используйте false ТОЛЬКО с тестовой базой.
+  mcp-rest-proxy:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.python
+    container_name: mcp-rest-proxy
+    command: python /app/start.py rest-proxy
+    ports:
+      - "8013:8013"
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - METRICS_DB=/data/metrics/mcp_metrics.db
+      - METRICS_DASHBOARD=false
+      - ONEC_BASE_URL=${ONEC_BASE_URL:-}
+      - ONEC_USER=${ONEC_USER:-}
+      - ONEC_PASSWORD=${ONEC_PASSWORD:-}
+      - ONEC_READ_ONLY=${ONEC_READ_ONLY:-true}
+      - ONEC_TIMEOUT=${ONEC_TIMEOUT:-30}
+      - ONEC_HTTP_SERVICES_URL=${ONEC_HTTP_SERVICES_URL:-}
+      # Задача 3.3: аудит-лог вызовов tools, ходящих в живую 1С.
+      # По умолчанию включён; лог пишется в volume audit-logs.
+      - REST_PROXY_AUDIT_ENABLED=${REST_PROXY_AUDIT_ENABLED:-true}
+      - REST_PROXY_AUDIT_PATH=/data/audit/rest-proxy.jsonl
+      - REST_PROXY_AUDIT_MAX_BYTES=${REST_PROXY_AUDIT_MAX_BYTES:-10485760}
+      - REST_PROXY_AUDIT_BACKUP_COUNT=${REST_PROXY_AUDIT_BACKUP_COUNT:-5}
+      - REST_PROXY_AUDIT_INCLUDE_BODY=${REST_PROXY_AUDIT_INCLUDE_BODY:-false}
+      - HTTP_PROXY=${HTTP_PROXY:-}
+      - HTTPS_PROXY=${HTTPS_PROXY:-}
+      - NO_PROXY=localhost,127.0.0.1
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - mcp-metrics:/data/metrics
+      - audit-logs:/data/audit
+    restart: unless-stopped
+
+  # ── 11. SonarQube сервер + MCP-обёртка (валидация BSL / 1С) ───────
+  # Официальный образ SonarQube Community. Плагин для 1С BSL можно положить
+  # в volume ./sonar-plugins (sonar-bsl-plugin-community-*.jar с
+  # https://github.com/1c-syntax/sonar-bsl-plugin-community/releases)
+  sonarqube-db:
+    image: postgres:15
+    container_name: sonarqube-db
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+      - POSTGRES_DB=sonar
+    volumes:
+      - sonarqube-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube
+    depends_on:
+      - sonarqube-db
+    ports:
+      - "9001:9000"
+    environment:
+      - SONAR_JDBC_URL=jdbc:postgresql://sonarqube-db:5432/sonar
+      - SONAR_JDBC_USERNAME=sonar
+      - SONAR_JDBC_PASSWORD=sonar
+    volumes:
+      - sonarqube-data:/opt/sonarqube/data
+      - sonarqube-extensions:/opt/sonarqube/extensions
+      - ./sonar-plugins:/opt/sonarqube/extensions/plugins:ro
+    ulimits:
+      nofile: { soft: 65536, hard: 65536 }
+    restart: unless-stopped
+
+  mcp-sonarqube:
+    build:
+      context: ./1c-mcp-suite
+      dockerfile: Dockerfile.sonar
+    container_name: mcp-sonarqube
+    depends_on:
+      - sonarqube
+    ports:
+      - "8014:8014"
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      - SONAR_URL=http://sonarqube:9000
+      - SONAR_TOKEN=${SONAR_TOKEN:-}
+      - SONAR_PROJECT_PREFIX=${SONAR_PROJECT_PREFIX:-1c-agent}
+    volumes:
+      - ./1c-config-xml:/data/1c-src:ro
+    restart: unless-stopped
+
+  # ── Eval-runner (задача 3.4) ──────────────────────────────────────
+  # Поднимается только по запросу: `docker compose --profile evals run --rm eval-runner`.
+  # Ходит в MCP-серверы по docker-DNS (mcp-platform-help:8003 и др.),
+  # отчёты пишет в ./evals/reports через bind-volume.
+  eval-runner:
+    profiles: ["evals"]
+    build:
+      context: ./evals/runner
+    image: mcp-eval-runner
+    container_name: mcp-eval-runner
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+    volumes:
+      - ./evals:/app/evals
+    # command оставлен из Dockerfile (CMD); перезапишется, если передаём
+    # свои аргументы через `docker compose run --rm eval-runner python ...`
+    # (так делает scripts/eval.py).
+    depends_on:
+      - mcp-platform-help
+    restart: "no"
+
+  # ─── Smoke runner (задача 3.5) ─────────────────────────────────────────
+  # Прогоняет scripts/smoke_mcp.py против всех 11 MCP-серверов по
+  # docker-DNS. Не постоянный сервис — поднимается только под профилем
+  # smoke:  docker compose --profile smoke run --rm smoke-runner
+  #
+  # Почему отдельно от eval-runner:
+  # - eval-runner предназначен для прогона eval-датасетов, живёт в ./evals
+  # - smoke-runner проверяет базовую жизнеспособность всех MCP-tool'ов
+  # У них разные цели и разная частота запуска (smoke — после каждого
+  # `compose up`, eval — перед значимыми изменениями в индексации).
+  #
+  # Переиспользуем тот же образ mcp-eval-runner (mcp[cli] + httpx уже
+  # в нём есть — смотри evals/runner/requirements.txt), но монтируем
+  # и scripts/, и evals/runner (smoke_mcp.py импортирует оттуда
+  # MCPSession), и сам mcp-config.json — для санити-чека списка серверов.
+  smoke-runner:
+    profiles: ["smoke"]
+    image: mcp-eval-runner
+    build:
+      context: ./evals/runner
+    container_name: mcp-smoke-runner
+    environment:
+      - MCP_SHARED_SECRET=${MCP_SHARED_SECRET:-}
+      # Внутри docker-network каждый сервер живёт на своём контейнере со
+      # своим именем, не на общем хосте. Флаг говорит smoke_mcp ходить
+      # по именам сервисов (mcp-metadata-graph:8001 и т.д.), а не на
+      # localhost:8001..8014.
+      - MCP_USE_DOCKER_NAMES=1
+    volumes:
+      - ./scripts:/app/scripts:ro
+      - ./evals/runner:/app/evals/runner:ro
+      - ./1c-mcp-suite/mcp-config.json:/app/mcp-config.json:ro
+    # По умолчанию прогоняем полный smoke. Внутри контейнера ходим по
+    # docker-DNS (из-за MCP_USE_DOCKER_NAMES=1), --host игнорируется.
+    command: >
+      python3 /app/scripts/smoke_mcp.py
+      --config /app/mcp-config.json
+    depends_on:
+      - mcp-metadata-graph
+      - mcp-bsl-checker
+      - mcp-platform-help
+      - mcp-1c-naparnik
+      - mcp-code-templates
+      - mcp-query-builder
+      - mcp-testing
+      - mcp-code-rag
+      - mcp-rest-proxy
+      - mcp-sonarqube
+    restart: "no"
+
+volumes:
+  qdrant-data:
+  neo4j-data:
+  mcp-metrics:
+  audit-logs:
+  sonarqube-data:
+  sonarqube-extensions:
+  sonarqube-db-data:
+  # ── Shared volume для интеграции с yaxunit-stack ──
+  # mcp-testing складывает сюда payload (config/ + tests/), раннер 1С
+  # читает по тому же пути. yaxunit-stack/docker-compose.yml импортирует
+  # этот том как external. Явное `name` нужно, чтобы оба compose ссылались
+  # на одну и ту же физическую сущность независимо от COMPOSE_PROJECT_NAME.
+  yaxunit-payloads:
+    name: yaxunit-payloads
+
+# ───────────────────────────────────────────────────────────────────────
+# Общая сеть для интеграции с опциональным yaxunit-stack.
+# yaxunit-stack/docker-compose.yml импортирует её как external и
+# подключает свой сервис `app` под алиасом `onec-server`. Благодаря
+# этому mcp-testing достучится до раннера тестов по DNS-имени.
+# ───────────────────────────────────────────────────────────────────────
+networks:
+  default:
+    name: 1c-suite-net
