@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Ввод новой ставки участника</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Участник" id="14">
+			<DataPath>Участник</DataPath>
+			<ClearButton>true</ClearButton>
+			<CreateButton>false</CreateButton>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+			<ContextMenu name="УчастникКонтекстноеМеню" id="15"/>
+			<ExtendedTooltip name="УчастникРасширеннаяПодсказка" id="16"/>
+			<Events>
+				<Event name="OnChange">УчастникПриИзменении</Event>
+				<Event name="StartChoice">УчастникНачалоВыбора</Event>
+				<Event name="Clearing">УчастникОчистка</Event>
+			</Events>
+		</InputField>
+		<InputField name="КонтактноеЛицо" id="17">
+			<DataPath>КонтактноеЛицо</DataPath>
+			<ClearButton>true</ClearButton>
+			<CreateButton>false</CreateButton>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ChoiceParameterLinks>
+				<xr:Link>
+					<xr:Name>Отбор.Владелец</xr:Name>
+					<xr:DataPath xsi:type="xs:string">Участник</xr:DataPath>
+					<xr:ValueChange>Clear</xr:ValueChange>
+				</xr:Link>
+			</ChoiceParameterLinks>
+			<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+			<ContextMenu name="КонтактноеЛицоКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="КонтактноеЛицоРасширеннаяПодсказка" id="19"/>
+			<Events>
+				<Event name="StartChoice">КонтактноеЛицоНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<Table name="СписокЗначенийСтавки" id="20">
+			<Representation>List</Representation>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>СписокЗначенийСтавки</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокЗначенийСтавкиКонтекстноеМеню" id="21"/>
+			<AutoCommandBar name="СписокЗначенийСтавкиКоманднаяПанель" id="22">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СписокЗначенийСтавкиДобавить" id="44">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.СписокЗначенийСтавки.StandardCommand.Add</CommandName>
+						<ExtendedTooltip name="СписокЗначенийСтавкиДобавитьРасширеннаяПодсказка" id="45"/>
+					</Button>
+					<ButtonGroup name="СписокЗначенийСтавкиГруппа1" id="46">
+						<Representation>Compact</Representation>
+						<ExtendedTooltip name="СписокЗначенийСтавкиГруппа1РасширеннаяПодсказка" id="47"/>
+						<ChildItems>
+							<Button name="СписокЗначенийСтавкиПереместитьВверх" id="48">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СписокЗначенийСтавки.StandardCommand.MoveUp</CommandName>
+								<ExtendedTooltip name="СписокЗначенийСтавкиПереместитьВверхРасширеннаяПодсказка" id="49"/>
+							</Button>
+							<Button name="СписокЗначенийСтавкиПереместитьВниз" id="50">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СписокЗначенийСтавки.StandardCommand.MoveDown</CommandName>
+								<ExtendedTooltip name="СписокЗначенийСтавкиПереместитьВнизРасширеннаяПодсказка" id="51"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокЗначенийСтавкиРасширеннаяПодсказка" id="23"/>
+			<SearchStringAddition name="СписокЗначенийСтавкиСтрокаПоиска" id="24">
+				<AdditionSource>
+					<Item>СписокЗначенийСтавки</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокЗначенийСтавкиСтрокаПоискаКонтекстноеМеню" id="25"/>
+				<ExtendedTooltip name="СписокЗначенийСтавкиСтрокаПоискаРасширеннаяПодсказка" id="26"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокЗначенийСтавкиСостояниеПросмотра" id="27">
+				<AdditionSource>
+					<Item>СписокЗначенийСтавки</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокЗначенийСтавкиСостояниеПросмотраКонтекстноеМеню" id="28"/>
+				<ExtendedTooltip name="СписокЗначенийСтавкиСостояниеПросмотраРасширеннаяПодсказка" id="29"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокЗначенийСтавкиУправлениеПоиском" id="30">
+				<AdditionSource>
+					<Item>СписокЗначенийСтавки</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокЗначенийСтавкиУправлениеПоискомКонтекстноеМеню" id="31"/>
+				<ExtendedTooltip name="СписокЗначенийСтавкиУправлениеПоискомРасширеннаяПодсказка" id="32"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">СписокЗначенийСтавкиПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">СписокЗначенийСтавкиПередУдалением</Event>
+				<Event name="OnStartEdit">СписокЗначенийСтавкиПриНачалеРедактирования</Event>
+			</Events>
+		</Table>
+		<UsualGroup name="НижняяКоманднаяПанель" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нижняя командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="НижняяКоманднаяПанельРасширеннаяПодсказка" id="38"/>
+			<ChildItems>
+				<Button name="Принять" id="42">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Принять</CommandName>
+					<ExtendedTooltip name="ПринятьРасширеннаяПодсказка" id="43"/>
+				</Button>
+				<Button name="Закрыть" id="35">
+					<Type>UsualButton</Type>
+					<Width>8</Width>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="36"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.АукРабочийСтолАукционы</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Участник" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Участник</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.АукУчастникиАукционов</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="КонтактноеЛицо" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контактное лицо</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.АукКонтактныеЛицаУчастниковАукционов</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СписокЗначенийСтавки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список значений ставки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СвязьЭлементовСтавкиСРеквизитами" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Связь элементов ставки с реквизитами</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="НастройкиСтавок" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки ставок</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="РеквизитыСПроверкойЗаполнения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты с проверкой заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="НесколькоЗначенийСтруктурыСтавки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Несколько значений структуры ставки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимОткрытия" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим открытия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Аукцион" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аукцион</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.АукАукционы</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокКонтактныхЛиц" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список контактных лиц</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СписокУчастников" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список участников</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Принять" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Принять</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

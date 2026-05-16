@@ -1,0 +1,3149 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОбщаяКомандаАук_АвтоматическоеВыполнениеФоново" id="503">
+				<Type>CommandBarButton</Type>
+				<CommandName>CommonCommand.Аук_АвтоматическоеВыполнениеФоново</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбщаяКомандаАук_АвтоматическоеВыполнениеФоновоРасширеннаяПодсказка" id="504"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Страницы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnLeftHorizontal</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="2"/>
+			<Events>
+				<Event name="OnCurrentPageChange">СтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="СтраницаНовые" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Новые</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница новые</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНовыеРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<Table name="дсАукционыНовые" id="109">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>дсАукционыНовые</DataPath>
+							<RowPictureDataPath>дсАукционыНовые.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="дсАукционыНовыеКонтекстноеМеню" id="110"/>
+							<AutoCommandBar name="дсАукционыНовыеКоманднаяПанель" id="111">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыНовыеСоздать" id="281">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыНовые.StandardCommand.Create</CommandName>
+										<ExtendedTooltip name="дсАукционыНовыеСоздатьРасширеннаяПодсказка" id="282"/>
+									</Button>
+									<Button name="дсАукционыНовыеСкопировать" id="283">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыНовые.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыНовыеСкопироватьРасширеннаяПодсказка" id="284"/>
+									</Button>
+									<Button name="дсАукционыНовыеСписокНовыеПеревестиВРаботу" id="140">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокНовыеПеревестиВРаботу</CommandName>
+										<ExtendedTooltip name="дсАукционыНовыеСписокНовыеПеревестиВРаботуРасширеннаяПодсказка" id="141"/>
+									</Button>
+									<Button name="дсАукционыНовыеОтборПоТекущемуПользователю" id="142">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокНовыеОтборПоТекущемуПользователю</CommandName>
+										<ExtendedTooltip name="дсАукционыНовыеОтборПоТекущемуПользователюРасширеннаяПодсказка" id="143"/>
+									</Button>
+									<Button name="дсАукционыНовыеНастройкаСписка" id="291">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.дсАукционыНовые.StandardCommand.ListSettings</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.CustomizeList</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыНовыеНастройкаСпискаРасширеннаяПодсказка" id="292"/>
+									</Button>
+									<SearchStringAddition name="АукционыНовыеСтрокаПоиска" id="285">
+										<AdditionSource>
+											<Item>дсАукционыНовые</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы новые строка поиска</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыНовыеСтрокаПоискаКонтекстноеМеню" id="286"/>
+										<ExtendedTooltip name="АукционыНовыеСтрокаПоискаРасширеннаяПодсказка" id="287"/>
+									</SearchStringAddition>
+									<SearchControlAddition name="АукционыНовыеУправлениеПоиском" id="288">
+										<AdditionSource>
+											<Item>дсАукционыНовые</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы новые управление поиском</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыНовыеУправлениеПоискомКонтекстноеМеню" id="289"/>
+										<ExtendedTooltip name="АукционыНовыеУправлениеПоискомРасширеннаяПодсказка" id="290"/>
+									</SearchControlAddition>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="дсАукционыНовыеРасширеннаяПодсказка" id="112"/>
+							<SearchStringAddition name="дсАукционыНовыеСтрокаПоиска" id="113">
+								<AdditionSource>
+									<Item>дсАукционыНовые</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыНовыеСтрокаПоискаКонтекстноеМеню" id="114"/>
+								<ExtendedTooltip name="дсАукционыНовыеСтрокаПоискаРасширеннаяПодсказка" id="115"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="дсАукционыНовыеСостояниеПросмотра" id="116">
+								<AdditionSource>
+									<Item>дсАукционыНовые</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыНовыеСостояниеПросмотраКонтекстноеМеню" id="117"/>
+								<ExtendedTooltip name="дсАукционыНовыеСостояниеПросмотраРасширеннаяПодсказка" id="118"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="дсАукционыНовыеУправлениеПоиском" id="119">
+								<AdditionSource>
+									<Item>дсАукционыНовые</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыНовыеУправлениеПоискомКонтекстноеМеню" id="120"/>
+								<ExtendedTooltip name="дсАукционыНовыеУправлениеПоискомРасширеннаяПодсказка" id="121"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="дсАукционыНовыеКод" id="411">
+									<DataPath>дсАукционыНовые.Код</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>1</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="дсАукционыНовыеКодКонтекстноеМеню" id="412"/>
+									<ExtendedTooltip name="дсАукционыНовыеКодРасширеннаяПодсказка" id="413"/>
+								</LabelField>
+								<LabelField name="дсАукционыНовыеАукцион" id="128">
+									<DataPath>дсАукционыНовые.Аукцион</DataPath>
+									<ContextMenu name="дсАукционыНовыеАукционКонтекстноеМеню" id="129"/>
+									<ExtendedTooltip name="дсАукционыНовыеАукционРасширеннаяПодсказка" id="130"/>
+								</LabelField>
+								<LabelField name="дсАукционыНовыеСумма" id="181">
+									<DataPath>дсАукционыНовые.Сумма</DataPath>
+									<ContextMenu name="дсАукционыНовыеСуммаКонтекстноеМеню" id="182"/>
+									<ExtendedTooltip name="дсАукционыНовыеСуммаРасширеннаяПодсказка" id="183"/>
+								</LabelField>
+								<LabelField name="дсАукционыНовыеВидАукциона" id="131">
+									<DataPath>дсАукционыНовые.ВидАукциона</DataPath>
+									<ContextMenu name="дсАукционыНовыеВидАукционаКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="дсАукционыНовыеВидАукционаРасширеннаяПодсказка" id="133"/>
+								</LabelField>
+								<LabelField name="дсАукционыНовыеДатаНачала" id="134">
+									<DataPath>дсАукционыНовые.ДатаНачала</DataPath>
+									<ContextMenu name="дсАукционыНовыеДатаНачалаКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="дсАукционыНовыеДатаНачалаРасширеннаяПодсказка" id="136"/>
+								</LabelField>
+								<LabelField name="дсАукционыНовыеАвтор" id="122">
+									<DataPath>дсАукционыНовые.Автор</DataPath>
+									<ContextMenu name="дсАукционыНовыеАвторКонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="дсАукционыНовыеАвторРасширеннаяПодсказка" id="124"/>
+								</LabelField>
+								<LabelField name="дсАукционыНовыеДатаСоздания" id="137">
+									<DataPath>дсАукционыНовые.ДатаСоздания</DataPath>
+									<ContextMenu name="дсАукционыНовыеДатаСозданияКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="дсАукционыНовыеДатаСозданияРасширеннаяПодсказка" id="139"/>
+								</LabelField>
+								<LabelField name="дсАукционыНовыеАвторИзменения" id="125">
+									<DataPath>дсАукционыНовые.АвторИзменения</DataPath>
+									<ContextMenu name="дсАукционыНовыеАвторИзмененияКонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="дсАукционыНовыеАвторИзмененияРасширеннаяПодсказка" id="127"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаВРаботе" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В работе</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница в работе</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаВРаботеРасширеннаяПодсказка" id="22"/>
+					<ChildItems>
+						<Table name="дсАукционыВРаботе" id="144">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>дсАукционыВРаботе</DataPath>
+							<RowPictureDataPath>дсАукционыВРаботе.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="дсАукционыВРаботеКонтекстноеМеню" id="145">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыВРаботеКонтекстноеМенюСкопировать" id="307">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюСкопироватьРасширеннаяПодсказка" id="308"/>
+									</Button>
+									<Button name="дсАукционыВРаботеКонтекстноеМенюИзменить" id="309">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.Change</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="310"/>
+									</Button>
+									<Button name="дсАукционыВРаботеКонтекстноеМенюПоискПоТекущемуЗначению" id="311">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.FindByCurrentValue</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="312"/>
+									</Button>
+									<Button name="дсАукционыВРаботеКонтекстноеМенюНайти" id="313">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.Find</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюНайтиРасширеннаяПодсказка" id="314"/>
+									</Button>
+									<Button name="дсАукционыВРаботеКонтекстноеМенюОтменитьПоиск" id="315">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.CancelSearch</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="316"/>
+									</Button>
+									<Button name="дсАукционыВРаботеКонтекстноеМенюПолучитьНавигационнуюСсылку" id="317">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.GetURL</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюПолучитьНавигационнуюСсылкуРасширеннаяПодсказка" id="318"/>
+									</Button>
+									<ButtonGroup name="дсАукционыВРаботеКонтекстноеМенюГруппа" id="319">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Дс аукционы в работе контекстное меню группа</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Дс аукционы в работе контекстное меню группа</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюГруппаРасширеннаяПодсказка" id="320"/>
+										<ChildItems>
+											<Button name="дсАукционыВРаботеКонтекстноеМенюКопироватьВБуферОбмена" id="321">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.CopyToClipboard</CommandName>
+												<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="322"/>
+											</Button>
+											<Button name="дсАукционыВРаботеКонтекстноеМенюНайтиВезде" id="323">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.SearchEverywhere</CommandName>
+												<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="324"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="дсАукционыВРаботеКонтекстноеМенюГруппа1" id="505">
+										<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="506"/>
+										<ChildItems>
+											<Button name="дсАукционыВРаботеКонтекстноеМенюОткрытьИсториюСтавокПоСтроке" id="507">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьИсториюСтавокПоСтроке</CommandName>
+												<ExtendedTooltip name="дсАукционыВРаботеКонтекстноеМенюОткрытьИсториюСтавокПоСтрокеРасширеннаяПодсказка" id="508"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="дсАукционыВРаботеКоманднаяПанель" id="146">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыВРаботеСкопировать" id="305">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.Copy</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыВРаботеСкопироватьРасширеннаяПодсказка" id="306"/>
+									</Button>
+									<Button name="дсАукционыВРаботеОтборПоТекущемуПользователю" id="187">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокВРаботеОтборПоТекущемуПользователю</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыВРаботеОтборПоТекущемуПользователюРасширеннаяПодсказка" id="188"/>
+									</Button>
+									<Button name="дсАукционыВРаботеНастройкаСписка" id="396">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.дсАукционыВРаботе.StandardCommand.ListSettings</CommandName>
+										<RepresentationInContextMenu>OnlyInContextMenu</RepresentationInContextMenu>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыВРаботеНастройкаСпискаРасширеннаяПодсказка" id="397"/>
+									</Button>
+									<Button name="дсАукционыВРаботеСписокВРаботеПодведениеПромежуточныхИтогов" id="337">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокВРаботеПодведениеПромежуточныхИтогов</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеПодведениеПромежуточныхИтоговРасширеннаяПодсказка" id="338"/>
+									</Button>
+									<Button name="дсАукционыВРаботеСписокВРаботеПерейтиКРасчетуПромежуточныхИтогов" id="523">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокВРаботеПерейтиКРасчетуПромежуточныхИтогов</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеПерейтиКРасчетуПромежуточныхИтоговРасширеннаяПодсказка" id="524"/>
+									</Button>
+									<Button name="дсАукционыВРаботеСписокВРаботеПерейтиКРасчетуОкончательныхИтогов" id="525">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокВРаботеПерейтиКРасчетуОкончательныхИтогов</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеПерейтиКРасчетуОкончательныхИтоговРасширеннаяПодсказка" id="526"/>
+									</Button>
+									<Popup name="дсАукционыВРаботеГруппаПолучениеДанныхОтУчастника" id="593">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Данные от участника</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Дс аукционы в работе группа получение данных от участника</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="дсАукционыВРаботеГруппаПолучениеДанныхОтУчастникаРасширеннаяПодсказка" id="594"/>
+										<ChildItems>
+											<Button name="дсАукционыВРаботеСписокВРаботеВводНовойСтавки" id="325">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СписокВРаботеВводНовойСтавки</CommandName>
+												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+												<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеВводНовойСтавкиРасширеннаяПодсказка" id="326"/>
+											</Button>
+											<Button name="дсАукционыВРаботеСписокВРаботеВводИнформацииОбОтказеОтУчастия" id="329">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СписокВРаботеВводИнформацииОбОтказеОтУчастия</CommandName>
+												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+												<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеВводИнформацииОбОтказеОтУчастияРасширеннаяПодсказка" id="330"/>
+											</Button>
+											<Button name="дсАукционыВРаботеСписокВРаботеВводИнформационногоСообщения" id="331">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СписокВРаботеВводИнформационногоСообщения</CommandName>
+												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+												<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеВводИнформационногоСообщенияРасширеннаяПодсказка" id="332"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Button name="дсАукционыВРаботеСписокВРаботеОтправитьСообщениеУчастникам" id="333">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокВРаботеОтправитьСообщениеУчастникам</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеОтправитьСообщениеУчастникамРасширеннаяПодсказка" id="334"/>
+									</Button>
+									<Button name="дсАукционыВРаботеСписокВРаботеОтменитьАукцион" id="527">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокВРаботеОтменитьАукцион</CommandName>
+										<ExtendedTooltip name="дсАукционыВРаботеСписокВРаботеОтменитьАукционРасширеннаяПодсказка" id="528"/>
+									</Button>
+									<SearchStringAddition name="АукционыВРаботеСтрокаПоиска" id="293">
+										<AdditionSource>
+											<Item>дсАукционыВРаботе</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы в работе строка поиска</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыВРаботеСтрокаПоискаКонтекстноеМеню" id="294"/>
+										<ExtendedTooltip name="АукционыВРаботеСтрокаПоискаРасширеннаяПодсказка" id="295"/>
+									</SearchStringAddition>
+									<SearchControlAddition name="АукционыВРаботеУправлениеПоиском" id="365">
+										<AdditionSource>
+											<Item>дсАукционыВРаботе</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы в работе управление поиском</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыВРаботеУправлениеПоискомКонтекстноеМеню" id="366"/>
+										<ExtendedTooltip name="АукционыВРаботеУправлениеПоискомРасширеннаяПодсказка" id="367"/>
+									</SearchControlAddition>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="дсАукционыВРаботеРасширеннаяПодсказка" id="147"/>
+							<SearchStringAddition name="дсАукционыВРаботеСтрокаПоиска" id="148">
+								<AdditionSource>
+									<Item>дсАукционыВРаботе</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыВРаботеСтрокаПоискаКонтекстноеМеню" id="149"/>
+								<ExtendedTooltip name="дсАукционыВРаботеСтрокаПоискаРасширеннаяПодсказка" id="150"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="дсАукционыВРаботеСостояниеПросмотра" id="151">
+								<AdditionSource>
+									<Item>дсАукционыВРаботе</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыВРаботеСостояниеПросмотраКонтекстноеМеню" id="152"/>
+								<ExtendedTooltip name="дсАукционыВРаботеСостояниеПросмотраРасширеннаяПодсказка" id="153"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="дсАукционыВРаботеУправлениеПоиском" id="154">
+								<AdditionSource>
+									<Item>дсАукционыВРаботе</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыВРаботеУправлениеПоискомКонтекстноеМеню" id="155"/>
+								<ExtendedTooltip name="дсАукционыВРаботеУправлениеПоискомРасширеннаяПодсказка" id="156"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">дсАукционыВРаботеВыбор</Event>
+								<Event name="BeforeAddRow">дсАукционыВРаботеПередНачаломДобавления</Event>
+								<Event name="OnActivateRow">дсАукционыВРаботеПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="дсАукционыВРаботеКод" id="414">
+									<DataPath>дсАукционыВРаботе.Код</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>3</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="дсАукционыВРаботеКодКонтекстноеМеню" id="415"/>
+									<ExtendedTooltip name="дсАукционыВРаботеКодРасширеннаяПодсказка" id="416"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеАукцион" id="163">
+									<DataPath>дсАукционыВРаботе.Аукцион</DataPath>
+									<ContextMenu name="дсАукционыВРаботеАукционКонтекстноеМеню" id="164"/>
+									<ExtendedTooltip name="дсАукционыВРаботеАукционРасширеннаяПодсказка" id="165"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеВидАукциона" id="166">
+									<DataPath>дсАукционыВРаботе.ВидАукциона</DataPath>
+									<ContextMenu name="дсАукционыВРаботеВидАукционаКонтекстноеМеню" id="167"/>
+									<ExtendedTooltip name="дсАукционыВРаботеВидАукционаРасширеннаяПодсказка" id="168"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеДатаНачала" id="169">
+									<DataPath>дсАукционыВРаботе.ДатаНачала</DataPath>
+									<ContextMenu name="дсАукционыВРаботеДатаНачалаКонтекстноеМеню" id="170"/>
+									<ExtendedTooltip name="дсАукционыВРаботеДатаНачалаРасширеннаяПодсказка" id="171"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеАвтор" id="157">
+									<DataPath>дсАукционыВРаботе.Автор</DataPath>
+									<ContextMenu name="дсАукционыВРаботеАвторКонтекстноеМеню" id="158"/>
+									<ExtendedTooltip name="дсАукционыВРаботеАвторРасширеннаяПодсказка" id="159"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеДатаСоздания" id="172">
+									<DataPath>дсАукционыВРаботе.ДатаСоздания</DataPath>
+									<ContextMenu name="дсАукционыВРаботеДатаСозданияКонтекстноеМеню" id="173"/>
+									<ExtendedTooltip name="дсАукционыВРаботеДатаСозданияРасширеннаяПодсказка" id="174"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеАвторИзменения" id="160">
+									<DataPath>дсАукционыВРаботе.АвторИзменения</DataPath>
+									<ContextMenu name="дсАукционыВРаботеАвторИзмененияКонтекстноеМеню" id="161"/>
+									<ExtendedTooltip name="дсАукционыВРаботеАвторИзмененияРасширеннаяПодсказка" id="162"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеСтатус" id="175">
+									<DataPath>дсАукционыВРаботе.Статус</DataPath>
+									<ContextMenu name="дсАукционыВРаботеСтатусКонтекстноеМеню" id="176"/>
+									<ExtendedTooltip name="дсАукционыВРаботеСтатусРасширеннаяПодсказка" id="177"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеТекущийЭтапПредставление" id="184">
+									<DataPath>~дсАукционыВРаботе.ТекущийЭтапПредставление</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Этап</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="дсАукционыВРаботеТекущийЭтапПредставлениеКонтекстноеМеню" id="185"/>
+									<ExtendedTooltip name="дсАукционыВРаботеТекущийЭтапПредставлениеРасширеннаяПодсказка" id="186"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеЭтап" id="178">
+									<DataPath>дсАукционыВРаботе.Этап</DataPath>
+									<Width>15</Width>
+									<ContextMenu name="дсАукционыВРаботеЭтапКонтекстноеМеню" id="179"/>
+									<ExtendedTooltip name="дсАукционыВРаботеЭтапРасширеннаяПодсказка" id="180"/>
+								</LabelField>
+								<LabelField name="дсАукционыВРаботеПрогресс" id="401">
+									<DataPath>дсАукционыВРаботе.Прогресс</DataPath>
+									<Width>8</Width>
+									<ContextMenu name="дсАукционыВРаботеПрогрессКонтекстноеМеню" id="402"/>
+									<ExtendedTooltip name="дсАукционыВРаботеПрогрессРасширеннаяПодсказка" id="403"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПодведениеИтогов" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подведение итогов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница подведение итогов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПодведениеИтоговРасширеннаяПодсказка" id="40"/>
+					<ChildItems>
+						<Table name="дсАукционыПодведениеИтогов" id="189">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>дсАукционыПодведениеИтогов</DataPath>
+							<RowPictureDataPath>дсАукционыПодведениеИтогов.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="дсАукционыПодведениеИтоговКонтекстноеМеню" id="190">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюСкопировать" id="341">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюСкопироватьРасширеннаяПодсказка" id="342"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюПоискПоТекущемуЗначению" id="343">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.FindByCurrentValue</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="344"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюНайти" id="345">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.Find</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюНайтиРасширеннаяПодсказка" id="346"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюОтменитьПоиск" id="347">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.CancelSearch</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="348"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюПолучитьНавигационнуюСсылку" id="349">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.GetURL</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюПолучитьНавигационнуюСсылкуРасширеннаяПодсказка" id="350"/>
+									</Button>
+									<ButtonGroup name="дсАукционыПодведениеИтоговКонтекстноеМенюГруппа1" id="351">
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="352"/>
+										<ChildItems>
+											<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюКопироватьВБуферОбмена" id="353">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.CopyToClipboard</CommandName>
+												<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="354"/>
+											</Button>
+											<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюНайтиВезде" id="355">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.SearchEverywhere</CommandName>
+												<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="356"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="дсАукционыПодведениеИтоговКонтекстноеМенюГруппа2" id="509">
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюГруппа2РасширеннаяПодсказка" id="510"/>
+										<ChildItems>
+											<Button name="дсАукционыПодведениеИтоговКонтекстноеМенюОткрытьИсториюСтавокПоСтроке" id="511">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьИсториюСтавокПоСтроке</CommandName>
+												<ExtendedTooltip name="дсАукционыПодведениеИтоговКонтекстноеМенюОткрытьИсториюСтавокПоСтрокеРасширеннаяПодсказка" id="512"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="дсАукционыПодведениеИтоговКоманднаяПанель" id="191">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыПодведениеИтоговСкопировать" id="339">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговСкопироватьРасширеннаяПодсказка" id="340"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговОтборПоТекущемуПользователю" id="229">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокПодведениеИтоговОтборПоТекущемуПользователю</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговОтборПоТекущемуПользователюРасширеннаяПодсказка" id="230"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговНастройкаСписка" id="357">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.дсАукционыПодведениеИтогов.StandardCommand.ListSettings</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговНастройкаСпискаРасширеннаяПодсказка" id="358"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговСписокПодведениеИтогов2" id="404">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокПодведениеИтогов2</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Подведение итогов</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговСписокПодведениеИтогов2РасширеннаяПодсказка" id="405"/>
+									</Button>
+									<Button name="дсАукционыПодведениеИтоговСписокПодведениеИтоговОтправитьСообщениеУчастникам" id="521">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокПодведениеИтоговОтправитьСообщениеУчастникам</CommandName>
+										<ExtendedTooltip name="дсАукционыПодведениеИтоговСписокПодведениеИтоговОтправитьСообщениеУчастникамРасширеннаяПодсказка" id="522"/>
+									</Button>
+									<SearchStringAddition name="АукционыПодведениеИтоговСтрокаПоиска" id="359">
+										<AdditionSource>
+											<Item>дсАукционыПодведениеИтогов</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы подведение итогов строка поиска</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыПодведениеИтоговСтрокаПоискаКонтекстноеМеню" id="360"/>
+										<ExtendedTooltip name="АукционыПодведениеИтоговСтрокаПоискаРасширеннаяПодсказка" id="361"/>
+									</SearchStringAddition>
+									<SearchControlAddition name="АукционыПодведениеИтоговУправлениеПоиском" id="362">
+										<AdditionSource>
+											<Item>дсАукционыПодведениеИтогов</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы подведение итогов управление поиском</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыПодведениеИтоговУправлениеПоискомКонтекстноеМеню" id="363"/>
+										<ExtendedTooltip name="АукционыПодведениеИтоговУправлениеПоискомРасширеннаяПодсказка" id="364"/>
+									</SearchControlAddition>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="дсАукционыПодведениеИтоговРасширеннаяПодсказка" id="192"/>
+							<SearchStringAddition name="дсАукционыПодведениеИтоговСтрокаПоиска" id="193">
+								<AdditionSource>
+									<Item>дсАукционыПодведениеИтогов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыПодведениеИтоговСтрокаПоискаКонтекстноеМеню" id="194"/>
+								<ExtendedTooltip name="дсАукционыПодведениеИтоговСтрокаПоискаРасширеннаяПодсказка" id="195"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="дсАукционыПодведениеИтоговСостояниеПросмотра" id="196">
+								<AdditionSource>
+									<Item>дсАукционыПодведениеИтогов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыПодведениеИтоговСостояниеПросмотраКонтекстноеМеню" id="197"/>
+								<ExtendedTooltip name="дсАукционыПодведениеИтоговСостояниеПросмотраРасширеннаяПодсказка" id="198"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="дсАукционыПодведениеИтоговУправлениеПоиском" id="199">
+								<AdditionSource>
+									<Item>дсАукционыПодведениеИтогов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыПодведениеИтоговУправлениеПоискомКонтекстноеМеню" id="200"/>
+								<ExtendedTooltip name="дсАукционыПодведениеИтоговУправлениеПоискомРасширеннаяПодсказка" id="201"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">дсАукционыПодведениеИтоговВыбор</Event>
+								<Event name="BeforeAddRow">дсАукционыПодведениеИтоговПередНачаломДобавления</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="дсАукционыПодведениеИтоговКод" id="417">
+									<DataPath>дсАукционыПодведениеИтогов.Код</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>3</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="дсАукционыПодведениеИтоговКодКонтекстноеМеню" id="418"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговКодРасширеннаяПодсказка" id="419"/>
+								</LabelField>
+								<LabelField name="дсАукционыПодведениеИтоговАукцион" id="208">
+									<DataPath>дсАукционыПодведениеИтогов.Аукцион</DataPath>
+									<ContextMenu name="дсАукционыПодведениеИтоговАукционКонтекстноеМеню" id="209"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговАукционРасширеннаяПодсказка" id="210"/>
+								</LabelField>
+								<LabelField name="дсАукционыПодведениеИтоговВидАукциона" id="211">
+									<DataPath>дсАукционыПодведениеИтогов.ВидАукциона</DataPath>
+									<ContextMenu name="дсАукционыПодведениеИтоговВидАукционаКонтекстноеМеню" id="212"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговВидАукционаРасширеннаяПодсказка" id="213"/>
+								</LabelField>
+								<LabelField name="дсАукционыПодведениеИтоговСумма" id="223">
+									<DataPath>дсАукционыПодведениеИтогов.Сумма</DataPath>
+									<ContextMenu name="дсАукционыПодведениеИтоговСуммаКонтекстноеМеню" id="224"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговСуммаРасширеннаяПодсказка" id="225"/>
+								</LabelField>
+								<LabelField name="дсАукционыПодведениеИтоговДатаНачала" id="214">
+									<DataPath>дсАукционыПодведениеИтогов.ДатаНачала</DataPath>
+									<ContextMenu name="дсАукционыПодведениеИтоговДатаНачалаКонтекстноеМеню" id="215"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговДатаНачалаРасширеннаяПодсказка" id="216"/>
+								</LabelField>
+								<LabelField name="дсАукционыПодведениеИтоговАвтор" id="202">
+									<DataPath>дсАукционыПодведениеИтогов.Автор</DataPath>
+									<ContextMenu name="дсАукционыПодведениеИтоговАвторКонтекстноеМеню" id="203"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговАвторРасширеннаяПодсказка" id="204"/>
+								</LabelField>
+								<LabelField name="дсАукционыПодведениеИтоговДатаСоздания" id="217">
+									<DataPath>дсАукционыПодведениеИтогов.ДатаСоздания</DataPath>
+									<ContextMenu name="дсАукционыПодведениеИтоговДатаСозданияКонтекстноеМеню" id="218"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговДатаСозданияРасширеннаяПодсказка" id="219"/>
+								</LabelField>
+								<LabelField name="дсАукционыПодведениеИтоговАвторИзменения" id="205">
+									<DataPath>дсАукционыПодведениеИтогов.АвторИзменения</DataPath>
+									<ContextMenu name="дсАукционыПодведениеИтоговАвторИзмененияКонтекстноеМеню" id="206"/>
+									<ExtendedTooltip name="дсАукционыПодведениеИтоговАвторИзмененияРасширеннаяПодсказка" id="207"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЗавершенные" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Завершенные</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница завершенные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЗавершенныеРасширеннаяПодсказка" id="58"/>
+					<ChildItems>
+						<Table name="дсАукционыЗавершенные" id="231">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>дсАукционыЗавершенные</DataPath>
+							<RowPictureDataPath>дсАукционыЗавершенные.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="дсАукционыЗавершенныеКонтекстноеМеню" id="232">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыЗавершенныеКонтекстноеМенюСкопировать" id="380">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюСкопироватьРасширеннаяПодсказка" id="381"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеКонтекстноеМенюПоискПоТекущемуЗначению" id="382">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.FindByCurrentValue</CommandName>
+										<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="383"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеКонтекстноеМенюНайти" id="384">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.Find</CommandName>
+										<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюНайтиРасширеннаяПодсказка" id="385"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеКонтекстноеМенюОтменитьПоиск" id="386">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.CancelSearch</CommandName>
+										<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="387"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеКонтекстноеМенюПолучитьНавигационнуюСсылку" id="388">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.GetURL</CommandName>
+										<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюПолучитьНавигационнуюСсылкуРасширеннаяПодсказка" id="389"/>
+									</Button>
+									<ButtonGroup name="дсАукционыЗавершенныеКонтекстноеМенюГруппа1" id="390">
+										<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="391"/>
+										<ChildItems>
+											<Button name="дсАукционыЗавершенныеКонтекстноеМенюКопироватьВБуферОбмена" id="392">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.CopyToClipboard</CommandName>
+												<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="393"/>
+											</Button>
+											<Button name="дсАукционыЗавершенныеКонтекстноеМенюНайтиВезде" id="394">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.SearchEverywhere</CommandName>
+												<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="395"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="дсАукционыЗавершенныеКонтекстноеМенюГруппа2" id="513">
+										<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюГруппа2РасширеннаяПодсказка" id="514"/>
+										<ChildItems>
+											<Button name="дсАукционыЗавершенныеКонтекстноеМенюОткрытьИсториюСтавокПоСтроке" id="515">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьИсториюСтавокПоСтроке</CommandName>
+												<ExtendedTooltip name="дсАукционыЗавершенныеКонтекстноеМенюОткрытьИсториюСтавокПоСтрокеРасширеннаяПодсказка" id="516"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="дсАукционыЗавершенныеКоманднаяПанель" id="233">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыЗавершенныеСкопировать" id="370">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.Copy</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыЗавершенныеСкопироватьРасширеннаяПодсказка" id="371"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеОтборПоТекущемуПользователю" id="271">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокЗавершенныеОтборПоТекущемуПользователю</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыЗавершенныеОтборПоТекущемуПользователюРасширеннаяПодсказка" id="272"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеНастройкаСписка" id="372">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.дсАукционыЗавершенные.StandardCommand.ListSettings</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыЗавершенныеНастройкаСпискаРасширеннаяПодсказка" id="373"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеСписокЗавершенныеПоказатьИтоги" id="406">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокЗавершенныеПоказатьИтоги</CommandName>
+										<ExtendedTooltip name="дсАукционыЗавершенныеСписокЗавершенныеПоказатьИтогиРасширеннаяПодсказка" id="407"/>
+									</Button>
+									<Button name="дсАукционыЗавершенныеСписокЗавершенныеВАрхив" id="468">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокЗавершенныеВАрхив</CommandName>
+										<ExtendedTooltip name="дсАукционыЗавершенныеСписокЗавершенныеВАрхивРасширеннаяПодсказка" id="469"/>
+									</Button>
+									<SearchStringAddition name="АукционыЗавершенныеСтрокаПоиска" id="374">
+										<AdditionSource>
+											<Item>дсАукционыЗавершенные</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы завершенные строка поиска</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыЗавершенныеСтрокаПоискаКонтекстноеМеню" id="375"/>
+										<ExtendedTooltip name="АукционыЗавершенныеСтрокаПоискаРасширеннаяПодсказка" id="376"/>
+									</SearchStringAddition>
+									<SearchControlAddition name="АукционыЗавершенныеУправлениеПоиском" id="377">
+										<AdditionSource>
+											<Item>дсАукционыЗавершенные</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы завершенные управление поиском</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыЗавершенныеУправлениеПоискомКонтекстноеМеню" id="378"/>
+										<ExtendedTooltip name="АукционыЗавершенныеУправлениеПоискомРасширеннаяПодсказка" id="379"/>
+									</SearchControlAddition>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="дсАукционыЗавершенныеРасширеннаяПодсказка" id="234"/>
+							<SearchStringAddition name="дсАукционыЗавершенныеСтрокаПоиска" id="235">
+								<AdditionSource>
+									<Item>дсАукционыЗавершенные</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыЗавершенныеСтрокаПоискаКонтекстноеМеню" id="236"/>
+								<ExtendedTooltip name="дсАукционыЗавершенныеСтрокаПоискаРасширеннаяПодсказка" id="237"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="дсАукционыЗавершенныеСостояниеПросмотра" id="238">
+								<AdditionSource>
+									<Item>дсАукционыЗавершенные</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыЗавершенныеСостояниеПросмотраКонтекстноеМеню" id="239"/>
+								<ExtendedTooltip name="дсАукционыЗавершенныеСостояниеПросмотраРасширеннаяПодсказка" id="240"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="дсАукционыЗавершенныеУправлениеПоиском" id="241">
+								<AdditionSource>
+									<Item>дсАукционыЗавершенные</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыЗавершенныеУправлениеПоискомКонтекстноеМеню" id="242"/>
+								<ExtendedTooltip name="дсАукционыЗавершенныеУправлениеПоискомРасширеннаяПодсказка" id="243"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">дсАукционыЗавершенныеПередНачаломДобавления</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="дсАукционыЗавершенныеКод" id="420">
+									<DataPath>дсАукционыЗавершенные.Код</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>3</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="дсАукционыЗавершенныеКодКонтекстноеМеню" id="421"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеКодРасширеннаяПодсказка" id="422"/>
+								</LabelField>
+								<LabelField name="дсАукционыЗавершенныеАукцион" id="250">
+									<DataPath>дсАукционыЗавершенные.Аукцион</DataPath>
+									<ContextMenu name="дсАукционыЗавершенныеАукционКонтекстноеМеню" id="251"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеАукционРасширеннаяПодсказка" id="252"/>
+								</LabelField>
+								<LabelField name="дсАукционыЗавершенныеВидАукциона" id="253">
+									<DataPath>дсАукционыЗавершенные.ВидАукциона</DataPath>
+									<ContextMenu name="дсАукционыЗавершенныеВидАукционаКонтекстноеМеню" id="254"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеВидАукционаРасширеннаяПодсказка" id="255"/>
+								</LabelField>
+								<LabelField name="дсАукционыЗавершенныеСуммаНачальная" id="408">
+									<DataPath>дсАукционыЗавершенные.СуммаНачальная</DataPath>
+									<ContextMenu name="дсАукционыЗавершенныеСуммаНачальнаяКонтекстноеМеню" id="409"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеСуммаНачальнаяРасширеннаяПодсказка" id="410"/>
+								</LabelField>
+								<LabelField name="дсАукционыЗавершенныеДатаНачала" id="256">
+									<DataPath>дсАукционыЗавершенные.ДатаНачала</DataPath>
+									<ContextMenu name="дсАукционыЗавершенныеДатаНачалаКонтекстноеМеню" id="257"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеДатаНачалаРасширеннаяПодсказка" id="258"/>
+								</LabelField>
+								<LabelField name="дсАукционыЗавершенныеАвтор" id="244">
+									<DataPath>дсАукционыЗавершенные.Автор</DataPath>
+									<ContextMenu name="дсАукционыЗавершенныеАвторКонтекстноеМеню" id="245"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеАвторРасширеннаяПодсказка" id="246"/>
+								</LabelField>
+								<LabelField name="дсАукционыЗавершенныеДатаСоздания" id="259">
+									<DataPath>дсАукционыЗавершенные.ДатаСоздания</DataPath>
+									<ContextMenu name="дсАукционыЗавершенныеДатаСозданияКонтекстноеМеню" id="260"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеДатаСозданияРасширеннаяПодсказка" id="261"/>
+								</LabelField>
+								<LabelField name="дсАукционыЗавершенныеАвторИзменения" id="247">
+									<DataPath>дсАукционыЗавершенные.АвторИзменения</DataPath>
+									<ContextMenu name="дсАукционыЗавершенныеАвторИзмененияКонтекстноеМеню" id="248"/>
+									<ExtendedTooltip name="дсАукционыЗавершенныеАвторИзмененияРасширеннаяПодсказка" id="249"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОтмененные" id="529">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отмененные</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отмененные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаОтмененныеРасширеннаяПодсказка" id="530"/>
+					<ChildItems>
+						<Table name="дсАукционыОтмененные" id="531">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>дсАукционыОтмененные</DataPath>
+							<RowPictureDataPath>дсАукционыОтмененные.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="дсАукционыОтмененныеКонтекстноеМеню" id="532">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыОтмененныеКонтекстноеМенюСкопировать" id="583">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыОтмененные.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыОтмененныеКонтекстноеМенюСкопироватьРасширеннаяПодсказка" id="584"/>
+									</Button>
+									<Button name="дсАукционыОтмененныеКонтекстноеМенюПоискПоТекущемуЗначению" id="585">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыОтмененные.StandardCommand.FindByCurrentValue</CommandName>
+										<ExtendedTooltip name="дсАукционыОтмененныеКонтекстноеМенюПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="586"/>
+									</Button>
+									<Button name="дсАукционыОтмененныеКонтекстноеМенюНайти" id="589">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыОтмененные.StandardCommand.Find</CommandName>
+										<ExtendedTooltip name="дсАукционыОтмененныеКонтекстноеМенюНайтиРасширеннаяПодсказка" id="590"/>
+									</Button>
+									<Button name="дсАукционыОтмененныеКонтекстноеМенюОтменитьПоиск" id="587">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыОтмененные.StandardCommand.CancelSearch</CommandName>
+										<ExtendedTooltip name="дсАукционыОтмененныеКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="588"/>
+									</Button>
+									<Button name="дсАукционыОтмененныеКонтекстноеМенюПолучитьНавигационнуюСсылку" id="591">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыОтмененные.StandardCommand.GetURL</CommandName>
+										<ExtendedTooltip name="дсАукционыОтмененныеКонтекстноеМенюПолучитьНавигационнуюСсылкуРасширеннаяПодсказка" id="592"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="дсАукционыОтмененныеКоманднаяПанель" id="533">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыОтмененныеСкопировать" id="571">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыОтмененные.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыОтмененныеСкопироватьРасширеннаяПодсказка" id="572"/>
+									</Button>
+									<Button name="дсАукционыОтмененныеОтборПоТекущемуПользователю" id="575">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокОтмененныеОтборПоТекущемуПользователю</CommandName>
+										<ExtendedTooltip name="дсАукционыОтмененныеОтборПоТекущемуПользователюРасширеннаяПодсказка" id="576"/>
+									</Button>
+									<Button name="дсАукционыОтмененныеНастройкаСписка" id="573">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.дсАукционыОтмененные.StandardCommand.ListSettings</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыОтмененныеНастройкаСпискаРасширеннаяПодсказка" id="574"/>
+									</Button>
+									<SearchStringAddition name="АукционыОтмененныеСтрокаПоиска" id="577">
+										<AdditionSource>
+											<Item>дсАукционыОтмененные</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы отмененные строка поиска</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыОтмененныеСтрокаПоискаКонтекстноеМеню" id="578"/>
+										<ExtendedTooltip name="АукционыОтмененныеСтрокаПоискаРасширеннаяПодсказка" id="579"/>
+									</SearchStringAddition>
+									<SearchControlAddition name="АукционыОтмененныеУправлениеПоиском" id="580">
+										<AdditionSource>
+											<Item>дсАукционыОтмененные</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы отмененные управление поиском</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыОтмененныеУправлениеПоискомКонтекстноеМеню" id="581"/>
+										<ExtendedTooltip name="АукционыОтмененныеУправлениеПоискомРасширеннаяПодсказка" id="582"/>
+									</SearchControlAddition>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="дсАукционыОтмененныеРасширеннаяПодсказка" id="534"/>
+							<SearchStringAddition name="дсАукционыОтмененныеСтрокаПоиска" id="535">
+								<AdditionSource>
+									<Item>дсАукционыОтмененные</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыОтмененныеСтрокаПоискаКонтекстноеМеню" id="536"/>
+								<ExtendedTooltip name="дсАукционыОтмененныеСтрокаПоискаРасширеннаяПодсказка" id="537"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="дсАукционыОтмененныеСостояниеПросмотра" id="538">
+								<AdditionSource>
+									<Item>дсАукционыОтмененные</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыОтмененныеСостояниеПросмотраКонтекстноеМеню" id="539"/>
+								<ExtendedTooltip name="дсАукционыОтмененныеСостояниеПросмотраРасширеннаяПодсказка" id="540"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="дсАукционыОтмененныеУправлениеПоиском" id="541">
+								<AdditionSource>
+									<Item>дсАукционыОтмененные</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыОтмененныеУправлениеПоискомКонтекстноеМеню" id="542"/>
+								<ExtendedTooltip name="дсАукционыОтмененныеУправлениеПоискомРасширеннаяПодсказка" id="543"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">дсАукционыОтмененныеПередНачаломДобавления</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="дсАукционыОтмененныеКод" id="562">
+									<DataPath>дсАукционыОтмененные.Код</DataPath>
+									<ContextMenu name="дсАукционыОтмененныеКодКонтекстноеМеню" id="563"/>
+									<ExtendedTooltip name="дсАукционыОтмененныеКодРасширеннаяПодсказка" id="564"/>
+								</LabelField>
+								<LabelField name="дсАукционыОтмененныеАукцион" id="550">
+									<DataPath>дсАукционыОтмененные.Аукцион</DataPath>
+									<ContextMenu name="дсАукционыОтмененныеАукционКонтекстноеМеню" id="551"/>
+									<ExtendedTooltip name="дсАукционыОтмененныеАукционРасширеннаяПодсказка" id="552"/>
+								</LabelField>
+								<LabelField name="дсАукционыОтмененныеВидАукциона" id="553">
+									<DataPath>дсАукционыОтмененные.ВидАукциона</DataPath>
+									<ContextMenu name="дсАукционыОтмененныеВидАукционаКонтекстноеМеню" id="554"/>
+									<ExtendedTooltip name="дсАукционыОтмененныеВидАукционаРасширеннаяПодсказка" id="555"/>
+								</LabelField>
+								<LabelField name="дсАукционыОтмененныеСуммаНачальная" id="568">
+									<DataPath>дсАукционыОтмененные.СуммаНачальная</DataPath>
+									<ContextMenu name="дсАукционыОтмененныеСуммаНачальнаяКонтекстноеМеню" id="569"/>
+									<ExtendedTooltip name="дсАукционыОтмененныеСуммаНачальнаяРасширеннаяПодсказка" id="570"/>
+								</LabelField>
+								<LabelField name="дсАукционыОтмененныеАвтор" id="544">
+									<DataPath>дсАукционыОтмененные.Автор</DataPath>
+									<ContextMenu name="дсАукционыОтмененныеАвторКонтекстноеМеню" id="545"/>
+									<ExtendedTooltip name="дсАукционыОтмененныеАвторРасширеннаяПодсказка" id="546"/>
+								</LabelField>
+								<LabelField name="дсАукционыОтмененныеДатаСоздания" id="559">
+									<DataPath>дсАукционыОтмененные.ДатаСоздания</DataPath>
+									<ContextMenu name="дсАукционыОтмененныеДатаСозданияКонтекстноеМеню" id="560"/>
+									<ExtendedTooltip name="дсАукционыОтмененныеДатаСозданияРасширеннаяПодсказка" id="561"/>
+								</LabelField>
+								<LabelField name="дсАукционыОтмененныеАвторИзменения" id="547">
+									<DataPath>дсАукционыОтмененные.АвторИзменения</DataPath>
+									<ContextMenu name="дсАукционыОтмененныеАвторИзмененияКонтекстноеМеню" id="548"/>
+									<ExtendedTooltip name="дсАукционыОтмененныеАвторИзмененияРасширеннаяПодсказка" id="549"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАрхив" id="423">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Архив</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница архив</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАрхивРасширеннаяПодсказка" id="424"/>
+					<ChildItems>
+						<Table name="дсАукционыАрхив" id="425">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>дсАукционыАрхив</DataPath>
+							<RowPictureDataPath>дсАукционыАрхив.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="дсАукционыАрхивКонтекстноеМеню" id="426">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыАрхивКонтекстноеМенюСкопировать" id="485">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюСкопироватьРасширеннаяПодсказка" id="486"/>
+									</Button>
+									<Button name="дсАукционыАрхивКонтекстноеМенюПоискПоТекущемуЗначению" id="487">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.FindByCurrentValue</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="488"/>
+									</Button>
+									<Button name="дсАукционыАрхивКонтекстноеМенюНайти" id="489">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.Find</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюНайтиРасширеннаяПодсказка" id="490"/>
+									</Button>
+									<Button name="дсАукционыАрхивКонтекстноеМенюОтменитьПоиск" id="491">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.CancelSearch</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="492"/>
+									</Button>
+									<Button name="дсАукционыАрхивКонтекстноеМенюПолучитьНавигационнуюСсылку" id="493">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.GetURL</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюПолучитьНавигационнуюСсылкуРасширеннаяПодсказка" id="494"/>
+									</Button>
+									<ButtonGroup name="дсАукционыАрхивКонтекстноеМенюГруппа1" id="495">
+										<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="496"/>
+										<ChildItems>
+											<Button name="дсАукционыАрхивКонтекстноеМенюКопироватьВБуферОбмена" id="497">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.CopyToClipboard</CommandName>
+												<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="498"/>
+											</Button>
+											<Button name="дсАукционыАрхивКонтекстноеМенюНайтиВезде" id="499">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.SearchEverywhere</CommandName>
+												<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюНайтиВездеРасширеннаяПодсказка" id="500"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="дсАукционыАрхивКонтекстноеМенюГруппа2" id="517">
+										<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюГруппа2РасширеннаяПодсказка" id="518"/>
+										<ChildItems>
+											<Button name="дсАукционыАрхивКонтекстноеМенюОткрытьИсториюСтавокПоСтроке" id="519">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьИсториюСтавокПоСтроке</CommandName>
+												<ExtendedTooltip name="дсАукционыАрхивКонтекстноеМенюОткрытьИсториюСтавокПоСтрокеРасширеннаяПодсказка" id="520"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="дсАукционыАрхивКоманднаяПанель" id="427">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="дсАукционыАрхивСкопировать" id="473">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.Copy</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивСкопироватьРасширеннаяПодсказка" id="474"/>
+									</Button>
+									<Button name="дсАукционыАрхивОтборПоТекущемуПользователю" id="475">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Command.СписокАрхивОтборПоТекущемуПользователю</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивОтборПоТекущемуПользователюРасширеннаяПодсказка" id="476"/>
+									</Button>
+									<Button name="дсАукционыАрхивНастройкаСписка" id="477">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.дсАукционыАрхив.StandardCommand.ListSettings</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="дсАукционыАрхивНастройкаСпискаРасширеннаяПодсказка" id="478"/>
+									</Button>
+									<Button name="дсАукционыАрхивСписокАрхивПоказатьИтоги" id="501">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокАрхивПоказатьИтоги</CommandName>
+										<ExtendedTooltip name="дсАукционыАрхивСписокАрхивПоказатьИтогиРасширеннаяПодсказка" id="502"/>
+									</Button>
+									<SearchStringAddition name="АукционыАрхивСтрокаПоиска" id="479">
+										<AdditionSource>
+											<Item>дсАукционыАрхив</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы архив строка поиска</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыАрхивСтрокаПоискаКонтекстноеМеню" id="480"/>
+										<ExtendedTooltip name="АукционыАрхивСтрокаПоискаРасширеннаяПодсказка" id="481"/>
+									</SearchStringAddition>
+									<SearchControlAddition name="АукционыАрхивУправлениеПоиском" id="482">
+										<AdditionSource>
+											<Item>дсАукционыАрхив</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Аукционы архив управление поиском</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="АукционыАрхивУправлениеПоискомКонтекстноеМеню" id="483"/>
+										<ExtendedTooltip name="АукционыАрхивУправлениеПоискомРасширеннаяПодсказка" id="484"/>
+									</SearchControlAddition>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="дсАукционыАрхивРасширеннаяПодсказка" id="428"/>
+							<SearchStringAddition name="дсАукционыАрхивСтрокаПоиска" id="429">
+								<AdditionSource>
+									<Item>дсАукционыАрхив</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыАрхивСтрокаПоискаКонтекстноеМеню" id="430"/>
+								<ExtendedTooltip name="дсАукционыАрхивСтрокаПоискаРасширеннаяПодсказка" id="431"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="дсАукционыАрхивСостояниеПросмотра" id="432">
+								<AdditionSource>
+									<Item>дсАукционыАрхив</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыАрхивСостояниеПросмотраКонтекстноеМеню" id="433"/>
+								<ExtendedTooltip name="дсАукционыАрхивСостояниеПросмотраРасширеннаяПодсказка" id="434"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="дсАукционыАрхивУправлениеПоиском" id="435">
+								<AdditionSource>
+									<Item>дсАукционыАрхив</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="дсАукционыАрхивУправлениеПоискомКонтекстноеМеню" id="436"/>
+								<ExtendedTooltip name="дсАукционыАрхивУправлениеПоискомРасширеннаяПодсказка" id="437"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">дсАукционыАрхивПередНачаломДобавления</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="дсАукционыАрхивКод" id="456">
+									<DataPath>дсАукционыАрхив.Код</DataPath>
+									<ContextMenu name="дсАукционыАрхивКодКонтекстноеМеню" id="457"/>
+									<ExtendedTooltip name="дсАукционыАрхивКодРасширеннаяПодсказка" id="458"/>
+								</LabelField>
+								<LabelField name="дсАукционыАрхивАукцион" id="444">
+									<DataPath>дсАукционыАрхив.Аукцион</DataPath>
+									<ContextMenu name="дсАукционыАрхивАукционКонтекстноеМеню" id="445"/>
+									<ExtendedTooltip name="дсАукционыАрхивАукционРасширеннаяПодсказка" id="446"/>
+								</LabelField>
+								<LabelField name="дсАукционыАрхивВидАукциона" id="447">
+									<DataPath>дсАукционыАрхив.ВидАукциона</DataPath>
+									<ContextMenu name="дсАукционыАрхивВидАукционаКонтекстноеМеню" id="448"/>
+									<ExtendedTooltip name="дсАукционыАрхивВидАукционаРасширеннаяПодсказка" id="449"/>
+								</LabelField>
+								<LabelField name="дсАукционыАрхивСуммаНачальная" id="462">
+									<DataPath>дсАукционыАрхив.СуммаНачальная</DataPath>
+									<ContextMenu name="дсАукционыАрхивСуммаНачальнаяКонтекстноеМеню" id="463"/>
+									<ExtendedTooltip name="дсАукционыАрхивСуммаНачальнаяРасширеннаяПодсказка" id="464"/>
+								</LabelField>
+								<LabelField name="дсАукционыАрхивДатаНачала" id="450">
+									<DataPath>дсАукционыАрхив.ДатаНачала</DataPath>
+									<ContextMenu name="дсАукционыАрхивДатаНачалаКонтекстноеМеню" id="451"/>
+									<ExtendedTooltip name="дсАукционыАрхивДатаНачалаРасширеннаяПодсказка" id="452"/>
+								</LabelField>
+								<LabelField name="дсАукционыАрхивАвтор" id="438">
+									<DataPath>дсАукционыАрхив.Автор</DataPath>
+									<ContextMenu name="дсАукционыАрхивАвторКонтекстноеМеню" id="439"/>
+									<ExtendedTooltip name="дсАукционыАрхивАвторРасширеннаяПодсказка" id="440"/>
+								</LabelField>
+								<LabelField name="дсАукционыАрхивДатаСоздания" id="470">
+									<DataPath>дсАукционыАрхив.ДатаСоздания</DataPath>
+									<ContextMenu name="дсАукционыАрхивДатаСозданияКонтекстноеМеню" id="471"/>
+									<ExtendedTooltip name="дсАукционыАрхивДатаСозданияРасширеннаяПодсказка" id="472"/>
+								</LabelField>
+								<LabelField name="дсАукционыАрхивАвторИзменения" id="441">
+									<DataPath>дсАукционыАрхив.АвторИзменения</DataPath>
+									<ContextMenu name="дсАукционыАрхивАвторИзмененияКонтекстноеМеню" id="442"/>
+									<ExtendedTooltip name="дсАукционыАрхивАвторИзмененияРасширеннаяПодсказка" id="443"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАдминистрирование" id="595">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Администрирование</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Администрирование подсистемы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАдминистрированиеРасширеннаяПодсказка" id="596"/>
+					<ChildItems>
+						<UsualGroup name="АдминистрированиеГруппаСправочники" id="600">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Справочники</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Администрирование группа справочники</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="АдминистрированиеГруппаСправочникиРасширеннаяПодсказка" id="601"/>
+							<ChildItems>
+								<LabelDecoration name="СсылкаСправочникУчастникиАукциона" id="597">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Участники аукциона</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="СсылкаСправочникУчастникиАукционаКонтекстноеМеню" id="598"/>
+									<ExtendedTooltip name="СсылкаСправочникУчастникиАукционаРасширеннаяПодсказка" id="599"/>
+									<Events>
+										<Event name="Click">СсылкаСправочникУчастникиАукционаНажатие</Event>
+									</Events>
+								</LabelDecoration>
+								<LabelDecoration name="СсылкаСправочникДопЭлементыДанныхАукционов" id="602">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Доп. элементы данных аукционов</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="СсылкаСправочникДопЭлементыДанныхАукционовКонтекстноеМеню" id="603"/>
+									<ExtendedTooltip name="СсылкаСправочникДопЭлементыДанныхАукционовРасширеннаяПодсказка" id="604"/>
+									<Events>
+										<Event name="Click">СсылкаСправочникДопЭлементыДанныхАукционовНажатие</Event>
+									</Events>
+								</LabelDecoration>
+								<LabelDecoration name="СсылкаСправочникВидыАукционов" id="610">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Виды аукционов</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="СсылкаСправочникВидыАукционовКонтекстноеМеню" id="611"/>
+									<ExtendedTooltip name="СсылкаСправочникВидыАукционовРасширеннаяПодсказка" id="612"/>
+									<Events>
+										<Event name="Click">СсылкаСправочникВидыАукционовНажатие</Event>
+									</Events>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="АдминистрированиеГруппаРегистрыСведений" id="605">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Регистры сведений</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Администрирование группа регистры сведений</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="АдминистрированиеГруппаРегистрыСведенийРасширеннаяПодсказка" id="606"/>
+							<ChildItems>
+								<LabelDecoration name="СсылкаРегистрСведенийШаблоныСообщений" id="607">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Шаблоны сообщений</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="СсылкаРегистрСведенийШаблоныСообщенийКонтекстноеМеню" id="608"/>
+									<ExtendedTooltip name="СсылкаРегистрСведенийШаблоныСообщенийРасширеннаяПодсказка" id="609"/>
+									<Events>
+										<Event name="Click">СсылкаРегистрСведенийШаблоныСообщенийНажатие</Event>
+									</Events>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.АукРабочийСтолАукционы</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="дсАукционыНовые" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дс аукционы новые</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>дсАукционыНовые.ПометкаУдаления</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	АукАукционы.Ссылка КАК Аукцион,
+	АукАукционы.Код КАК Код,
+	АукАукционы.ВидАукциона КАК ВидАукциона,
+	АукАукционы.ДатаНачала КАК ДатаНачала,
+	АукАукционы.Автор КАК Автор,
+	АукАукционы.ДатаСоздания КАК ДатаСоздания,
+	АукАукционы.АвторИзменения КАК АвторИзменения,
+	АукАукционы.Сумма КАК Сумма
+ИЗ
+	РегистрСведений.АукИсторияСтатусовАукционов.СрезПоследних КАК АукИсторияСтатусовАукционов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.АукАукционы КАК АукАукционы
+		ПО (АукАукционы.Ссылка = АукИсторияСтатусовАукционов.Аукцион)
+			И (АукИсторияСтатусовАукционов.Статус = ЗНАЧЕНИЕ(Перечисление.АукСтатусыАукционов.Новый))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Автор</dcssch:dataPath>
+					<dcssch:field>Автор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидАукциона</dcssch:dataPath>
+					<dcssch:field>ВидАукциона</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвторИзменения</dcssch:dataPath>
+					<dcssch:field>АвторИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Участники</dcssch:dataPath>
+					<dcssch:field>Участники</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаИзменения</dcssch:dataPath>
+					<dcssch:field>ДатаИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сумма</dcssch:dataPath>
+					<dcssch:field>Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Срок</dcssch:dataPath>
+					<dcssch:field>Срок</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Этапы</dcssch:dataPath>
+					<dcssch:field>Этапы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НачальныеДанные</dcssch:dataPath>
+					<dcssch:field>НачальныеДанные</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Аукцион</dcssch:dataPath>
+					<dcssch:field>Аукцион</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Аукцион</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекущийАукцион</dcssch:dataPath>
+					<dcssch:field>ТекущийАукцион</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.АукАукционы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТекущийПользователь" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий пользователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="дсАукционыВРаботе" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дс аукционы в работе</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>дсАукционыВРаботе.КоличествоЭтапов</Field>
+				<Field>дсАукционыВРаботе.НомерЭтапа</Field>
+				<Field>дсАукционыВРаботе.ПометкаУдаления</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	АукИсторияСтатусовАукционов.Аукцион КАК Аукцион,
+	АукИсторияСтатусовАукционов.Статус КАК Статус,
+	АукИсторияСтатусовАукционов.Этап КАК Этап,
+	АукИсторияСтатусовАукционов.НомерЭтапа КАК НомерЭтапа
+ПОМЕСТИТЬ втТемп
+ИЗ
+	РегистрСведений.АукИсторияСтатусовАукционов.СрезПоследних КАК АукИсторияСтатусовАукционов
+ГДЕ
+	АукИсторияСтатусовАукционов.Статус В (ЗНАЧЕНИЕ(Перечисление.АукСтатусыАукционов.НовыйЭтап), ЗНАЧЕНИЕ(Перечисление.АукСтатусыАукционов.ПодведениеПромежуточныхИтогов))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втТемп.Аукцион КАК Аукцион,
+	втТемп.Статус КАК Статус,
+	втТемп.Этап КАК Этап,
+	втТемп.НомерЭтапа КАК НомерЭтапа,
+	АукАукционы.Код КАК Код,
+	АукАукционы.ВидАукциона КАК ВидАукциона,
+	АукАукционы.ДатаНачала КАК ДатаНачала,
+	АукАукционы.Автор КАК Автор,
+	АукАукционы.ДатаСоздания КАК ДатаСоздания,
+	АукАукционы.АвторИзменения КАК АвторИзменения,
+	ВложенныйЗапрос.КоличествоЭтапов КАК КоличествоЭтапов,
+	АукАукционы.Сумма КАК Сумма,
+	ОКР(втТемп.НомерЭтапа / ВложенныйЗапрос.КоличествоЭтапов * 100, 0) КАК Прогресс
+ИЗ
+	втТемп КАК втТемп
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.АукАукционы КАК АукАукционы
+		ПО втТемп.Аукцион = АукАукционы.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			втТемп.Аукцион КАК Аукцион,
+			МАКСИМУМ(Аук_АукционыЭтапы.НомерСтроки) КАК КоличествоЭтапов
+		ИЗ
+			втТемп КАК втТемп
+				ЛЕВОЕ СОЕДИНЕНИЕ Справочник.АукАукционы.Этапы КАК Аук_АукционыЭтапы
+				ПО втТемп.Аукцион = Аук_АукционыЭтапы.Ссылка
+		
+		СГРУППИРОВАТЬ ПО
+			втТемп.Аукцион) КАК ВложенныйЗапрос
+		ПО втТемп.Аукцион = ВложенныйЗапрос.Аукцион</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Автор</dcssch:dataPath>
+					<dcssch:field>Автор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Аукцион</dcssch:dataPath>
+					<dcssch:field>Аукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидАукциона</dcssch:dataPath>
+					<dcssch:field>ВидАукциона</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвторИзменения</dcssch:dataPath>
+					<dcssch:field>АвторИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сумма</dcssch:dataPath>
+					<dcssch:field>Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Статус</dcssch:dataPath>
+					<dcssch:field>Статус</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Этап</dcssch:dataPath>
+					<dcssch:field>Этап</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерЭтапа</dcssch:dataPath>
+					<dcssch:field>НомерЭтапа</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КоличествоЭтапов</dcssch:dataPath>
+					<dcssch:field>КоличествоЭтапов</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество этапов</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НачальныеДанные</dcssch:dataPath>
+					<dcssch:field>НачальныеДанные</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Срок</dcssch:dataPath>
+					<dcssch:field>Срок</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Этапы</dcssch:dataPath>
+					<dcssch:field>Этапы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Участники</dcssch:dataPath>
+					<dcssch:field>Участники</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаИзменения</dcssch:dataPath>
+					<dcssch:field>ДатаИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекущийАукцион</dcssch:dataPath>
+					<dcssch:field>ТекущийАукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Прогресс</dcssch:dataPath>
+					<dcssch:field>Прогресс</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прогресс</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЮрЛицо</dcssch:dataPath>
+					<dcssch:field>ЮрЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийСтарт</dcssch:dataPath>
+					<dcssch:field>АвтоматическийСтарт</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийПереходПоЭтапам</dcssch:dataPath>
+					<dcssch:field>АвтоматическийПереходПоЭтапам</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.АукАукционы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОтборПоТекущемуПользователюАктивность" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю активность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="дсАукционыПодведениеИтогов" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дс аукционы подведение итогов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>дсАукционыПодведениеИтогов.НомерЭтапа</Field>
+				<Field>дсАукционыПодведениеИтогов.Статус</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	АукАукционы.Ссылка КАК Аукцион,
+	АукАукционы.Код КАК Код,
+	АукАукционы.ВидАукциона КАК ВидАукциона,
+	АукАукционы.ДатаНачала КАК ДатаНачала,
+	АукАукционы.Автор КАК Автор,
+	АукАукционы.ДатаСоздания КАК ДатаСоздания,
+	АукАукционы.АвторИзменения КАК АвторИзменения,
+	АукАукционы.Сумма КАК Сумма,
+	АукИсторияСтатусовАукционов.НомерЭтапа КАК НомерЭтапа,
+	АукИсторияСтатусовАукционов.Статус КАК Статус
+ИЗ
+	РегистрСведений.АукИсторияСтатусовАукционов.СрезПоследних КАК АукИсторияСтатусовАукционов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.АукАукционы КАК АукАукционы
+		ПО (АукАукционы.Ссылка = АукИсторияСтатусовАукционов.Аукцион)
+			И (АукИсторияСтатусовАукционов.Статус = ЗНАЧЕНИЕ(Перечисление.АукСтатусыАукционов.ПодведениеИтогов))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Автор</dcssch:dataPath>
+					<dcssch:field>Автор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Аукцион</dcssch:dataPath>
+					<dcssch:field>Аукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сумма</dcssch:dataPath>
+					<dcssch:field>Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидАукциона</dcssch:dataPath>
+					<dcssch:field>ВидАукциона</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвторИзменения</dcssch:dataPath>
+					<dcssch:field>АвторИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НачальныеДанные</dcssch:dataPath>
+					<dcssch:field>НачальныеДанные</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Срок</dcssch:dataPath>
+					<dcssch:field>Срок</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Этапы</dcssch:dataPath>
+					<dcssch:field>Этапы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Участники</dcssch:dataPath>
+					<dcssch:field>Участники</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаИзменения</dcssch:dataPath>
+					<dcssch:field>ДатаИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекущийАукцион</dcssch:dataPath>
+					<dcssch:field>ТекущийАукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЮрЛицо</dcssch:dataPath>
+					<dcssch:field>ЮрЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийСтарт</dcssch:dataPath>
+					<dcssch:field>АвтоматическийСтарт</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийПереходКПодведениюПромежуточныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическийПереходКПодведениюПромежуточныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийПереходКПодведениюОкончательныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическийПереходКПодведениюОкончательныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Параметры</dcssch:dataPath>
+					<dcssch:field>Параметры</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерЭтапа</dcssch:dataPath>
+					<dcssch:field>НомерЭтапа</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Статус</dcssch:dataPath>
+					<dcssch:field>Статус</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.АукАукционы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="дсАукционыЗавершенные" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дс аукционы завершенные</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~дсАукционыЗавершенные.Этап</Field>
+				<Field>дсАукционыЗавершенные.НомерЭтапа</Field>
+				<Field>дсАукционыЗавершенные.Статус</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	АукАукционы.Ссылка КАК Аукцион,
+	АукАукционы.Код КАК Код,
+	АукАукционы.ВидАукциона КАК ВидАукциона,
+	АукАукционы.ДатаНачала КАК ДатаНачала,
+	АукАукционы.Автор КАК Автор,
+	АукАукционы.ДатаСоздания КАК ДатаСоздания,
+	АукАукционы.АвторИзменения КАК АвторИзменения,
+	АукАукционы.Сумма КАК СуммаНачальная,
+	АукИсторияСтатусовАукционов.Статус КАК Статус,
+	АукИсторияСтатусовАукционов.НомерЭтапа КАК НомерЭтапа
+ИЗ
+	РегистрСведений.АукИсторияСтатусовАукционов.СрезПоследних КАК АукИсторияСтатусовАукционов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.АукАукционы КАК АукАукционы
+		ПО (АукАукционы.Ссылка = АукИсторияСтатусовАукционов.Аукцион)
+			И (АукИсторияСтатусовАукционов.Статус = ЗНАЧЕНИЕ(Перечисление.АукСтатусыАукционов.Завершен))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Автор</dcssch:dataPath>
+					<dcssch:field>Автор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Аукцион</dcssch:dataPath>
+					<dcssch:field>Аукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сумма</dcssch:dataPath>
+					<dcssch:field>Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидАукциона</dcssch:dataPath>
+					<dcssch:field>ВидАукциона</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвторИзменения</dcssch:dataPath>
+					<dcssch:field>АвторИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НачальныеДанные</dcssch:dataPath>
+					<dcssch:field>НачальныеДанные</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Срок</dcssch:dataPath>
+					<dcssch:field>Срок</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Этапы</dcssch:dataPath>
+					<dcssch:field>Этапы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Участники</dcssch:dataPath>
+					<dcssch:field>Участники</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаИзменения</dcssch:dataPath>
+					<dcssch:field>ДатаИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекущийАукцион</dcssch:dataPath>
+					<dcssch:field>ТекущийАукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаНачальная</dcssch:dataPath>
+					<dcssch:field>СуммаНачальная</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма начальная</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЮрЛицо</dcssch:dataPath>
+					<dcssch:field>ЮрЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийПереходКПодведениюПромежуточныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическийПереходКПодведениюПромежуточныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийСтарт</dcssch:dataPath>
+					<dcssch:field>АвтоматическийСтарт</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийПереходКПодведениюОкончательныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическийПереходКПодведениюОкончательныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Параметры</dcssch:dataPath>
+					<dcssch:field>Параметры</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Статус</dcssch:dataPath>
+					<dcssch:field>Статус</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерЭтапа</dcssch:dataPath>
+					<dcssch:field>НомерЭтапа</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.АукАукционы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="дсАукционыАрхив" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дс аукционы архив</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	АукАукционы.Ссылка КАК Аукцион,
+	АукАукционы.Код КАК Код,
+	АукАукционы.ВидАукциона КАК ВидАукциона,
+	АукАукционы.ДатаНачала КАК ДатаНачала,
+	АукАукционы.Автор КАК Автор,
+	АукАукционы.ДатаСоздания КАК ДатаСоздания,
+	АукАукционы.АвторИзменения КАК АвторИзменения,
+	АукАукционы.Сумма КАК СуммаНачальная
+ИЗ
+	РегистрСведений.АукИсторияСтатусовАукционов.СрезПоследних КАК АукИсторияСтатусовАукционов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.АукАукционы КАК АукАукционы
+		ПО (АукАукционы.Ссылка = АукИсторияСтатусовАукционов.Аукцион)
+			И (АукИсторияСтатусовАукционов.Статус = ЗНАЧЕНИЕ(Перечисление.АукСтатусыАукционов.Архив))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Автор</dcssch:dataPath>
+					<dcssch:field>Автор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Аукцион</dcssch:dataPath>
+					<dcssch:field>Аукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвторИзменения</dcssch:dataPath>
+					<dcssch:field>АвторИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидАукциона</dcssch:dataPath>
+					<dcssch:field>ВидАукциона</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаНачальная</dcssch:dataPath>
+					<dcssch:field>СуммаНачальная</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма начальная</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НачальныеДанные</dcssch:dataPath>
+					<dcssch:field>НачальныеДанные</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Участники</dcssch:dataPath>
+					<dcssch:field>Участники</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекущийАукцион</dcssch:dataPath>
+					<dcssch:field>ТекущийАукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаИзменения</dcssch:dataPath>
+					<dcssch:field>ДатаИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сумма</dcssch:dataPath>
+					<dcssch:field>Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Срок</dcssch:dataPath>
+					<dcssch:field>Срок</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Этапы</dcssch:dataPath>
+					<dcssch:field>Этапы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.АукАукционы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="дсАукционыОтмененные" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дс аукционы отмененные</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	АукАукционы.Ссылка КАК Аукцион,
+	АукАукционы.Код КАК Код,
+	АукАукционы.ВидАукциона КАК ВидАукциона,
+	АукАукционы.Автор КАК Автор,
+	АукАукционы.ДатаСоздания КАК ДатаСоздания,
+	АукАукционы.АвторИзменения КАК АвторИзменения,
+	АукАукционы.Сумма КАК СуммаНачальная
+ИЗ
+	РегистрСведений.АукИсторияСтатусовАукционов.СрезПоследних КАК АукИсторияСтатусовАукционов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.АукАукционы КАК АукАукционы
+		ПО (АукАукционы.Ссылка = АукИсторияСтатусовАукционов.Аукцион)
+			И (АукИсторияСтатусовАукционов.Статус = ЗНАЧЕНИЕ(Перечисление.АукСтатусыАукционов.Отменен))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Автор</dcssch:dataPath>
+					<dcssch:field>Автор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Аукцион</dcssch:dataPath>
+					<dcssch:field>Аукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвторИзменения</dcssch:dataPath>
+					<dcssch:field>АвторИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидАукциона</dcssch:dataPath>
+					<dcssch:field>ВидАукциона</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаНачальная</dcssch:dataPath>
+					<dcssch:field>СуммаНачальная</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма начальная</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЮрЛицо</dcssch:dataPath>
+					<dcssch:field>ЮрЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сумма</dcssch:dataPath>
+					<dcssch:field>Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийПереходКПодведениюПромежуточныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическийПереходКПодведениюПромежуточныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекущийАукцион</dcssch:dataPath>
+					<dcssch:field>ТекущийАукцион</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаИзменения</dcssch:dataPath>
+					<dcssch:field>ДатаИзменения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийСтарт</dcssch:dataPath>
+					<dcssch:field>АвтоматическийСтарт</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Этапы</dcssch:dataPath>
+					<dcssch:field>Этапы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Срок</dcssch:dataPath>
+					<dcssch:field>Срок</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеПромежуточныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическийПереходКПодведениюОкончательныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическийПереходКПодведениюОкончательныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:dataPath>
+					<dcssch:field>АвтоматическоеПодведениеОкончательныхИтогов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Участники</dcssch:dataPath>
+					<dcssch:field>Участники</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НачальныеДанные</dcssch:dataPath>
+					<dcssch:field>НачальныеДанные</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.АукАукционы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дсАукционыВРаботеПрогресс</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">дсАукционыВРаботе.Прогресс</dcsset:left>
+							<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">дсАукционыВРаботе.Прогресс</dcsset:left>
+							<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">50</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:MediumSeaGreen</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дсАукционыВРаботеПрогресс</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">дсАукционыВРаботе.Прогресс</dcsset:left>
+							<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">50.1</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">дсАукционыВРаботе.Прогресс</dcsset:left>
+							<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">80</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Orange</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дсАукционыВРаботеПрогресс</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">дсАукционыВРаботе.Прогресс</dcsset:left>
+						<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">80.1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:OrangeRed</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="СписокНовыеОтборПоТекущемуПользователю" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.User</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокНовыеОтборПоТекущемуПользователю</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="СписокНовыеПеревестиВРаботу" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В работу</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокНовыеПеревестиВРаботу</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеОтборПоТекущемуПользователю" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.User</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеОтборПоТекущемуПользователю</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="СписокПодведениеИтоговОтборПоТекущемуПользователю" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список подведение итогов отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.User</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокПодведениеИтоговОтборПоТекущемуПользователю</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="СписокЗавершенныеОтборПоТекущемуПользователю" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список завершенные отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.User</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокЗавершенныеОтборПоТекущемуПользователю</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="СписокВРаботеВводНовойСтавки" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новая ставка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввод новой ставки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Post</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеВводНовойСтавки</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеВводИнформацииОбОтказеОтУчастия" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказ от участия</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввод информации об отказе от участия</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеВводИнформацииОбОтказеОтУчастия</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеВводИнформационногоСообщения" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сообщение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввод информационного сообщения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Document</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеВводИнформационногоСообщения</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеОтправитьСообщениеУчастникам" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить сообщение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить сообщение участникам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SendMessage</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеОтправитьСообщениеУчастникам</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеПодведениеПромежуточныхИтогов" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Промежуточные итоги</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подведение промежуточных итогов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеПодведениеПромежуточныхИтогов</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокПодведениеИтоговПодведениеИтогов" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подведение итогов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подведение итогов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокПодведениеИтоговПодведениеИтогов</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокПодведениеИтогов2" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подведение итогов 2</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подведение итогов 2</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокПодведениеИтогов2</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокЗавершенныеПоказатьИтоги" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итоги</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итоги по аукциону</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Chart</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокЗавершенныеПоказатьИтоги</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокЗавершенныеВАрхив" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В архив</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В архив</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SettingsStorage</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокЗавершенныеВАрхив</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокАрхивОтборПоТекущемуПользователю" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.User</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокАрхивОтборПоТекущемуПользователю</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="СписокАрхивПоказатьИтоги" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итоги</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать итоги</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Chart</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокАрхивПоказатьИтоги</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ОткрытьИсториюСтавокПоСтроке" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История ставок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просмотр истории ставок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ShowData</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьИсториюСтавокПоСтроке</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокПодведениеИтоговОтправитьСообщениеУчастникам" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить сообщение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить сообщение участникам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SendMessage</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокПодведениеИтоговОтправитьСообщениеУчастникам</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеПерейтиКРасчетуПромежуточныхИтогов" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К расчету промежуточных итогов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к расчету промежуточных итогов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GoForward</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеПерейтиКРасчетуПромежуточныхИтогов</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеПерейтиКРасчетуОкончательныхИтогов" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К расчету окончательных итогов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к расчету окончательных итогов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GoForward</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеПерейтиКРасчетуОкончательныхИтогов</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокВРаботеОтменитьАукцион" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить аукцион</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить проведение аукциона</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Stop</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокВРаботеОтменитьАукцион</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СписокОтмененныеОтборПоТекущемуПользователю" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список отмененные отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по текущему пользователю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.User</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокОтмененныеОтборПоТекущемуПользователю</Action>
+			<Representation>Picture</Representation>
+		</Command>
+	</Commands>
+</Form>

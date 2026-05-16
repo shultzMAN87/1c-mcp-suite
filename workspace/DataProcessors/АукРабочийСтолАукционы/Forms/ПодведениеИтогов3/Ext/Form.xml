@@ -1,0 +1,943 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПараметрыАукциона" id="96">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа параметры аукциона</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПараметрыАукционаРасширеннаяПодсказка" id="97"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьТаблицаПараметрыАукциона" id="98">
+					<Font ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры аукциона</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьТаблицаПараметрыАукционаКонтекстноеМеню" id="99"/>
+					<ExtendedTooltip name="НадписьТаблицаПараметрыАукционаРасширеннаяПодсказка" id="100"/>
+				</LabelDecoration>
+				<Table name="тзПараметрыАукциона" id="1">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Width>70</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HeightControlVariant>UseContentHeight</HeightControlVariant>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>тзПараметрыАукциона</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="тзПараметрыАукционаКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="тзПараметрыАукционаКоманднаяПанель" id="3">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="тзПараметрыАукционаРасширеннаяПодсказка" id="4"/>
+					<SearchStringAddition name="тзПараметрыАукционаСтрокаПоиска" id="5">
+						<AdditionSource>
+							<Item>тзПараметрыАукциона</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="тзПараметрыАукционаСтрокаПоискаКонтекстноеМеню" id="6"/>
+						<ExtendedTooltip name="тзПараметрыАукционаСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="тзПараметрыАукционаСостояниеПросмотра" id="8">
+						<AdditionSource>
+							<Item>тзПараметрыАукциона</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="тзПараметрыАукционаСостояниеПросмотраКонтекстноеМеню" id="9"/>
+						<ExtendedTooltip name="тзПараметрыАукционаСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="тзПараметрыАукционаУправлениеПоиском" id="11">
+						<AdditionSource>
+							<Item>тзПараметрыАукциона</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="тзПараметрыАукционаУправлениеПоискомКонтекстноеМеню" id="12"/>
+						<ExtendedTooltip name="тзПараметрыАукционаУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<InputField name="тзПараметрыАукционаПараметр" id="14">
+							<DataPath>тзПараметрыАукциона.Параметр</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="тзПараметрыАукционаПараметрКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="тзПараметрыАукционаПараметрРасширеннаяПодсказка" id="16"/>
+						</InputField>
+						<InputField name="тзПараметрыАукционаНачальноеЗначение" id="17">
+							<DataPath>тзПараметрыАукциона.НачальноеЗначение</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Items.тзПараметрыАукциона.CurrentData.Параметр</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<TypeLink>
+								<xr:DataPath>Items.тзПараметрыАукциона.CurrentData.Параметр</xr:DataPath>
+								<xr:LinkItem>0</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="тзПараметрыАукционаНачальноеЗначениеКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="тзПараметрыАукционаНачальноеЗначениеРасширеннаяПодсказка" id="19"/>
+						</InputField>
+						<InputField name="тзПараметрыАукционаТекущееЗначение" id="20">
+							<DataPath>тзПараметрыАукциона.ТекущееЗначение</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Items.тзПараметрыАукциона.CurrentData.Параметр</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<TypeLink>
+								<xr:DataPath>Items.тзПараметрыАукциона.CurrentData.Параметр</xr:DataPath>
+								<xr:LinkItem>0</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="тзПараметрыАукционаТекущееЗначениеКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="тзПараметрыАукционаТекущееЗначениеРасширеннаяПодсказка" id="22"/>
+							<Events>
+								<Event name="OnChange">тзПараметрыАукционаТекущееЗначениеПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="тзПараметрыАукционаОстаток" id="23">
+							<DataPath>тзПараметрыАукциона.Остаток</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧН=0</v8:content>
+								</v8:item>
+							</Format>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧН=0</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Items.тзПараметрыАукциона.CurrentData.Параметр</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<TypeLink>
+								<xr:DataPath>Items.тзПараметрыАукциона.CurrentData.Параметр</xr:DataPath>
+								<xr:LinkItem>0</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="тзПараметрыАукционаОстатокКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="тзПараметрыАукционаОстатокРасширеннаяПодсказка" id="25"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаИтогиАукциона" id="101">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа итоги аукциона</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИтогиАукционаРасширеннаяПодсказка" id="102"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьТаблицаИтогиАукциона" id="103">
+					<Font ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Итоги аукциона</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьТаблицаИтогиАукционаКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="НадписьТаблицаИтогиАукционаРасширеннаяПодсказка" id="105"/>
+				</LabelDecoration>
+				<Table name="тзИтогиАукциона" id="42">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Footer>true</Footer>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>тзИтогиАукциона</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="тзИтогиАукционаКонтекстноеМеню" id="43"/>
+					<AutoCommandBar name="тзИтогиАукционаКоманднаяПанель" id="44">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="тзИтогиАукционаРасширеннаяПодсказка" id="45"/>
+					<SearchStringAddition name="тзИтогиАукционаСтрокаПоиска" id="46">
+						<AdditionSource>
+							<Item>тзИтогиАукциона</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="тзИтогиАукционаСтрокаПоискаКонтекстноеМеню" id="47"/>
+						<ExtendedTooltip name="тзИтогиАукционаСтрокаПоискаРасширеннаяПодсказка" id="48"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="тзИтогиАукционаСостояниеПросмотра" id="49">
+						<AdditionSource>
+							<Item>тзИтогиАукциона</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="тзИтогиАукционаСостояниеПросмотраКонтекстноеМеню" id="50"/>
+						<ExtendedTooltip name="тзИтогиАукционаСостояниеПросмотраРасширеннаяПодсказка" id="51"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="тзИтогиАукционаУправлениеПоиском" id="52">
+						<AdditionSource>
+							<Item>тзИтогиАукциона</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="тзИтогиАукционаУправлениеПоискомКонтекстноеМеню" id="53"/>
+						<ExtendedTooltip name="тзИтогиАукционаУправлениеПоискомРасширеннаяПодсказка" id="54"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnActivateRow">тзИтогиАукционаПриАктивизацииСтроки</Event>
+					</Events>
+					<ChildItems>
+						<CheckBoxField name="тзИтогиАукционаУчастникВыбран" id="64">
+							<DataPath>тзИтогиАукциона.УчастникВыбран</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="тзИтогиАукционаУчастникВыбранКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="тзИтогиАукционаУчастникВыбранРасширеннаяПодсказка" id="66"/>
+							<Events>
+								<Event name="OnChange">тзИтогиАукционаВыбранУчастникПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="тзИтогиАукционаУчастник" id="55">
+							<DataPath>тзИтогиАукциона.Участник</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="тзИтогиАукционаУчастникКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="тзИтогиАукционаУчастникРасширеннаяПодсказка" id="57"/>
+						</InputField>
+						<ColumnGroup name="тзИтогиАукционаГруппаДанныеСтавки" id="82">
+							<ReadOnly>true</ReadOnly>
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные ставки</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ExtendedTooltip name="тзИтогиАукционаГруппаДанныеСтавкиРасширеннаяПодсказка" id="83"/>
+						</ColumnGroup>
+						<ColumnGroup name="тзИтогиАукционаГруппаПеременные" id="84">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Переменные расчета</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ExtendedTooltip name="тзИтогиАукционаГруппаПеременныеРасширеннаяПодсказка" id="85"/>
+						</ColumnGroup>
+						<InputField name="тзИтогиАукционаРезультатРасчета" id="58">
+							<DataPath>тзИтогиАукциона.РезультатРасчета</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>РезультатРасчетаИтог</FooterDataPath>
+							<FooterText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Итог:</v8:content>
+								</v8:item>
+							</FooterText>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="тзИтогиАукционаРезультатРасчетаКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="тзИтогиАукционаРезультатРасчетаРасширеннаяПодсказка" id="60"/>
+						</InputField>
+						<InputField name="тзИтогиАукционаПредставлениеРезультата" id="76">
+							<DataPath>тзИтогиАукциона.ПредставлениеРезультата</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="тзИтогиАукционаПредставлениеРезультатаКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="тзИтогиАукционаПредставлениеРезультатаРасширеннаяПодсказка" id="78"/>
+						</InputField>
+						<CheckBoxField name="тзИтогиАукционаЭтоПобедитель" id="79">
+							<DataPath>тзИтогиАукциона.ЭтоПобедитель</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="тзИтогиАукционаЭтоПобедительКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="тзИтогиАукционаЭтоПобедительРасширеннаяПодсказка" id="81"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНачальныеДанныеУчастников" id="106">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа начальные данные участников</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНачальныеДанныеУчастниковРасширеннаяПодсказка" id="107"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьТаблицаНачальныеДанныеУчастников" id="108">
+					<Font ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальные данные участников</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьТаблицаНачальныеДанныеУчастниковКонтекстноеМеню" id="109"/>
+					<ExtendedTooltip name="НадписьТаблицаНачальныеДанныеУчастниковРасширеннаяПодсказка" id="110"/>
+				</LabelDecoration>
+				<Table name="тзНачальныеДанныеУчастников" id="26">
+					<Representation>List</Representation>
+					<ReadOnly>true</ReadOnly>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<HeightControlVariant>UseContentHeight</HeightControlVariant>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<VerticalStretch>false</VerticalStretch>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>тзНачальныеДанныеУчастников</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="тзНачальныеДанныеУчастниковКонтекстноеМеню" id="27"/>
+					<AutoCommandBar name="тзНачальныеДанныеУчастниковКоманднаяПанель" id="28">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="тзНачальныеДанныеУчастниковРасширеннаяПодсказка" id="29"/>
+					<SearchStringAddition name="тзНачальныеДанныеУчастниковСтрокаПоиска" id="30">
+						<AdditionSource>
+							<Item>тзНачальныеДанныеУчастников</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="тзНачальныеДанныеУчастниковСтрокаПоискаКонтекстноеМеню" id="31"/>
+						<ExtendedTooltip name="тзНачальныеДанныеУчастниковСтрокаПоискаРасширеннаяПодсказка" id="32"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="тзНачальныеДанныеУчастниковСостояниеПросмотра" id="33">
+						<AdditionSource>
+							<Item>тзНачальныеДанныеУчастников</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="тзНачальныеДанныеУчастниковСостояниеПросмотраКонтекстноеМеню" id="34"/>
+						<ExtendedTooltip name="тзНачальныеДанныеУчастниковСостояниеПросмотраРасширеннаяПодсказка" id="35"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="тзНачальныеДанныеУчастниковУправлениеПоиском" id="36">
+						<AdditionSource>
+							<Item>тзНачальныеДанныеУчастников</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="тзНачальныеДанныеУчастниковУправлениеПоискомКонтекстноеМеню" id="37"/>
+						<ExtendedTooltip name="тзНачальныеДанныеУчастниковУправлениеПоискомРасширеннаяПодсказка" id="38"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<InputField name="тзНачальныеДанныеУчастниковУчастник" id="39">
+							<DataPath>тзНачальныеДанныеУчастников.Участник</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="тзНачальныеДанныеУчастниковУчастникКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="тзНачальныеДанныеУчастниковУчастникРасширеннаяПодсказка" id="41"/>
+						</InputField>
+						<ColumnGroup name="тзНачальныеДанныеУчастниковГруппа" id="86">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="тзНачальныеДанныеУчастниковГруппаРасширеннаяПодсказка" id="87"/>
+						</ColumnGroup>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНижняяКоманднаяПанель" id="92">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа нижняя командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНижняяКоманднаяПанельРасширеннаяПодсказка" id="93"/>
+			<ChildItems>
+				<Button name="Сохранить" id="90">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Сохранить</CommandName>
+					<ExtendedTooltip name="СохранитьРасширеннаяПодсказка" id="91"/>
+				</Button>
+				<Button name="Подтвердить" id="94">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Подтвердить</CommandName>
+					<ExtendedTooltip name="ПодтвердитьРасширеннаяПодсказка" id="95"/>
+				</Button>
+				<Button name="Закрыть" id="88">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>10</Width>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="89"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.АукРабочийСтолАукционы</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="тзПараметрыАукциона" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тз параметры аукциона</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Параметр" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметр</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:ChartOfCharacteristicTypesRef.АукЭлементыДанныхАукционов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НачальноеЗначение" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальное значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:Characteristic.АукЭлементыДанныхАукционов</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ТекущееЗначение" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущее значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:Characteristic.АукЭлементыДанныхАукционов</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Остаток" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>19</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="тзИтогиАукциона" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тз итоги аукциона</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Участник" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участник</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.АукУчастникиАукционов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РезультатРасчета" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат расчета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>19</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЭтоПобедитель" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Победитель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="УчастникВыбран" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участник выбран</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СтрокаДанных" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Строка данных</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СтатусУчастия" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус участия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ФормулаРасчетаРезультата" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формула расчета результата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПредставлениеРезультата" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление результата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="тзНачальныеДанныеУчастников" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тз начальные данные участников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Участник" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участник</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.АукУчастникиАукционов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Аукцион" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аукцион</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.АукАукционы</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидАукциона" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид аукциона</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.АукВидыАукционов</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерЭтапа" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер этапа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущийСтатус" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.АукСтатусыАукционов</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоПромежуточныеИтоги" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это промежуточные итоги</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Переменные" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переменные</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="РезультатРасчетаИтог" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат расчета итог</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>18</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаСписания" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка списания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Параметр" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметр</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:ChartOfCharacteristicTypesRef.АукЭлементыДанныхАукционов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СписыватьПоПеременной" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Списывать по переменной</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>тзИтогиАукционаПредставлениеРезультата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">тзИтогиАукциона.СтатусУчастия</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">тзИтогиАукциона.ЭтоПобедитель</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:MediumSeaGreen</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Победитель</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>тзИтогиАукционаПредставлениеРезультата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">тзИтогиАукциона.СтатусУчастия</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:CornFlowerBlue</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Нет ставок</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>тзИтогиАукционаПредставлениеРезультата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">тзИтогиАукциона.СтатусУчастия</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Red</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отказался</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>тзПараметрыАукционаОстаток</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">тзПараметрыАукциона.Остаток</dcsset:left>
+						<dcsset:comparisonType>Less</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:NegativeTextColor</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Сохранить</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Подтвердить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подтвердить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подтвердить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCheckIcon</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Подтвердить</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>
