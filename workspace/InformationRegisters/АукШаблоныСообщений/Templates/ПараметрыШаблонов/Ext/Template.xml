@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://v8.1c.ru/8.2/data/spreadsheet" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<languageSettings>
+		<currentLanguage>ru</currentLanguage>
+		<defaultLanguage>ru</defaultLanguage>
+		<languageInfo>
+			<id>ru</id>
+			<code>Русский</code>
+			<description>Русский</description>
+		</languageInfo>
+	</languageSettings>
+	<columns>
+		<size>2</size>
+		<columnsItem>
+			<index>0</index>
+			<column>
+				<formatIndex>1</formatIndex>
+			</column>
+		</columnsItem>
+		<columnsItem>
+			<index>1</index>
+			<column>
+				<formatIndex>2</formatIndex>
+			</column>
+		</columnsItem>
+	</columns>
+	<rowsItem>
+		<index>0</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_НАИМЕНОВАНИЕ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Наименование аукциона.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Аукцион (ТЕСТ)&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>1</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_КОД]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Код аукциона.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;000000001&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>2</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_ЭТАПЫ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Список этапов аукциона с указанием их длительности.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Этап 1 из 3. Предполагаемая продолжительность: 25 мин.&lt;/br&gt;
+Этап 2 из 3. Предполагаемая продолжительность: 1 час 05 мин.&lt;/br&gt;
+Этап 3 из 3. Предполагаемая продолжительность: 1 день 2 часа 30 мин.&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>3</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_ПЛАНИРУЕМОЕ_ВРЕМЯ_ЗАВЕРШЕНИЯ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Расчетное время завершения аукциона с учетом даты и времени старта и длительности этапов.
+Вычисляется путем добавления длительности всех этапов аукциона к дате предполагаемого старта (для еще не начавшегося аукциона) или к дате реального старта аукциона (для уже стартовавшего аукциона).
+Указывается в виде итоговой рассчитанной даты и времен. С указанием GMT Владивостока (т.к. сообщения формируют фоновые в ЦУБ).&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;19.12.2025 16:45 (GMT +10, Владивосток)&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>4</index>
+		<row>
+			<c>
+				<c>
+					<f>4</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_СТРУКТУРА_СТАВКИ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>5</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Представление ожидаемой ставки для участника.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Обязательные поля ставки:&lt;/br&gt;
+1. "Процент (ставка)". Число.&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Необязательные поля ставки:&lt;/br&gt;
+1. "Срок (в днях)". Число.&lt;/br&gt;
+2. "Сумма". Число.&lt;/br&gt;
+3. "Валюта". Значение из списка: Рубль, Доллар, Йена, Юань.&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>5</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_ТЕКУЩИЙ_ЭТАП]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Номер текущего этапа аукциона.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;1&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>6</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_ВСЕГО_ЭТАПОВ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Общее количество этапов аукциона.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;3&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>7</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[СТАВКА_ВРЕМЯ_ПРИНЯТИЯ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Дата и время принятия ставки с указанием GMT.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;19.12.2025 15:07 (GMT +10, Владивосток)&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>8</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[СТАВКА_ДАННЫЕ_СТАВКИ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Представление данных ставки в том виде, как она внесена в учетную систему.&lt;/br&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Запись №1&lt;/br&gt;
+1. "Процент (ставка)" = 23.&lt;/br&gt;
+2. "Срок (в днях)" = Значение не указано.&lt;/br&gt;
+3. "Сумма" = 234.000.000.&lt;/br&gt;
+4. "Валюта" = Значение не указано.&lt;/br&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Запись №2&lt;/br&gt;
+1. "Процент (ставка)" = 34.&lt;/br&gt;
+2. "Срок (в днях)" = 34.&lt;/br&gt;
+3. "Сумма" = 3.600.000.000.&lt;/br&gt;
+4. "Валюта" = Рубль.&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>9</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_ДАННЫЕ_ПРОМЕЖУТОЧНОГО_ПОБЕДИТЕЛЯ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Информация о результате промежуточного победителя.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;7%&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>10</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[ОТКАЗ_ВРЕМЯ_ПРИНЯТИЯ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Дата и время принятия отказа от участия в аукционе с указанием GMT.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;19.12.2025 16:45 (GMT +10, Владивосток)&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>11</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[СТАВКА_ДАННЫЕ_ПОБЕДНОЙ_СТАВКИ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>3</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Данные ставки для текущего победителя.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;1. "Процент (ставка)" = 34.&lt;/br&gt;
+2. "Срок (в днях)" = 34.&lt;/br&gt;
+3. "Сумма" = 3.600.000.000.&lt;/br&gt;
+4. "Валюта" = Рубль.&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>12</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_НАЧАЛЬНЫЕ_ДАННЫЕ_УЧАСТНИКА]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Начальные данные текущего участника.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;1. "Процент (ставка)" = 34.&lt;/br&gt;
+2. "Срок (в днях)" = 34.&lt;/br&gt;
+3. "Сумма От" = 1.600.000.000.&lt;/br&gt;
+4. "Сумма До" = 3.600.000.000.&lt;/br&gt;
+5. "Валюта" = &lt;Не задано&gt;.&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>13</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_НАЧАЛЬНЫЕ_ДАННЫЕ_ВСЕХ_УЧАСТНИКОВ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Начальные данные всех участников.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;1.	Банк Приморье:&lt;/br&gt;
+	Срок (в днях): 10&lt;/br&gt;
+	Валюта: Доллар&lt;/br&gt;
+	Сумма От: 1 000 000.00&lt;/br&gt;
+	Сумма До: &lt;Не задано&gt;&lt;/br&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;2.	СберБанк:
+	Срок (в днях): &lt;Не задано&gt;&lt;/br&gt;
+	Валюта: &lt;Не задано&gt;&lt;/br&gt;
+	Сумма От: &lt;Не задано&gt;&lt;/br&gt;
+	Сумма До: 5 000 00.00&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>14</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[УЧАСТНИК_НАИМЕНОВАНИЕ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Наименование текущего участника.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Банк Приморье&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>15</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[УЧАСТНИК_КОНТАКТНОЕ_ЛИЦО_ФИО]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Полное ФИО текущего контактного лица текущего участника&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Иванов Иван Иванович&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>16</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[УЧАСТНИК_КОНТАКТНОЕ_ЛИЦО_ФАМИЛИЯ_ИО]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;ФИО текущего контактного лица текущего участника в виде «Фамилия И.О.»&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Иванов И.И.&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>17</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[УЧАСТНИК_КОНТАКТНОЕ_ЛИЦО_ИМЯ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;ФИО текущего контактного лица текущего участника в виде только имени&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Иван&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>18</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_ВРЕМЯ_ОТКАЗА_ОТ_ПРОДОЛЖЕНИЯ]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Дата и время отказа от продолжения аукциона со стороны автора аукциона. С указанием GMT.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;20.01.2026 15:07 (GMT +10, Владивосток)&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>19</index>
+		<row>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>[АУКЦИОН_ССЫЛКА]</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>0</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;p&gt;Ссылка на аукцион.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Пример:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;e1c://filev/D/Base1C/Портал#e1cib/data/Справочник.АукАукционы?ref=97aa00d86118702d11f0f686ac245254&lt;/i&gt;&lt;/p&gt;</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<templateMode>true</templateMode>
+	<defaultFormatIndex>6</defaultFormatIndex>
+	<height>20</height>
+	<vgRows>20</vgRows>
+	<namedItem xsi:type="NamedItemCells">
+		<name>ИмяПараметра</name>
+		<area>
+			<type>Columns</type>
+			<beginRow>-1</beginRow>
+			<endRow>-1</endRow>
+			<beginColumn>0</beginColumn>
+			<endColumn>0</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
+		<name>ОписаниеПараметра</name>
+		<area>
+			<type>Columns</type>
+			<beginRow>-1</beginRow>
+			<endRow>-1</endRow>
+			<beginColumn>1</beginColumn>
+			<endColumn>1</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
+		<name>Строки</name>
+		<area>
+			<type>Rows</type>
+			<beginRow>0</beginRow>
+			<endRow>19</endRow>
+			<beginColumn>-1</beginColumn>
+			<endColumn>-1</endColumn>
+		</area>
+	</namedItem>
+	<format>
+		<width>358</width>
+	</format>
+	<format>
+		<width>904</width>
+		<textPlacement>Wrap</textPlacement>
+	</format>
+	<format>
+		<textPlacement>Wrap</textPlacement>
+	</format>
+	<format>
+		<width>391</width>
+	</format>
+	<format>
+		<width>72</width>
+		<textPlacement>Wrap</textPlacement>
+	</format>
+	<format>
+		<width>72</width>
+	</format>
+</document>
