@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Subsystem uuid="cbe46016-92f0-4b83-97c5-d30e370a4c34">
+		<Properties>
+			<Name>Аукционы</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аукционы</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<IncludeInCommandInterface>false</IncludeInCommandInterface>
+			<UseOneCommand>false</UseOneCommand>
+			<Explanation/>
+			<Picture/>
+			<Content>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукВидыОперацийАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукПродуктыАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукДопЭлементыДанныхАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукУчастникиАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ChartOfCharacteristicTypes.АукЭлементыДанныхАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукИсторияДанныхАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукКонтактныеЛицаУчастниковАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукВидыАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукАукционы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукКаналыВзаимодействия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ChartOfCharacteristicTypes.АукЭлементыНастроекКаналовВзаимодействия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукИсторияСтатусовАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.АукРабочийСтолАукционы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.АукВидыДанных</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.АукНаправленияДанных</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукИсторияКомандАукционов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукДанныеШапокПодведенияИтогов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукДанныеТаблицПодведенияИтогов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукИтогиЗавершенияЭтапов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукШаблоныСообщений</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.АукНастройкиРасчетовИтогов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.АукВидыРезультатовРасчетаИтогов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.АукИсточникиЗначенийПеременных</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукРасчетИтоговПараметры</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукРасчетИтоговПеременные</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.АукРасчетИтоговРезультаты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.АукВидыЭлементовДиапазонов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.АукАдресатыСообщений</xr:Item>
+			</Content>
+		</Properties>
+		<ChildObjects/>
+	</Subsystem>
+</MetaDataObject>
