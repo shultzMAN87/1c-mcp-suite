@@ -1,0 +1,198 @@
+#!/bin/bash
+# =====================================================
+# dmidecode-stub — заглушка dmidecode для Docker-контейнеров,
+# в которых нет /dev/mem и /sys/firmware/dmi/tables.
+#
+# Такая ситуация в Docker Desktop на Windows/WSL2: 1С при получении
+# программной лицензии вызывает dmidecode, реальный бинарник падает
+# с "/dev/mem: No such file or directory", 1С уходит в длительный
+# повтор и падает с "Сбор информации о компьютере выполняется
+# длительное время" (LicenseBaseUI.cpp:1683).
+#
+# Решение: подменяем /usr/sbin/dmidecode на этот скрипт. Он
+# возвращает стабильные, выдуманные, но внутренне согласованные
+# данные для всех keyword-ов, которые использует 1С для построения
+# "отпечатка компьютера". Данные статические — значит лицензия
+# будет стабильной при перезапусках контейнера.
+#
+# НЕ МЕНЯТЬ значения ниже после получения лицензии, иначе
+# 1С воспримет это как "ключевые параметры изменились".
+# =====================================================
+
+# --- стабильные значения отпечатка компьютера ---
+BIOS_VENDOR="Docker Inc."
+BIOS_VERSION="1.0.0"
+BIOS_RELEASE_DATE="01/01/2024"
+
+SYSTEM_MANUFACTURER="Docker Inc."
+SYSTEM_PRODUCT_NAME="1C Enterprise Container"
+SYSTEM_VERSION="1.0"
+SYSTEM_SERIAL_NUMBER="DOCKER-1C-001"
+SYSTEM_UUID="4C4C4544-0043-3010-8044-B8C04F464831"
+SYSTEM_SKU_NUMBER="SKU-1C-DOCKER"
+SYSTEM_FAMILY="Virtual"
+
+BASEBOARD_MANUFACTURER="Docker Inc."
+BASEBOARD_PRODUCT_NAME="1C Virtual Board"
+BASEBOARD_VERSION="1.0"
+BASEBOARD_SERIAL_NUMBER="BOARD-1C-001"
+BASEBOARD_ASSET_TAG="N/A"
+
+CHASSIS_MANUFACTURER="Docker Inc."
+CHASSIS_TYPE="Other"
+CHASSIS_VERSION="1.0"
+CHASSIS_SERIAL_NUMBER="CHASSIS-1C-001"
+CHASSIS_ASSET_TAG="N/A"
+
+PROCESSOR_FAMILY="Other"
+PROCESSOR_MANUFACTURER="Docker Inc."
+PROCESSOR_VERSION="Virtual CPU"
+PROCESSOR_FREQUENCY="3000 MHz"
+
+# --- парсим аргументы ---
+# Поддерживаем: -s KEYWORD / --string KEYWORD (единственный режим,
+# который реально использует 1С для сбора отпечатка).
+# Режимы -t / --type / -u / без аргументов отдаём как полный текстовый
+# вывод — не пустой, чтобы не триггерить резервные ветки у вызывающего.
+
+print_full_output() {
+    cat <<EOF
+# dmidecode 3.5
+Getting SMBIOS data from sysfs.
+SMBIOS 2.8 present.
+
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+	Vendor: ${BIOS_VENDOR}
+	Version: ${BIOS_VERSION}
+	Release Date: ${BIOS_RELEASE_DATE}
+
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+	Manufacturer: ${SYSTEM_MANUFACTURER}
+	Product Name: ${SYSTEM_PRODUCT_NAME}
+	Version: ${SYSTEM_VERSION}
+	Serial Number: ${SYSTEM_SERIAL_NUMBER}
+	UUID: ${SYSTEM_UUID}
+	Wake-up Type: Power Switch
+	SKU Number: ${SYSTEM_SKU_NUMBER}
+	Family: ${SYSTEM_FAMILY}
+
+Handle 0x0002, DMI type 2, 15 bytes
+Base Board Information
+	Manufacturer: ${BASEBOARD_MANUFACTURER}
+	Product Name: ${BASEBOARD_PRODUCT_NAME}
+	Version: ${BASEBOARD_VERSION}
+	Serial Number: ${BASEBOARD_SERIAL_NUMBER}
+	Asset Tag: ${BASEBOARD_ASSET_TAG}
+	Features:
+		Board is a hosting board
+		Board is replaceable
+	Location In Chassis: Chassis
+	Chassis Handle: 0x0003
+	Type: Motherboard
+
+Handle 0x0003, DMI type 3, 21 bytes
+Chassis Information
+	Manufacturer: ${CHASSIS_MANUFACTURER}
+	Type: ${CHASSIS_TYPE}
+	Lock: Not Present
+	Version: ${CHASSIS_VERSION}
+	Serial Number: ${CHASSIS_SERIAL_NUMBER}
+	Asset Tag: ${CHASSIS_ASSET_TAG}
+	Boot-up State: Safe
+	Power Supply State: Safe
+	Thermal State: Safe
+	Security Status: None
+
+Handle 0x0004, DMI type 4, 42 bytes
+Processor Information
+	Socket Designation: CPU 0
+	Type: Central Processor
+	Family: ${PROCESSOR_FAMILY}
+	Manufacturer: ${PROCESSOR_MANUFACTURER}
+	ID: 00 00 00 00 00 00 00 00
+	Version: ${PROCESSOR_VERSION}
+	Voltage: 1.0 V
+	External Clock: 100 MHz
+	Max Speed: ${PROCESSOR_FREQUENCY}
+	Current Speed: ${PROCESSOR_FREQUENCY}
+	Status: Populated, Enabled
+	Upgrade: Other
+	Core Count: 4
+	Core Enabled: 4
+	Thread Count: 8
+	Characteristics:
+		64-bit capable
+		Multi-Core
+
+Handle 0x0011, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0xFFFE
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4096 MB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM 0
+	Bank Locator: BANK 0
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Docker Inc.
+	Serial Number: MEM-1C-001
+	Asset Tag: N/A
+	Part Number: VirtualDIMM4GB
+	Rank: 1
+
+Handle 0x007F, DMI type 127, 4 bytes
+End Of Table
+
+EOF
+}
+
+# Разбор -s KEYWORD
+if [ "$1" = "-s" ] || [ "$1" = "--string" ]; then
+    case "$2" in
+        bios-vendor)             echo "${BIOS_VENDOR}" ;;
+        bios-version)            echo "${BIOS_VERSION}" ;;
+        bios-release-date)       echo "${BIOS_RELEASE_DATE}" ;;
+        bios-revision)           echo "1.0" ;;
+        firmware-revision)       echo "1.0" ;;
+        system-manufacturer)     echo "${SYSTEM_MANUFACTURER}" ;;
+        system-product-name)     echo "${SYSTEM_PRODUCT_NAME}" ;;
+        system-version)          echo "${SYSTEM_VERSION}" ;;
+        system-serial-number)    echo "${SYSTEM_SERIAL_NUMBER}" ;;
+        system-uuid)             echo "${SYSTEM_UUID}" ;;
+        system-sku-number)       echo "${SYSTEM_SKU_NUMBER}" ;;
+        system-family)           echo "${SYSTEM_FAMILY}" ;;
+        baseboard-manufacturer)  echo "${BASEBOARD_MANUFACTURER}" ;;
+        baseboard-product-name)  echo "${BASEBOARD_PRODUCT_NAME}" ;;
+        baseboard-version)       echo "${BASEBOARD_VERSION}" ;;
+        baseboard-serial-number) echo "${BASEBOARD_SERIAL_NUMBER}" ;;
+        baseboard-asset-tag)     echo "${BASEBOARD_ASSET_TAG}" ;;
+        chassis-manufacturer)    echo "${CHASSIS_MANUFACTURER}" ;;
+        chassis-type)            echo "${CHASSIS_TYPE}" ;;
+        chassis-version)         echo "${CHASSIS_VERSION}" ;;
+        chassis-serial-number)   echo "${CHASSIS_SERIAL_NUMBER}" ;;
+        chassis-asset-tag)       echo "${CHASSIS_ASSET_TAG}" ;;
+        processor-family)        echo "${PROCESSOR_FAMILY}" ;;
+        processor-manufacturer)  echo "${PROCESSOR_MANUFACTURER}" ;;
+        processor-version)       echo "${PROCESSOR_VERSION}" ;;
+        processor-frequency)     echo "${PROCESSOR_FREQUENCY}" ;;
+        *)
+            # Неизвестный keyword — ведём себя как настоящий dmidecode:
+            # печатаем список валидных keyword-ов в stderr и выходим с кодом 1.
+            echo "Invalid string keyword: $2" >&2
+            exit 1
+            ;;
+    esac
+    exit 0
+fi
+
+# Для всех остальных режимов вызова (-t, -u, без аргументов) отдаём
+# полный текстовый вывод. Это покрывает случаи, когда 1С или вызывающий
+# код использует не -s, а парсит полный вывод.
+print_full_output
+exit 0

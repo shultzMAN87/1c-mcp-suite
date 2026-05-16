@@ -1,0 +1,112 @@
+# Инструкция: запуск проекта 26_yaxunit-mcp-stack
+
+## 0. Один раз — перед самым первым запуском
+
+**Дистрибутивы 1С** должны лежать в `server/distr/` и `client-vnc/distr/` (см. README внутри этих папок).
+
+**Лицензия** — серверный community `.lic` от developer.1c.ru должен быть в `./licenses/license-backup.lic`. Если файл лежит в корне проекта:
+
+```powershell
+bash ./init-license.sh
+# или из WSL: ./init-license.sh
+```
+
+Скрипт перенесёт файл в `./licenses/` и удалит исходник из корня, чтобы случайно не закоммитить.
+
+## 1. Поднять стек
+
+```powershell
+cd D:\Docker\26_yaxunit-mcp-stack
+
+docker compose up -d --build
+Start-Sleep 15
+
+# Проверка
+docker compose ps
+curl.exe http://localhost:8019/health
+```
+
+`/health` должен вернуть `{"status":"ok", ...}`. Если нет — посмотри `docker compose logs app client`.
+
+## 2. Прогон smoke-теста
+
+```powershell
+# Залить только shim-скрипты (demo-данные доступны через bind mount ./sandbox)
+docker cp .\prepare_and_run.sh onec-client:/tmp/prepare_and_run.sh
+docker cp .\show_log.py         onec-client:/tmp/show_log.py
+
+# Если /tmp/smoke* остались от прошлого запуска под root — разово чистим
+docker compose exec -u root client bash -c "rm -rf /tmp/smoke /tmp/smoke.zip /tmp/result.json"
+
+# Запуск (строго БЕЗ -u root — иначе права в /tmp/smoke поломаются)
+docker compose exec client bash /tmp/prepare_and_run.sh
+
+# Детальный лог (опционально)
+docker compose exec client python3 /tmp/show_log.py
+
+# Отчёт в Allure
+Start-Process http://localhost:5253
+```
+
+По умолчанию режим — **server** (клиент-серверная ИБ через PostgreSQL). Для файловой ИБ:
+
+```powershell
+docker compose exec -e PIPELINE_MODE=file client bash /tmp/prepare_and_run.sh
+```
+
+## 3. Повторные прогоны
+
+После первого успешного прогона shim-скрипты уже в контейнере, demo-данные — через bind mount. Команда на каждый следующий прогон:
+
+```powershell
+docker compose exec client bash /tmp/prepare_and_run.sh
+```
+
+Если редактировал `.\prepare_and_run.sh` на хосте — перезалей: `docker cp .\prepare_and_run.sh onec-client:/tmp/prepare_and_run.sh`.
+
+## 4. Удалить всё и начать с чистого листа
+
+```powershell
+docker compose --profile license down -v --remove-orphans
+```
+
+Снесёт все контейнеры (включая license-helper), все volumes (`pgdata`, `srvinfo`, `yaxunit-reports`, `allure-reports`) и сеть. **Лицензия в `./licenses/` и дистрибутивы в `*/distr/` остаются** — они на хосте.
+
+После этого можно снова с шага 1.
+
+## 5. Если лицензия истекла или её вообще нет
+
+```powershell
+docker compose stop app client
+docker compose --profile license up -d --build license-helper
+Start-Sleep 5
+
+# ОБЯЗАТЕЛЬНО запустить ragent в license-helper ПЕРЕД получением лицензии —
+# иначе 1С выдаст клиентскую, а не серверную, и server-mode не заработает
+docker compose exec -d license-helper /opt/1cv8/x86_64/current/ragent -port 1540 -regport 1541 -range 1560:1591
+Start-Sleep 3
+```
+
+Дальше — в браузере http://localhost:6080:
+1. xterm: `/opt/1cv8/x86_64/current/1cestart &`
+2. Добавить → Создание новой ИБ без конфигурации → ФАЙЛОВАЯ → путь `/tmp/filebase` → Толстый клиент → Готово
+3. Ввести данные developer.1c.ru
+4. Закрыть 1С
+
+```powershell
+# Посмотреть что упало
+docker compose exec license-helper ls -la /var/1C/licenses/
+
+# Скопировать новый .lic на хост (имя файла свежее подставить)
+docker compose --profile license cp license-helper:/var/1C/licenses/<имя_файла>.lic ./licenses/license-backup.lic
+
+# Выключить helper и поднять основной стек
+docker compose --profile license stop license-helper
+docker compose up -d
+```
+
+## Важные правила гигиены
+
+- `prepare_and_run.sh` запускать **под `onec` (без `-u root`)**. Иначе файлы в `/tmp/smoke/` лягут под root-owner и следующий прогон не сможет их удалить.
+- Никогда не копируй файлы с кириллическими именами через `docker cp` в Windows — ломает кодировку имён. Используй bind mount `./sandbox → /sandbox`.
+- Открытый порт 6080 конфликтует между `client` и `license-helper`. Поэтому перед `--profile license up` обязательно `stop app client`.

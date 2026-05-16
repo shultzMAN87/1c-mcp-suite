@@ -1,0 +1,344 @@
+# =====================================================
+# 1C YAxUnit MCP Stack
+# =====================================================
+
+services:
+
+  postgres:
+    build:
+      context: ./yaxunit-stack/db
+      args:
+        PG_MAJOR: ${PG_MAJOR}
+    image: onec/postgres:${PG_MAJOR}
+    container_name: onec-postgres
+    profiles: ["testing"]
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PG_MAJOR: ${PG_MAJOR}
+      TZ: ${TZ}
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/pgdata]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [onec-net]
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: onec-pgadmin
+    profiles: ["testing"]
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports: ["5050:5050"]
+    depends_on:
+      postgres: { condition: service_healthy }
+    networks: [onec-net]
+
+  app:
+    build:
+      context: ./yaxunit-stack/server
+      args:
+        ONEC_VERSION: ${ONEC_VERSION}
+    image: onec/server:${ONEC_VERSION}
+    container_name: onec-server
+    hostname: ${ONEC_SERVER_HOST}
+    # mac_address задан per-network ниже (см. секцию networks).
+    # При нескольких сетях top-level mac_address Docker игнорирует.
+    profiles: ["testing"]
+    restart: unless-stopped
+    cap_add: [SYS_PTRACE]
+    depends_on:
+      postgres: { condition: service_healthy }
+    environment:
+      TZ: ${TZ}
+    # NOTE про порты:
+    # 5900 (VNC), 6080 (noVNC) и 8019 (MCP) пробрасываются именно ЗДЕСЬ,
+    # хотя их слушают процессы внутри контейнера `client`. Так получается
+    # потому что у `client` стоит `network_mode: service:app` — он сидит в
+    # сетевом неймспейсе `app`, поэтому все его порты видны через `app`.
+    # Если убрать их отсюда — VNC/noVNC/MCP перестанут быть доступны
+    # снаружи.
+    # 1545 — порт RAS (Remote Administration Server), нужен для `rac`.
+    ports:
+      - "1540:1540"
+      - "1541:1541"
+      - "1545:1545"
+      - "1560-1591:1560-1591"
+      - "5900:5900"
+      - "6080:6080"
+      - "8019:8019"
+    volumes:
+      - srvinfo:/home/usr1cv8/.1cv8
+      # licenses — RW (без :ro). Эксперимент с :ro в прошлой сессии
+      # давал побочный эффект: платформа не могла обновить активационный
+      # контекст в .lic, что приводило к «License not found on the
+      # 1C:Enterprise server». Рабочий стенд (26_yaxunit-mcp-stack)
+      # использует RW и не имеет проблем.
+      #
+      # Защита от случайной порчи .lic: бэкап ./license-backup.lic.GOLD
+      # вне каталога licenses/, восстановление одной командой
+      # (см. TROUBLESHOOTING-LICENSE.md).
+      - ./yaxunit-stack/licenses:/var/1C/licenses
+    # Base image:
+    #   USER = usr1cv8 (not root)
+    #   CMD  = ragent -port 1540 -regport 1541 -range 1560:1591
+    #
+    # We keep the user (usr1cv8) and just prepend a license-staging step
+    # plus background RAS launch (so `rac` works without manual setup).
+    # `install` under usr1cv8 works because /var/1C/licenses is world-
+    # readable from the host bind mount.
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        set -e
+        CONF_DIR="$$HOME/.1cv8/1C/1cv8/conf"
+        mkdir -p "$$CONF_DIR"
+        if compgen -G "/var/1C/licenses/*.lic" > /dev/null; then
+          for f in /var/1C/licenses/*.lic; do
+            install -m 600 "$$f" "$$CONF_DIR/$$(basename "$$f")"
+          done
+          echo ">>> [app-entrypoint] licenses staged into $$CONF_DIR (as $$(id -un))"
+        else
+          echo ">>> [app-entrypoint] WARN: no *.lic in /var/1C/licenses"
+        fi
+        # RAS — background, attaches to ragent. Needed for `rac` admin.
+        /opt/1cv8/x86_64/current/ras cluster --port=1545 localhost &
+        echo ">>> [app-entrypoint] RAS started in background on :1545"
+        # Main process: ragent as PID 1.
+        exec /opt/1cv8/x86_64/current/ragent -port 1540 -regport 1541 -range 1560:1591
+    networks:
+      # ВАЖНО: mac_address задан в каждой сети явно, а не на уровне сервиса.
+      # При нескольких сетях top-level `mac_address: ...` Docker игнорирует
+      # и генерирует случайный MAC, что ломает fingerprint лицензии 1С
+      # (она привязывается к hostname + MAC + dmidecode).
+      # Должен совпадать с `mac_address` у license-helper.
+      onec-net:
+        mac_address: "02:42:ac:11:00:77"
+      suite-shared:
+        mac_address: "02:42:ac:11:00:77"
+        aliases: [onec-server]
+
+  client:
+    build:
+      context: ./yaxunit-stack/client-vnc
+      additional_contexts:
+        onec-server-base: "service:app"
+      args:
+        ONEC_VERSION: ${ONEC_VERSION}
+        ONEC_IMAGE: onec-server-base
+    image: onec/client-vnc:${ONEC_VERSION}
+    container_name: onec-client
+    profiles: ["testing"]
+    restart: unless-stopped
+    network_mode: "service:app"
+    cap_add: [SYS_PTRACE]
+    environment:
+      TZ: ${TZ}
+      VNC_PASSWORD: ${VNC_PASSWORD}
+      VNC_GEOMETRY: ${VNC_GEOMETRY}
+      VNC_DEPTH: ${VNC_DEPTH}
+      DISPLAY: ":0"
+      PIPELINE_MODE: "server"
+    volumes:
+      # licenses — RW. См. комментарий у app о том, почему отказались
+      # от :ro в пользу подхода рабочего стенда 26_yaxunit-mcp-stack.
+      - ./yaxunit-stack/licenses:/var/1C/licenses
+      - ./yaxunit-stack/sandbox:/sandbox
+      - yaxunit-reports:/reports
+      # ── Shared volume с mcp-testing для path-based payload ──
+      # mcp-testing складывает сюда {config/, tests/, yaxunit.json},
+      # mcp_server.py читает по тому же пути через POST /run_tests_path.
+      # External: реальный том создаётся основным docker-compose.yml.
+      - yaxunit-payloads:/payloads
+    shm_size: 2g
+
+  allure:
+    image: frankescobar/allure-docker-service:latest
+    container_name: onec-allure
+    profiles: ["testing"]
+    restart: unless-stopped
+    user: "0:0"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 10
+      KEEP_HISTORY: "1"
+      KEEP_HISTORY_LATEST: 25
+      TZ: ${TZ}
+    ports: ["5252:5050"]
+    volumes:
+      - yaxunit-reports:/app/allure-results
+      - allure-reports:/app/default-reports
+    networks: [onec-net]
+
+  allure-ui:
+    image: frankescobar/allure-docker-service-ui:latest
+    container_name: onec-allure-ui
+    profiles: ["testing"]
+    restart: unless-stopped
+    environment:
+      ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5252"
+      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+    ports: ["5253:5252"]
+    networks: [onec-net]
+
+  # =====================================================
+  # license-helper — РАЗОВЫЙ сервисный контейнер для
+  # получения community-лицензии разработчика 1С.
+  #
+  # Работает только в профиле `license` (по умолчанию НЕ стартует).
+  #
+  # Запускает GUI-клиент 1С под пользователем usr1cv8 внутри
+  # контейнера с тем же fingerprint'ом, что у `app` (тот же
+  # hostname, MAC и dmidecode-stub), и монтирует тот же bind
+  # mount ./licenses — чтобы полученный .lic файл лёг туда,
+  # где его потом увидят и `app`, и `client`.
+  #
+  # ───────── ВАЖНО: МЕХАНИКА ПОЛУЧЕНИЯ СЕРВЕРНОЙ ЛИЦЕНЗИИ ─────────
+  #
+  # На платформе 8.3.23+ (включая 8.3.24) получить серверную
+  # community-лицензию НАПРЯМУЮ через диалог серверной базы
+  # НЕВОЗМОЖНО — диалог падает с «Сбор информации о компьютере
+  # длительное время». Работающий способ только один:
+  #
+  #   1. Запустить ragent внутри license-helper (в фоне).
+  #   2. Запустить 1cestart, создать ВРЕМЕННУЮ ФАЙЛОВУЮ базу
+  #      в /tmp/filebase.
+  #   3. Открыть её — 1С увидит присутствие ragent, поймёт что это
+  #      серверный контекст, и при показе диалога community-лицензии
+  #      запросит СЕРВЕРНУЮ. Ввести логин developer.1c.ru.
+  #   4. Лицензия сохранится в /var/1C/licenses/*.lic — но это
+  #      будет именно СЕРВЕРНАЯ лицензия (та же действует и для
+  #      клиента, fingerprint общий).
+  #
+  # Если ragent в момент получения НЕ запущен — 1С выдаст КЛИЕНТСКУЮ
+  # лицензию, и server-mode пайплайна всегда будет падать с
+  # «License not found on the 1C:Enterprise server».
+  #
+  # ───────── ПОРЯДОК ИСПОЛЬЗОВАНИЯ (только при первом получении или
+  #            истечении лицензии) ─────────
+  #
+  # 1. Остановить app и client (иначе конфликт hostname/MAC и портов
+  #    5900/6080):
+  #       docker compose stop app client
+  #
+  # 2. Поднять license-helper:
+  #       docker compose --profile license up -d --build license-helper
+  #       Start-Sleep 5
+  #
+  # 3. КРИТИЧНО: запустить ragent в helper'e ДО получения лицензии:
+  #       docker compose exec -d license-helper \
+  #           /opt/1cv8/x86_64/current/ragent \
+  #           -port 1540 -regport 1541 -range 1560:1591
+  #       Start-Sleep 3
+  #
+  #    Проверить, что ragent живой:
+  #       docker compose exec license-helper bash -c \
+  #           "ps -C ragent,rmngr -o pid,cmd; ss -tln | grep -E '1540|1541'"
+  #
+  # 4. В браузере открыть http://localhost:6080 → noVNC консоль:
+  #    a) В xterm:  /opt/1cv8/x86_64/current/1cestart &
+  #    b) В диалоге «Запуск 1С:Предприятия»:
+  #       Добавить → Создание новой информационной базы без
+  #       конфигурации → ФАЙЛОВАЯ → путь /tmp/filebase →
+  #       Толстый клиент → Готово
+  #    c) Открыть созданную базу (двойным кликом)
+  #    d) Появится диалог получения community-лицензии
+  #    e) Ввести логин и пароль developer.1c.ru
+  #    f) Закрыть 1С после успешной выписки
+  #
+  # 5. Проверить, что .lic упала в /var/1C/licenses/:
+  #       docker compose exec license-helper ls -la /var/1C/licenses/
+  #
+  # 6. Скопировать на хост (имя файла свежее подставить):
+  #       docker compose --profile license cp \
+  #           license-helper:/var/1C/licenses/<НОВОЕ_ИМЯ>.lic \
+  #           ./yaxunit-stack/licenses/license-backup.lic
+  #
+  # 7. СРАЗУ сделать .GOLD-бэкап на хосте:
+  #       Copy-Item yaxunit-stack/licenses/license-backup.lic `
+  #                 yaxunit-stack/license-backup.lic.GOLD -Force
+  #
+  # 8. Остановить helper, поднять боевые:
+  #       docker compose --profile license stop license-helper
+  #       docker compose up -d
+  #
+  # =====================================================
+  license-helper:
+    profiles: ["license"]
+    build:
+      context: ./yaxunit-stack/license-helper
+      # additional_contexts:
+        # onec-server-base: "service:app"
+        # client-vnc-ctx: "./yaxunit-stack/client-vnc"
+      additional_contexts:
+        onec-server-base: "docker-image://onec/server:${ONEC_VERSION}"
+        client-vnc-ctx: "./yaxunit-stack/client-vnc"  
+      args:
+        ONEC_VERSION: ${ONEC_VERSION}
+        ONEC_IMAGE: onec-server-base
+    image: onec/license-helper:${ONEC_VERSION}
+    container_name: onec-license-helper
+    # === КРИТИЧНО: тот же fingerprint, что у сервиса `app` ===
+    # hostname + MAC + dmidecode-stub (из базового образа) вместе
+    # образуют "отпечаток компьютера", к которому 1С привяжет
+    # community-лицензию разработчика. Должны совпадать с `app`.
+    # Нельзя запускать одновременно с `app` — коллизия MAC/hostname.
+    hostname: ${ONEC_SERVER_HOST}
+    mac_address: "02:42:ac:11:00:77"
+    # =========================================================
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      TZ: ${TZ}
+      VNC_PASSWORD: ${VNC_PASSWORD}
+      VNC_GEOMETRY: ${VNC_GEOMETRY}
+      VNC_DEPTH: ${VNC_DEPTH}
+      DISPLAY: ":0"
+    ports:
+      - "5900:5900"   # VNC
+      - "6080:6080"   # noVNC (браузер)
+    volumes:
+      - srvinfo:/home/usr1cv8/.1cv8
+      # ВАЖНО: тот же bind mount, что у `app` и `client`.
+      # Сюда 1С при получении сохранит .lic файл, отсюда же его
+      # после перезапуска всего стека прочитают `app` и `client`.
+      - ./yaxunit-stack/licenses:/var/1C/licenses
+    shm_size: 2g
+    networks:
+      - onec-net
+
+volumes:
+  pgdata:        { driver: local }
+  srvinfo:       { driver: local }
+  yaxunit-reports: { driver: local }
+  allure-reports: { driver: local }
+  # ── Shared volume с основным стеком 1c-mcp-suite ──
+  # Реальный том создаётся основным docker-compose.yml (там без external).
+  # Здесь объявляем его external, чтобы оба compose ссылались на одну
+  # физическую сущность независимо от COMPOSE_PROJECT_NAME.
+  # Если основной стек ещё не поднимался — заранее создать руками:
+  #   docker volume create yaxunit-payloads
+  yaxunit-payloads:
+    external: true
+    name: yaxunit-payloads
+
+networks:
+  onec-net:
+    driver: bridge
+  # ── Внешняя сеть основного проекта 1c-mcp-suite ───────────────────
+  # Создаётся автоматически при `docker compose up` основного suite
+  # (см. блок networks.default.name в корневом docker-compose.yml).
+  # Через эту сеть mcp-testing достучится до раннера тестов
+  # (сервис `app` имеет в ней алиас `onec-server`).
+  suite-shared:
+    external: true
+    name: 1c-suite-net

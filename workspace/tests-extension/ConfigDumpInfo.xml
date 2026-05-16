@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConfigDumpInfo xmlns="http://v8.1c.ru/8.3/xcf/dumpinfo" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" format="Hierarchical" version="2.17">
+	<ConfigVersions>
+		<Metadata name="CommonModule.Тест_Аукционы_АукОбщийКлиент" id="8d3e5f12-9a7b-4c8e-b1d6-5f2a4e9b8c3d" configVersion="9b5f8e996b8b4f7eacdbc423ad48aae7c807c9d4"/>
+		<Metadata name="CommonModule.Тест_Общие_Пример" id="7666bb97-799c-4640-912f-8423e029337e" configVersion="9b5f8e996b8b4f7eacdbc423ad48aae7c807c9d4"/>
+		<Metadata name="Configuration.КотировкиТесты" id="7ea9c6bd-47e9-41f3-83c9-5df04f7abcab" configVersion="855a2450b5fcf3a187d05dd13d4f912d1bedebc3"/>
+		<Metadata name="Language.Русский" id="f324568f-4ffd-43e4-bdd2-b2369748dfc7" configVersion="307619296696c68b762f18f5591b871fc1d953ca"/>
+	</ConfigVersions>
+</ConfigDumpInfo>

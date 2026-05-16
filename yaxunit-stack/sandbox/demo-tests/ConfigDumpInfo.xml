@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConfigDumpInfo xmlns="http://v8.1c.ru/8.3/xcf/dumpinfo" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" format="Hierarchical" version="2.16">
+	<ConfigVersions>
+		<Metadata name="CommonModule.Тест_Калькулятор" id="a6884be5-a545-41ce-a4b6-7722bd41a242" configVersion="90612b0bee66481199db17514b90c06e823032cb"/>
+		<Metadata name="Configuration.Tests" id="b39e8558-1459-473c-a8d1-ea3335afae85" configVersion="32118f08497686c7f120944c4c62a7cd6645315f"/>
+		<Metadata name="Language.Русский" id="6568c1ea-a603-4c17-a4a7-1ef4de6a3a02" configVersion="a5ce1861f4845fe4650cbff00c8cd4d4a493b4ab"/>
+	</ConfigVersions>
+</ConfigDumpInfo>
