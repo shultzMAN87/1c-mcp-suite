@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ДатаСтавки" id="1">
+			<DataPath>Запись.ДатаСтавки</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ДатаСтавкиКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ДатаСтавкиРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Аукцион" id="4">
+			<DataPath>Запись.Аукцион</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="АукционКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="АукционРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Участник" id="7">
+			<DataPath>Запись.Участник</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="УчастникКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="УчастникРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="СтрокаДанных" id="10">
+			<DataPath>Запись.СтрокаДанных</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="СтрокаДанныхКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="СтрокаДанныхРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="НомерЭтапа" id="13">
+			<DataPath>Запись.НомерЭтапа</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="НомерЭтапаКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="НомерЭтапаРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="РезультатРасчета" id="16">
+			<DataPath>Запись.РезультатРасчета</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="РезультатРасчетаКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="РезультатРасчетаРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<InputField name="ПредставлениеРезультатаРасчета" id="19">
+			<DataPath>Запись.ПредставлениеРезультатаРасчета</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ПредставлениеРезультатаРасчетаКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ПредставлениеРезультатаРасчетаРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<InputField name="ДатаЗаписи" id="22">
+			<DataPath>Запись.ДатаЗаписи</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ДатаЗаписиКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ДатаЗаписиРасширеннаяПодсказка" id="24"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.АукИтогиЗавершенияЭтапов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

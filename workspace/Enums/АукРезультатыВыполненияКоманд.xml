@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Enum uuid="8e850a2f-f662-4df5-a200-8e265e816610">
+		<InternalInfo>
+			<xr:GeneratedType name="EnumRef.АукРезультатыВыполненияКоманд" category="Ref">
+				<xr:TypeId>265880cf-bf4d-47d3-9ba0-3ce1c0223e50</xr:TypeId>
+				<xr:ValueId>90259dfd-2126-4f0f-8e1a-ee532f164d06</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumManager.АукРезультатыВыполненияКоманд" category="Manager">
+				<xr:TypeId>2b1db40c-1766-44b2-90b2-b8db55ca5964</xr:TypeId>
+				<xr:ValueId>e467f4e4-2a9c-4ea0-929a-af4b8631b35e</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumList.АукРезультатыВыполненияКоманд" category="List">
+				<xr:TypeId>47124034-20ad-4745-be85-5024d522a87c</xr:TypeId>
+				<xr:ValueId>6c48fce0-f5d3-4534-845d-334a64a541fb</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>АукРезультатыВыполненияКоманд</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результаты выполнения команд</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<Characteristics/>
+			<QuickChoice>true</QuickChoice>
+			<ChoiceMode>BothWays</ChoiceMode>
+			<DefaultListForm/>
+			<DefaultChoiceForm/>
+			<AuxiliaryListForm/>
+			<AuxiliaryChoiceForm/>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+		</Properties>
+		<ChildObjects>
+			<EnumValue uuid="a31794f7-29ae-4b85-9e09-ea2354dd23bc">
+				<Properties>
+					<Name>ОбработанаУспешно</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработана успешно</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="e81ec1c6-57a5-41dc-bc38-7d8e24f5c9a9">
+				<Properties>
+					<Name>ОбработанаСОшибкой</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработана с ошибкой</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="ebe28ff5-c6a8-466e-a454-4193cf560127">
+				<Properties>
+					<Name>ОшибкаВалидацииДанных</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибка валидации данных</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="57392ccc-2cab-490b-be75-87e7c652d98f">
+				<Properties>
+					<Name>ОшибкаСопоставленияДанных</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибка сопоставления данных</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="1d45aa95-df3b-40ac-8a28-1f191866b6f5">
+				<Properties>
+					<Name>НеприменимоКТекущемуСостоянию</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Неприменимо к текущему состоянию</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+		</ChildObjects>
+	</Enum>
+</MetaDataObject>

@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Enum uuid="16c10e08-8ffc-4c60-a657-ea1506c9d5c4">
+		<InternalInfo>
+			<xr:GeneratedType name="EnumRef.АукВидыСообщений" category="Ref">
+				<xr:TypeId>6e9ec5b9-3e20-4963-a2cb-00db06ed5bfd</xr:TypeId>
+				<xr:ValueId>ebb0ae27-86b6-4eb6-a24c-671e204d31a6</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumManager.АукВидыСообщений" category="Manager">
+				<xr:TypeId>7000db6d-bcea-41be-8b34-e81c82ac4d57</xr:TypeId>
+				<xr:ValueId>c4ab4af9-2b84-4252-9d9e-d4d0a9b08ae4</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumList.АукВидыСообщений" category="List">
+				<xr:TypeId>17e31b89-cbf3-4922-8515-e5ea921d2cde</xr:TypeId>
+				<xr:ValueId>5ec16dac-708f-4e48-8d30-b1c70a2efec8</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>АукВидыСообщений</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды сообщений</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<Characteristics/>
+			<QuickChoice>true</QuickChoice>
+			<ChoiceMode>BothWays</ChoiceMode>
+			<DefaultListForm/>
+			<DefaultChoiceForm/>
+			<AuxiliaryListForm/>
+			<AuxiliaryChoiceForm/>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+		</Properties>
+		<ChildObjects>
+			<EnumValue uuid="bce8b984-c4f3-483c-9b6c-1ea6c56473c5">
+				<Properties>
+					<Name>УведомлениеОПриемеСтавки</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о приеме ставки</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="891fb7f2-b3bb-4049-b8ef-0e7e84429fcc">
+				<Properties>
+					<Name>УведомлениеОПриемеОтказа</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о приеме отказа</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="57f0c82b-ab90-4e5e-91fc-5c34ed87bdb7">
+				<Properties>
+					<Name>Удалить_УведомлениеОЗавершенииЭтапаАукциона</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>(Удалить) Уведомление о завершении этапа аукциона</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="29b7e3dd-0f16-4aaf-959b-827dd2b34d16">
+				<Properties>
+					<Name>УведомлениеОПромежуточномПобедителе</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о промежуточном победителе</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="e991f9a1-cbdd-4f27-b19b-27877b6d5aa4">
+				<Properties>
+					<Name>УведомлениеОПобеде</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о победе</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="4f1b0840-df99-46c7-970e-d6f8c5994c84">
+				<Properties>
+					<Name>УведомлениеОНачалеАукциона</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о начале аукциона</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="ce832c99-ab51-4b89-9bed-90d1a8347d86">
+				<Properties>
+					<Name>ПростоеСообщение</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Простое сообщение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="a23fe56a-b135-472f-ad77-69fb2ba1fc2b">
+				<Properties>
+					<Name>УведомлениеОПроверкеНачалаАукциона</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о проверке начала аукциона</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="1d71a027-5a31-4bab-822f-1e6c069a585b">
+				<Properties>
+					<Name>УведомлениеОПровереПереходаКПодведениюПромежуточныхИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о провере перехода к подведению промежуточных итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="872fccc1-2e27-47af-97d4-c1046a1b2e79">
+				<Properties>
+					<Name>УведомлениеОПереходеКПодведениюПромежуточныхИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о переходе к подведению промежуточных итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="a293d83c-d4a6-43d1-9e9f-a413f432bdf5">
+				<Properties>
+					<Name>УведомлениеОПроверкиПодведенияПромежуточныхИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о проверки подведения промежуточных итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="d1b6652f-bcf1-4924-96d1-f77fb59f13d7">
+				<Properties>
+					<Name>УведомлениеОПровереПереходаКПодведениюИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о провере перехода к подведению итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="e9cf0372-d88f-48b2-ad38-14c0e6ceb1a3">
+				<Properties>
+					<Name>УведомлениеОПереходеКПодведениюИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о переходе к подведению итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="467e42d3-ee91-40ec-9196-b0cd561bed9c">
+				<Properties>
+					<Name>УведомлениеОПроверкеПодведенияИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о проверке подведения итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="b337132d-428c-4a1a-aad6-4f5061710488">
+				<Properties>
+					<Name>УведомлениеОбОтменеАукциона</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление об отмене аукциона</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="22235409-6b75-4b85-9db8-bb7aac8ec359">
+				<Properties>
+					<Name>УведомлениеОПереходеНаНовыйЭтапБезПодведенияПромежуточныхИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о переходе на новый этап без подведения промежуточных итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="4ce8415f-283c-4ba0-b792-a846d4ed160d">
+				<Properties>
+					<Name>УведомлениеОЗавершенииАукционаБезПодведенияИтогов</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомление о завершении аукциона без подведения итогов</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+				</Properties>
+			</EnumValue>
+		</ChildObjects>
+	</Enum>
+</MetaDataObject>
